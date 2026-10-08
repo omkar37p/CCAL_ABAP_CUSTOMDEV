@@ -1,0 +1,36 @@
+@Metadata.layer: #CUSTOMER
+annotate entity ZMM_APP08_IPV with
+{
+  @UI.facet: [ { id:              'Item',
+                   purpose:         #STANDARD,
+                   type:            #IDENTIFICATION_REFERENCE,
+                   label:           'Budget Item',
+                   position:        10 } ]
+  @UI.hidden: true
+  Plant;
+  @UI.hidden: true
+  Deptid;
+  @UI: { lineItem: [{ position: 10, label: 'Sno' }],
+  identification: [{ position: 10, label: 'Sno'  }] }
+  Itemno;
+  @UI: { lineItem: [{ position: 30, label: 'Remarks' }],
+  identification: [{ position: 30, label: 'Remarks' }]}
+  Remarks;
+  @UI.hidden: true
+  Curky;
+  @UI: { lineItem: [{ position: 20, label: 'Base Budget Amount' }],
+  identification: [{ position: 20, label: 'Base Budget Amount' }]}
+  Allcbdg;
+  @UI.hidden: true
+  Deptname;
+  @UI.hidden: true
+  Plntname;
+  //  @UI.hidden: true
+  //  Localcreatedby;
+  //  @UI.hidden: true
+  //  Localcreatedat;
+  /* Associations */
+  @UI.hidden: true
+  _Header;
+
+}

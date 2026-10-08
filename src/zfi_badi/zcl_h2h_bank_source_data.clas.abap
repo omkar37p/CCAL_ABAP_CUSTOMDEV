@@ -1,0 +1,21 @@
+CLASS zcl_h2h_bank_source_data DEFINITION
+  PUBLIC
+  FINAL
+  CREATE PUBLIC .
+
+  PUBLIC SECTION.
+
+    INTERFACES if_badi_interface .
+    INTERFACES if_dmee_source_codepage .
+  PROTECTED SECTION.
+  PRIVATE SECTION.
+ENDCLASS.
+
+
+
+CLASS ZCL_H2H_BANK_SOURCE_DATA IMPLEMENTATION.
+
+
+  METHOD if_dmee_source_codepage~get.
+  ENDMETHOD.
+ENDCLASS.

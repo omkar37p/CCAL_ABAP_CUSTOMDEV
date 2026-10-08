@@ -1,0 +1,10 @@
+@EndUserText.label: 'RGP/NRGP Outward Entry'
+define service ZMM_APP12_UI {
+  expose ZMM_APP12_RPV       as Mainpage;
+  expose ZMM_APP12_IPV1;
+  expose ZI_GPTYPE;
+  expose ZI_PURCHASEORDER_VH;
+  expose ZMM_APP12_PLANTVI;
+  expose zi_customer_view;
+  expose ZMM_APP16_RPV       as MAINPAGE_2;
+}

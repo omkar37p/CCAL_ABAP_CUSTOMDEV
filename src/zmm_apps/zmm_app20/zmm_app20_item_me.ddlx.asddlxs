@@ -1,0 +1,81 @@
+@Metadata.layer: #CUSTOMER
+@UI: {
+  headerInfo: { typeName: 'Rejection Standard',
+                typeNamePlural: 'Rejection Item',
+                title: { type: #STANDARD, label: 'Standard Items', value: 'Materialdocumentitem' } }
+                 }
+annotate entity ZMM_APP20_ITEM_PV
+    with 
+{
+  @UI.facet: [ { id:              'items',
+                      purpose:         #STANDARD,
+                      type:            #IDENTIFICATION_REFERENCE,
+                      label:           'Standard Item Details',
+                      position:        10 } ]
+  @UI: {  lineItem:       [ { position: 10, label: 'SI.No' } ],
+          identification:   [ { position: 10, label: 'SI.No' } ] }
+          @EndUserText.label: 'SI.No'                      
+Materialdocumentitem;
+  @UI: {  lineItem:       [ { position: 20, label: 'GRN No' } ],
+          identification:   [ { position: 20, label: 'GRN No' } ] }
+          @EndUserText.label: 'GRN No'
+Materialdocument;
+  @UI: {  lineItem:       [ { position: 30, label: 'Material' } ],
+          identification:   [ { position: 30, label: 'Material' } ] }
+          @EndUserText.label: 'Material'
+Material;
+  @UI: {  lineItem:       [ { position: 40, label: 'Material Description' } ],
+          identification:   [ { position: 40, label: 'Material Description' } ] }
+          @EndUserText.label: 'Material Description'
+Productdescription;
+  @UI: {  lineItem:       [ { position: 50, label: 'UOM' } ],
+          identification:   [ { position: 50, label: 'UOM' } ] }
+          @EndUserText.label: 'UOM'
+Materialbaseunit;
+  @UI: {  lineItem:       [ { position: 60, label: 'PO Qty' } ],
+          identification:   [ { position: 60, label: 'PO Qty' } ] }
+          @EndUserText.label: 'PO Qty'
+Poqty;
+  @UI: {  lineItem:       [ { position: 70, label: 'GRN Qty' } ],
+          identification:   [ { position: 70, label: 'GRN Qty' } ] }
+          @EndUserText.label: 'GRN Qty'
+Migoqty;
+  @UI: {  lineItem:       [ { position: 80, label: 'Invoice Qty' } ],
+          identification:   [ { position: 80, label: 'Invoice Qty' } ] }
+          @EndUserText.label: 'Invoice Qty'
+Invoiceqty;
+  @UI: {  lineItem:       [ { position: 90, label: 'Received Qty' } ],
+          identification:   [ { position: 90, label: 'Received Qty' } ] }
+          @EndUserText.label: 'Received Qty'
+Receivedqty;
+  @UI: {  lineItem:       [ { position: 100, label: 'Accepted Qty' } ],
+          identification:   [ { position: 100, label: 'Accepted Qty' } ] }
+          @EndUserText.label: 'Accepted Qty'
+Acceptedqty;
+  @UI: {  lineItem:       [ { position: 110, label: 'Rejected Qty' } ],
+          identification:   [ { position: 110, label: 'Rejected Qty' } ] }
+          @EndUserText.label: 'Rejected Qty'
+Rejectedqty;
+@UI.hidden: true
+Createdby;
+@UI.hidden: true
+Createdat;
+@UI.hidden: true
+Lastchangedby;
+@UI.hidden: true
+Lastchangedat;
+@UI.hidden: true
+Materialdocumentyear;
+@UI.hidden: true
+Uuid;
+@UI.hidden: true
+Plant;
+@UI.hidden: true
+Companycode;
+@UI.hidden: true
+Companycodecurrency;
+
+/* Associations */
+@UI.hidden: true
+_Header;    
+}

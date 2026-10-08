@@ -1,0 +1,5 @@
+@EndUserText.label: 'Division wise Weigh scale settings'
+define service ZSD_APPS02_1_UI {
+  expose ZSD_APPS02_1_RPV as MAINPAGE;
+  expose I_DivisionText;
+}

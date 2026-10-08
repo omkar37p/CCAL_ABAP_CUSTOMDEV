@@ -1,0 +1,60 @@
+@Metadata.layer: #PARTNER
+@UI: {
+  headerInfo: { typeName: 'NABL COA Form',
+                typeNamePlural: 'NABL Result',
+                title: { type: #STANDARD, label: 'NABL COA Form', value: 'Inspection' } }
+                 }
+annotate entity ZPP_QM_COA01_IPV with
+{
+  @UI.facet: [ { id:              'items',
+                      purpose:         #STANDARD,
+                      type:            #IDENTIFICATION_REFERENCE,
+                      label:           'QM COA Result Details',
+                      position:        10 } ]
+  @UI: {  lineItem:       [ { position: 10, label: 'Inspection' } ],
+          identification:   [ { position: 10, label: 'Inspection' } ] }
+Inspection;
+  @UI: {  lineItem:       [ { position: 20, label: 'Characteristics' } ],
+          identification:   [ { position: 20, label: 'Characteristics' } ] }
+Inspectionitem;
+  @UI: {  lineItem:       [ { position: 30, label: 'Parameter' } ],
+          identification:   [ { position: 30, label: 'Parameter' } ] }
+  @Consumption.valueHelpDefinition: [{ entity:{ name: 'zpp_qm_parameter_vh',element: 'InspectionSpecification' } 
+                                        ,additionalBinding: [{ localElement: 'Mastericdes',
+                                        element: 'InspectionSpecificationSrchTxt' }]}]                     
+    @EndUserText.label: 'Master IC'          
+Masteric;
+  @UI: {  lineItem:       [ { position: 40, label: 'Parameter Description' } ],
+          identification:   [ { position: 40, label: 'Parameter Description' } ] }
+Mastericdes;
+  @UI: {  lineItem:       [ { position: 50, label: 'Unit' } ],
+          identification:   [ { position: 50, label: 'Unit' } ] }
+      @Consumption.valueHelpDefinition: [{ entity: { name: 'I_UnitOfMeasureStdVH',
+                                                   element: 'UnitOfMeasure' } }]                     
+Valueunit;
+  @UI: {  lineItem:       [ { position: 60, label: 'Mean Value' } ],
+          identification:   [ { position: 60, label: 'Mean Value' } ] }
+Value;
+  @UI: {  lineItem:       [ { position: 70, label: 'Inspection Method' } ],
+          identification:   [ { position: 70, label: 'Inspection Method' } ] }
+Method;
+@UI.hidden: true
+Uuid;
+@UI.hidden: true
+Status;
+@UI.hidden: true
+Itmcnt;
+@UI.hidden: true
+Mark;
+@UI.hidden: true
+Createdby;
+@UI.hidden: true
+Createdat;
+@UI.hidden: true
+Lastchangedby;
+@UI.hidden: true
+Lastchangedat;
+/* Associations */
+@UI.hidden: true
+_Header;
+}

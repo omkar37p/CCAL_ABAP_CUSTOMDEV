@@ -1,0 +1,5 @@
+@EndUserText.label: 'RGP - Inward Entry'
+define service ZMM_APP15_SD1 {
+  expose ZMM_APP15_RPV  as MAIN;
+  expose ZMM_APP15_IPV1;
+}

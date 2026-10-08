@@ -1,0 +1,35 @@
+managed implementation in class zbp_i_autopay_enroll unique;
+strict ( 2 );
+
+define behavior for ZI_AUTOPAY_ENROLL //alias <alias_name>
+persistent table zap_enroll
+lock master
+authorization master ( instance )
+etag master CreatedAt
+{
+  create(authorization : global);
+  update;
+  delete;
+
+  field ( readonly : update ) EnrollId;
+  field ( mandatory ) BpId, ContractAccount;
+
+  validation validate_bp on save { create; update; }
+  validation validate_bank on save { create; update; }
+
+  action enroll result [1] $self;
+  action unenroll result [1] $self;
+
+  mapping for zap_enroll
+    {
+      EnrollId        = enroll_id;
+      BpId            = bp_id;
+      ContractAccount = contract_account;
+      BankAccount     = bank_account;
+      RoutingNumber   = routing_number;
+      AccountType     = account_type;
+      Status          = status;
+      Message         = message;
+      CreatedAt       = created_at;
+    }
+}

@@ -1,0 +1,66 @@
+managed implementation in class zbp_i_autoenrollment unique;
+strict ( 2 );
+
+define behavior for ZI_AUTOENROLLMENT //alias <alias_name>
+persistent table zautopay_hdr
+lock master
+authorization master ( instance )
+etag master Lastchangedat
+{
+  create ( authorization : global );
+  update;
+  delete;
+  field ( numbering : managed, readonly ) Uuid;
+  association _Bank { create; }
+
+  field ( readonly ) CreatedBy,
+  CreatedAt,
+  LastChangedAt;
+
+  validation validateEligibility on save { create; update; }
+
+  mapping for zautopay_hdr
+    {
+      Uuid             = uuid;
+      Businesspartner  = businesspartner;
+      Contractaccount  = contractaccount;
+      Eligible         = eligible;
+      EligibilityMsg   = eligibility_msg;
+      EnrollmentStatus = enrollment_status;
+      Entity           = entity;
+      Createdby        = createdby;
+      Createdat        = createdat;
+      Lastchangedat    = lastchangedat;
+    }
+}
+
+define behavior for ZI_AUTOBANK //alias <alias_name>
+persistent table zautopay_bank
+lock dependent by _Header
+authorization dependent by _Header
+etag master Lastchangedat
+{
+  update;
+  delete;
+  field ( numbering : managed, readonly ) Uuid;
+
+  field ( readonly ) ParentUUID,
+  CreatedBy,
+  CreatedAt,
+  LastChangedAt;
+
+  association _Header;
+
+  mapping for zautopay_bank
+    {
+      Uuid          = uuid;
+      ParentUuid    = parent_uuid;
+      Bankaccount   = bankaccount;
+      Routingnumber = routingnumber;
+      Accounttype   = accounttype;
+      Paymenttoken  = paymenttoken;
+      Createdby     = createdby;
+      Createdat     = createdat;
+      Lastchangedat = lastchangedat;
+    }
+}

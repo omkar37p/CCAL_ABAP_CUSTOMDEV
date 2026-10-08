@@ -1,0 +1,4 @@
+@EndUserText.label: 'Service Defination For GRN AGING REPORT'
+define service ZMM_GRNAGING_SD {
+  expose ZMM_GRNAGING_PV as MAINITEM;
+}

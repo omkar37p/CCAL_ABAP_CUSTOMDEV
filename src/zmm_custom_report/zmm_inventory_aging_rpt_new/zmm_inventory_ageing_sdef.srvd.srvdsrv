@@ -1,0 +1,4 @@
+@EndUserText.label: 'SERVICE DEFINATION'
+define service ZMM_INVENTORY_AGEING_SDEF {
+  expose ZMM_INVENTORY_AGING_PV as Inventoryageingreport;
+}

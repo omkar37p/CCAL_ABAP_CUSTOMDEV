@@ -1,0 +1,23 @@
+projection;
+strict ( 2 );
+
+define behavior for ZSD_APP06_PV //alias <alias_name>
+{
+
+  use action Getout;
+
+  use association _delv { create; }
+  use association _delv2 { create; }
+}
+
+define behavior for ZSD_APP06_PVC1 //alias <alias_name>
+{
+
+  use association _header;
+}
+
+define behavior for ZSD_APP06_PVC2 //alias <alias_name>
+{
+
+  use association _header2;
+}

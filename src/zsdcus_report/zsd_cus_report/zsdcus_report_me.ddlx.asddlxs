@@ -1,0 +1,220 @@
+@Metadata.layer: #CUSTOMER
+@UI: {
+  headerInfo: { typeName: 'SD Custom Report',
+                typeNamePlural: 'Sales Report P1',
+                title: { type: #STANDARD, label: 'Sales Report P1', value: 'BillingDocument' } },
+  presentationVariant: [{ sortOrder: [{ by: 'BillingDocument', direction:  #ASC }] }] }
+
+annotate entity ZSDCUS_REPORT_PV
+    with 
+{
+  @UI: {  lineItem:       [ { position: 10, label: 'Invoice Number-SD Internal' } ],
+        identification:   [ { position: 10, label: 'Invoice Number-SD Internal' } ],
+        selectionField:   [ { position: 10}  ]}
+    @Consumption.valueHelpDefinition: [{ entity: { name: 'I_BillingDocumentItemStdVH',
+                                                   element: 'BillingDocument' } }]          
+BillingDocument;
+  @UI: {  lineItem:       [ { position: 20, label: 'Invoice Number-ODN' } ],
+        identification:   [ { position: 20, label: 'Invoice Number-ODN' } ] }
+        
+ODNNumber;
+@UI.hidden: true
+BillingDocumentItem;
+  @UI: {  lineItem:       [ { position: 30, label: 'Delivery Number' } ],
+        identification:   [ { position: 30, label: 'Delivery Number' } ]}
+        
+DeliveryDocument;
+@UI.hidden: true
+DeliveryDocumentItem;
+  @UI: {  lineItem:       [ { position: 40, label: 'Sales Order Number ' } ],
+        identification:   [ { position: 40, label: 'Sales Order Number ' } ]}
+        
+SalesOrder;
+@UI.hidden: true
+SalesOrderItem;
+@UI.hidden: true
+bill_customer;
+  @UI: {  lineItem:       [ { position: 50, label: 'Month' } ],
+        identification:   [ { position: 50, label: 'Month' } ]}                     
+CreateMonth;
+  @UI: {  lineItem:       [ { position: 60, label: 'Invoice Date' } ],
+        identification:   [ { position: 60, label: 'Invoice Date' } ],
+        selectionField:   [ { position: 20}  ]}
+        @EndUserText.label: 'Invoice Date'
+    @Consumption.filter:{ selectionType: #INTERVAL,multipleSelections: false }                        
+InvoiceDate;
+  @UI: {  lineItem:       [ { position: 65, label: 'Invoice Time' } ],
+        identification:   [ { position: 65, label: 'Invoice Time' } ]}
+        @EndUserText.label: 'Invoice Time'
+InvoiceTime;
+  @UI: {  lineItem:       [ { position: 70, label: 'Product Code' } ],
+        identification:   [ { position: 70, label: 'Product Code' } ]}
+    @Consumption.valueHelpDefinition: [{ entity: { name: 'I_ProductDescription',
+                                                   element: 'Product' } }]        
+Product;
+  @UI: {  lineItem:       [ { position: 80, label: 'Product Description' } ],
+        identification:   [ { position: 80, label: 'Product Description' } ]}
+ProductDescription;
+  @UI: {  lineItem:       [ { position: 90, label: 'Bill To Customer Code' } ],
+        identification:   [ { position: 90, label: 'Bill To Customer Code' } ],
+        selectionField:   [ { position: 40}  ]}
+@Consumption.valueHelpDefinition: [{ entity: { name: 'I_Customer_VH',
+                                                   element: 'Customer' } }]        
+SoldToParty;
+  @UI: {  lineItem:       [ { position: 100, label: 'BillToParty Name 1' } ],
+        identification:   [ { position: 100, label: 'BillToParty Name 1' } ]}
+BillPartyName1;
+  @UI: {  lineItem:       [ { position: 110, label: 'BillToParty Name 2' } ],
+        identification:   [ { position: 110, label: 'BillToParty Name 2' } ]}
+BillPartyName2;
+  @UI: {  lineItem:       [ { position: 120, label: 'Bill To Address' } ],
+        identification:   [ { position: 120, label: 'Bill To Address' } ]}
+billcusStreetName;
+  @UI: {  lineItem:       [ { position: 130, label: 'Bill to City Name' } ],
+        identification:   [ { position: 130, label: 'Bill to City Name' } ]}
+billcusCityName;
+  @UI: {  lineItem:       [ { position: 140, label: 'Bill to State Name' } ],
+        identification:   [ { position: 140, label: 'Bill to State Name' } ]}
+billtoState;
+  @UI: {  lineItem:       [ { position: 141, label: 'Ship to City Name' } ],
+        identification:   [ { position: 141, label: 'Ship to City Name' } ]}
+shipcusCityName;
+  @UI: {  lineItem:       [ { position: 142, label: 'Ship to State Name' } ],
+        identification:   [ { position: 142, label: 'Ship to State Name' } ]}
+shiptostate;
+  @UI: {  lineItem:       [ { position: 150, label: 'Billing Document Type' } ],
+        identification:   [ { position: 150, label: 'Billing Document Type' } ]}
+BillingDocumentType;
+  @UI: {  lineItem:       [ { position: 160, label: 'Unit Of Measure' } ],
+        identification:   [ { position: 160, label: 'Unit Of Measure' } ]}
+BaseUnit;
+  @UI: {  lineItem:       [ { position: 170, label: 'Order Quantity' } ],
+        identification:   [ { position: 170, label: 'Order Quantity' } ]}
+OrderQuantity;
+  @UI: {  lineItem:       [ { position: 180, label: 'Delivered Quantity' } ],
+        identification:   [ { position: 180, label: 'Delivered Quantity' } ]}
+DeliveryQuantity;
+  @UI: {  lineItem:       [ { position: 190, label: 'Invoice Quantity' } ],
+        identification:   [ { position: 190, label: 'Invoice Quantity' } ]}
+BillingQuantity;
+  @UI: {  lineItem:       [ { position: 200, label: 'Basic Price(Rs/unit)' } ],
+        identification:   [ { position: 200, label: 'Basic Price(Rs/unit)' } ]}
+BasicPrice;
+  @UI: {  lineItem:       [ { position: 210, label: 'Freight (Rs/unit)' } ],
+        identification:   [ { position: 210, label: 'Freight (Rs/unit)' } ]}
+FreightPrice;
+  @UI: {  lineItem:       [ { position: 215, label: 'Freight Net Value' } ],
+        identification:   [ { position: 215, label: 'Freight Net Value' } ]}
+Freight_UOM;
+  @UI: {  lineItem:       [ { position: 220, label: 'Dealer Commission (Rs/unit)' } ],
+        identification:   [ { position: 220, label: 'Dealer Commission (Rs/unit)' } ]}
+Commission;
+  @UI: {  lineItem:       [ { position: 230, label: 'Discounts (Rs/unit)' } ],
+        identification:   [ { position: 230, label: 'Discounts (Rs/unit)' } ]}
+Discount;
+  @UI: {  lineItem:       [ { position: 240, label: 'Provisions-Freight (Rs/unit)' } ],
+        identification:   [ { position: 240, label: 'Provisions-Freight (Rs/unit)' } ]}
+ProFreight;
+  @UI: {  lineItem:       [ { position: 250, label: 'Provision - Warranty' } ],
+        identification:   [ { position: 250, label: 'Provision - Warranty' } ]}
+Warranty;
+  @UI: {  lineItem:       [ { position: 260, label: 'Net Value' } ],
+        identification:   [ { position: 260, label: 'Net Value' } ]}
+NetValue;
+  @UI: {  lineItem:       [ { position: 270, label: 'Taxable Value' } ],
+        identification:   [ { position: 270, label: 'Taxable Value' } ]}
+TaxableValue;
+  @UI: {  lineItem:       [ { position: 280, label: 'CGST' } ],
+        identification:   [ { position: 280, label: 'CGST' } ]}
+CGSTamt;
+  @UI: {  lineItem:       [ { position: 290, label: 'SGST' } ],
+        identification:   [ { position: 290, label: 'SGST' } ]}
+SGSTamt;
+  @UI: {  lineItem:       [ { position: 300, label: 'IGST' } ],
+        identification:   [ { position: 300, label: 'IGST' } ]}
+IGSTamt;
+  @UI: {  lineItem:       [ { position: 310, label: 'Total Tax Value' } ],
+        identification:   [ { position: 310, label: 'Total Tax Value' } ]}
+TotalTaxValue;
+  @UI: {  lineItem:       [ { position: 320, label: 'Currency' } ],
+        identification:   [ { position: 320, label: 'Currency' } ]}
+Curr;
+  @UI: {  lineItem:       [ { position: 330, label: 'Round Off' } ],
+        identification:   [ { position: 330, label: 'Round Off' } ]}
+Roundoff;
+  @UI: {  lineItem:       [ { position: 340, label: 'TCS Value' } ],
+        identification:   [ { position: 340, label: 'TCS Value' } ]}
+TCS;
+  @UI: {  lineItem:       [ { position: 350, label: 'Gross Value' } ],
+        identification:   [ { position: 350, label: 'Gross Value' } ]}
+GrossValue;
+  @UI: {  lineItem:       [ { position: 360, label: 'Value in USD' } ],
+        identification:   [ { position: 360, label: 'Value in USD' } ]}
+ValueinUSD;
+  @UI: {  lineItem:       [ { position: 370, label: 'ZPRO USD' } ],
+        identification:   [ { position: 370, label: 'ZPRO USD' } ]}
+ZPROUSD;
+  @UI: {  lineItem:       [ { position: 380, label: 'Eway-Bill No' } ],
+        identification:   [ { position: 380, label: 'Eway-Bill No' } ]}
+EwayBillNo;
+  @UI: {  lineItem:       [ { position: 390, label: 'Eway Bill Date' } ],
+        identification:   [ { position: 390, label: 'Eway Bill Date' } ]}
+Ewaybilldate;
+  @UI: {  lineItem:       [ { position: 400, label: 'E-Invoice Number' } ],
+        identification:   [ { position: 400, label: 'E-Invoice Number' } ]}
+EinvoiceNo;
+  @UI: {  lineItem:       [ { position: 410, label: 'Acknowledgement No (E-invoice)' } ],
+        identification:   [ { position: 410, label: 'Acknowledgement No (E-invoice)' } ]}
+AckNoEinvoiceNo;
+@UI.hidden: true
+SalesOrganization;
+  @UI: {  lineItem:       [ { position: 420, label: 'Sales Distribution Channel' } ],
+        identification:   [ { position: 420, label: 'Sales Distribution Channel' } ]}
+DistributionChannel;
+@UI.hidden: true
+Division;
+@UI.hidden: true
+JournalEntryNo;
+@UI.hidden: true
+HSN;
+  @UI: {  lineItem:       [ { position: 430, label: 'Exchange rate' } ],
+        identification:   [ { position: 430, label: 'Exchange rate' } ]}
+ExchangeRate;
+@UI.hidden: true
+cussoref;
+@UI.hidden: true
+CompanyCode;
+  @UI: {  lineItem:       [ { position: 440, label: 'Plant' } ],
+        identification:   [ { position: 440, label: 'Plant' } ],
+        selectionField:   [ { position: 30}  ]}
+    @Consumption.valueHelpDefinition: [{ entity: { name: 'I_PlantStdVH',
+                                                   element: 'Plant' } }]        
+Plant;
+  @UI: {  lineItem:       [ { position: 450, label: 'End use Segment (From Search Term 2-CMR)' } ],
+        identification:   [ { position: 450, label: 'End use Segment (From Search Term 2-CMR)' } ]}
+EndusCMR;
+  @UI: {  lineItem:       [ { position: 460, label: 'GST Registration No.' } ],
+        identification:   [ { position: 460, label: 'GST Registration No.' } ]}
+GSTNo;
+@UI.hidden: true
+BillingStatus;
+@UI.hidden: true
+TransactionCurrency;
+@UI.hidden: true
+PortInvoiceValue;
+  @UI: {  lineItem:       [ { position: 470, label: 'Transporter Name' } ],
+        identification:   [ { position: 470, label: 'Transporter Name' } ]}
+TransporterName;
+  @UI: {  lineItem:       [ { position: 480, label: 'Driver Name' } ],
+        identification:   [ { position: 480, label: 'Driver Name' } ]}
+Drivername;
+  @UI: {  lineItem:       [ { position: 490, label: 'Vehicle Number' } ],
+        identification:   [ { position: 490, label: 'Vehicle Number' } ]}
+Vehiclenumber;
+  @UI: {  lineItem:       [ { position: 500, label: 'Customer SO Reference' } ],
+        identification:   [ { position: 500, label: 'Customer SO Reference' } ]}
+CustomerRef;
+@UI.hidden: true
+CreationTime;
+
+}

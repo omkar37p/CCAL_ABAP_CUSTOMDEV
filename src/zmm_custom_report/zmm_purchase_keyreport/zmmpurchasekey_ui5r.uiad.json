@@ -1,0 +1,35 @@
+{
+  "formatVersion": "2",
+  "header": {
+    "description": "Purchase Key Register",
+    "originalLanguage": "en",
+    "abapLanguageVersion": "cloudDevelopment"
+  },
+  "generalInformation": {
+    "appType": "ui5",
+    "catalogId": "SAP_TC_UI5_REPO_UIAD",
+    "targetMappingTitle": "Purchase Key Register"
+  },
+  "ui5AppDetails": {
+    "appId": "zmmpurchase.zmmpurchasekey"
+  },
+  "navigation": {
+    "targetMappingId": "UI5R_190C346BD0456B111076410217F38BBA59B904AB_TM",
+    "semanticObject": "zmm_purchasekey",
+    "action": "display",
+    "desktop": true,
+    "tablet": true,
+    "phone": true
+  },
+  "tiles": [
+    {
+      "id": "UI5R_190C346BD0456B111076410217F38BBA59B904AB_AL",
+      "tileType": "static",
+      "isDefault": true,
+      "standard": {
+        "title": "Purchase Key Register",
+        "subtitle": "Purchase Key Report"
+      }
+    }
+  ]
+}

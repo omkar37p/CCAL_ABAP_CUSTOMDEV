@@ -1,0 +1,4 @@
+@EndUserText.label: 'Service Defination'
+define service ZGSTR_SD1 {
+  expose ZGSTR_PV2 as GSTR1Report;
+}

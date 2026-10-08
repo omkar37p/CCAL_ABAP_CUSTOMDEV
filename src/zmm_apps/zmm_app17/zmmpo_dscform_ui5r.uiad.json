@@ -1,0 +1,34 @@
+{
+  "formatVersion": "2",
+  "header": {
+    "description": "Purchase - Digital Signature Cockpit",
+    "originalLanguage": "en",
+    "abapLanguageVersion": "cloudDevelopment"
+  },
+  "generalInformation": {
+    "appType": "ui5",
+    "catalogId": "SAP_TC_UI5_REPO_UIAD",
+    "targetMappingTitle": "Purchase - Digital Signature Cockpit"
+  },
+  "ui5AppDetails": {
+    "appId": "zmmpoformdsc.zmmdscpoform"
+  },
+  "navigation": {
+    "targetMappingId": "UI5R_CA48046014AE1F936CA0CDA1FEE66982E24C9678_TM",
+    "semanticObject": "zmmdsc_poform",
+    "action": "display",
+    "desktop": true,
+    "tablet": true,
+    "phone": true
+  },
+  "tiles": [
+    {
+      "id": "UI5R_CA48046014AE1F936CA0CDA1FEE66982E24C9678_AL",
+      "tileType": "static",
+      "isDefault": true,
+      "standard": {
+        "title": "Purchase - Digital Signature Cockpit"
+      }
+    }
+  ]
+}

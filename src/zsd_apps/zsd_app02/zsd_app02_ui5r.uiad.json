@@ -1,0 +1,34 @@
+{
+  "formatVersion": "2",
+  "header": {
+    "description": "Sales Packing Slip - Gate Entry Application",
+    "originalLanguage": "en",
+    "abapLanguageVersion": "cloudDevelopment"
+  },
+  "generalInformation": {
+    "appType": "ui5",
+    "catalogId": "SAP_TC_UI5_REPO_UIAD",
+    "targetMappingTitle": "Sales Packing Slip - Gate Entry Application"
+  },
+  "ui5AppDetails": {
+    "appId": "sdapp02"
+  },
+  "navigation": {
+    "targetMappingId": "UI5R_E12E502CFEDCC7F6C9D45BFA0BC8F4F5BAE37CBC_TM",
+    "semanticObject": "YY1_SDAPP02",
+    "action": "manage",
+    "desktop": true,
+    "tablet": true,
+    "phone": true
+  },
+  "tiles": [
+    {
+      "id": "UI5R_E12E502CFEDCC7F6C9D45BFA0BC8F4F5BAE37CBC_AL",
+      "tileType": "static",
+      "isDefault": true,
+      "standard": {
+        "title": "Sales Packing Slip - Gate Entry Application"
+      }
+    }
+  ]
+}

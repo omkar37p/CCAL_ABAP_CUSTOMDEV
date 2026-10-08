@@ -1,0 +1,44 @@
+@Metadata.layer: #CORE
+annotate entity ZAPP02_SALES_PLAN_PV
+    with 
+{
+   @UI.facet: [{ id: 'ID01', type: #COLLECTION, label: 'companycode', position: 10 },
+      { id: 'Idc01', type: #IDENTIFICATION_REFERENCE, parentId: 'ID01' } ]
+  @UI.lineItem: [{ position: 10, label: 'companycode' }]
+  @UI.identification:  [{ position: 10, label: 'companycode' }]
+  @EndUserText.label: 'companycode'
+companycode;
+@UI.lineItem: [{ position: 20, label: 'fiscal year' }]
+  @UI.identification:  [{ position: 20, label: 'fiscal year' }]
+  @EndUserText.label: 'fiscal year'
+fiscalyear;
+@UI.lineItem: [{ position: 30, label: 'fiscal period' }]
+  @UI.identification:  [{ position: 30, label: 'fiscal period' }]
+  @EndUserText.label: 'fiscal period'
+fiscalperiod;
+@UI.lineItem: [{ position: 40, label: 'Product' }]
+  @UI.identification:  [{ position: 40, label: 'Product' }]
+  @EndUserText.label: 'product'
+product;
+@UI.lineItem: [{ position: 80, label: 'Plan Quantity' }]
+  @UI.identification:  [{ position: 80, label: 'Plan Quantity' }]
+  @EndUserText.label: 'Plan Quantity'
+planquantity;
+@UI.lineItem: [{ position: 80, label: 'Plan Amount' }]
+  @UI.identification:  [{ position: 80, label: 'Plan Amount' }]
+  @EndUserText.label: 'Plan Amount'
+planamount;
+@UI.lineItem: [{ position: 80, label: 'Conversion Quantity' }]
+  @UI.identification:  [{ position: 80, label: 'Conversion Quantity' }]
+  @EndUserText.label: 'Conversion Quantity'
+conversionquantity;
+@UI.lineItem: [{ position: 80, label: 'transactioncurrency' }]
+  @UI.identification:  [{ position: 80, label: 'transactioncurrency' }]
+  @EndUserText.label: 'Plan Quantity'
+transactioncurrency;
+@UI.lineItem: [{ position: 80, label: 'transactioncurrency' }]
+  @UI.identification:  [{ position: 80, label: 'transactioncurrency' }]
+  @EndUserText.label: 'Plan Quantity'
+SalesCategory;
+    
+}

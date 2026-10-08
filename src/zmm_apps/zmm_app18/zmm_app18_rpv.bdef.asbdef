@@ -1,0 +1,16 @@
+projection;
+strict ( 2 );
+
+define behavior for ZMM_APP18_RPV //alias <alias_name>
+{
+
+  use action Document;
+
+  use association _Item { create; }
+}
+
+define behavior for ZMM_APP18_IPV //alias <alias_name>
+{
+
+  use association _Header;
+}

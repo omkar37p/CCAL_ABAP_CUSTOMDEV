@@ -1,0 +1,19 @@
+projection;
+strict ( 2 );
+use draft;
+
+define behavior for ZSD_APP03_RPV //alias <alias_name>
+{
+  use update;
+
+//  use action CrtSo;
+  use action CrtDlv;
+  //  use action PckDlv;
+  use action PostGI;
+
+  use action Resume;
+  use action Edit;
+  use action Activate;
+  use action Discard;
+  use action Prepare;
+}

@@ -1,0 +1,6 @@
+@EndUserText.label: 'Service Devination of custom eneity'
+define service ZMM_APP12_CE {
+  expose ZMM_APP12_CE;
+  expose ZMM_APP12_ITM;
+  expose ZPP_APPS05_CITM;
+}

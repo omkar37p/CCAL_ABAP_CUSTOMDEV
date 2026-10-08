@@ -1,0 +1,4 @@
+@EndUserText.label: 'DSC User Service Definition'
+define service ZMM_APP18_BV4 {
+  expose ZMM_APP18_B_RPV;
+}

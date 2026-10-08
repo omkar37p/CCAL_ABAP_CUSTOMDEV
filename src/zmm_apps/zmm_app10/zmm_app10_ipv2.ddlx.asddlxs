@@ -1,0 +1,51 @@
+@Metadata.layer: #PARTNER
+annotate entity ZMM_APP10_IPV2 with
+{
+  @UI.facet: [ { id:              'Item',
+                   purpose:         #STANDARD,
+                   type:            #IDENTIFICATION_REFERENCE,
+                   label:           'Gate Out Info',
+                   position:        10 } ]
+  @UI.hidden: true
+  Uuid;
+  @UI: { lineItem: [{ position: 10, label: 'Ticket Number'}],
+  identification: [{ position: 10, label: 'Ticket Number' } ] }
+  //  { type: #FOR_ACTION, dataAction: 'GetTare', label: 'Fetch Tare Weight' },
+  //  { type: #FOR_ACTION, dataAction: 'PostGR', label: 'Post GR' }
+  Ticketnum;
+  @UI: { lineItem: [{ position: 30, label: 'Gate Out Time'}],
+  identification: [{ position: 30, label: 'Gate Out Time' } ] }
+  Gotime;
+  @UI: { lineItem: [{ position: 20, label: 'Gate Out Date'}],
+  identification: [{ position: 20, label: 'Gate Out Date' } ] }
+  Godate;
+  //  @UI: { lineItem: [{ position: 150, label: 'Gross Weight'}],
+  //  identification: [{ position: 150, label: 'Gross Weight' } ] }
+  @UI.hidden: true
+  Ogrswgt;
+  //  @UI: { lineItem: [{ position: 160, label: 'Net Weight'}],
+  //  identification: [{ position: 160, label: 'Net Weight' } ] }
+  @UI.hidden: true
+  Onetwgt;
+  //  @UI: { lineItem: [{ position: 170, label: 'Tare Weight'}],
+  //  identification: [{ position: 170, label: 'Tare Weight' } ] }
+  @UI.hidden: true
+  Oitarewgt;
+  @UI.hidden: true
+  Wgtunit;
+  @UI.hidden: true
+  Mark;
+  @UI.hidden: true
+  Createdby;
+  @UI.hidden: true
+  Createdat;
+  @UI.hidden: true
+  Lastchangedby;
+  @UI.hidden: true
+  Lastchangedat;
+  /* Associations */
+  @UI.hidden: true
+  _Header;
+
+
+}

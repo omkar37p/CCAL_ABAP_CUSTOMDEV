@@ -1,0 +1,287 @@
+@Metadata.layer: #PARTNER
+@UI: {
+  headerInfo: { typeName: 'GSTR1 Report',
+                typeNamePlural: 'GSTR1 Report',
+                title: { type: #STANDARD, label: 'GSTR1 Report', value: 'billdoc' } },
+  presentationVariant: [{ sortOrder: [{ by: 'billdoc', direction:  #DESC }] }] }
+annotate view ZGSTR1_PVNEW with
+{
+  @UI.facet: [ { id:              'GSTR1Report',
+                    purpose:         #STANDARD,
+                    type:            #IDENTIFICATION_REFERENCE,
+                    label:           'GSTR1 Report',
+                    position:        12 },
+                  { id:              'AccountingDocument',
+                    purpose:         #STANDARD,
+                    type:            #LINEITEM_REFERENCE,
+                    label:           'AccountingDocument',
+                    position:        12,
+                    targetElement:   'billdoc'} ]
+  @UI: {  lineItem:       [ { position: 10, label: 'billdoc' } ],
+        identification:   [ { position: 10, label: 'billdoc' } ],
+        selectionField:   [ { position: 10}  ]}
+  billdoc;
+
+//  @UI: {  lineItem:       [ { position: 9, label: 'Source Ledger' } ],
+//      identification:     [ { position: 9, label: 'Source Ledger' } ],
+//      selectionField:     [ { position: 9}  ]}
+//  sourceledger;
+//
+//  @UI: {  lineItem:       [ { position: 13, label: 'LedgerGLLineItem' } ],
+//      identification:     [ { position: 13, label: 'LedgerGLLineItem' } ],
+//      selectionField:     [ { position: 13}  ]}
+//  ledgergllineitem;
+//
+//  @UI: {  lineItem:       [ { position: 14, label: 'Ledger' } ],
+//      identification:     [ { position: 14, label: 'Ledger' } ],
+//      selectionField:     [ { position: 14}  ]}
+//  ledger;
+
+  @UI: {  lineItem:       [ { position: 11, label: 'billitm' } ],
+        identification:   [ { position: 11, label: 'billitm' } ],
+        selectionField:   [ { position: 11}  ]}
+        billitem;
+  
+  @UI: {  lineItem:       [ { position: 20, label: 'Accounting Document Type' } ],
+       identification:    [ { position: 20, label: 'Accounting Document Type' } ] ,
+       selectionField:    [ { position: 20}  ]}
+  accountingdocumenttype;
+
+  @UI: {  lineItem:       [ { position: 22, label: 'GSTR1RETURNPERIOD' } ],
+       identification:    [ { position: 22, label: 'GSTR1RETURNPERIOD' } ]}
+      // selectionField:    [ { position: 22}  ] }
+  GSTR1RETURNPERIOD;
+  @UI: {  lineItem:       [ { position: 23, label: 'BAUTOFILLPERIOD' } ],
+       identification:    [ { position: 23, label: 'BAUTOFILLPERIOD' } ]}
+       //selectionField:    [ { position: 23}  ]}
+  BAUTOFILLPERIOD;
+  @UI: {  lineItem:       [ { position: 24, label: 'Revenue Account' } ],
+       identification:    [ { position: 24, label: 'Revenue Account' } ],
+       selectionField:    [ { position: 24}  ] }
+  RevenueAccount;
+  //@UI: {  lineItem:       [ { position: 23, label: 'Tax Reporting Date ' } ],
+    //   identification:    [ { position: 23, label: 'Tax Reporting Date' } ] }
+  //TaxReportingDate;
+  @UI: {  lineItem:       [ { position: 25, label: 'igst step' } ],
+       identification:    [ { position: 25, label: 'igst step' } ]}
+       //selectionField:    [ { position: 25}  ]}
+  igststep;
+  @UI: {  lineItem:       [ { position: 26, label: 'igst cnt' } ],
+       identification:    [ { position: 26, label: 'igst cnt' } ]}
+       //selectionField:    [ { position: 26}  ] }
+  igstcnt;
+
+  @UI: {  lineItem:       [ { position: 27, label: 'Language' } ],
+     identification:      [ { position: 27, label: 'Language' } ]}
+     //selectionField:      [ { position: 27}  ] }
+  lang;
+
+ // @UI: {  lineItem:       [ { position: 17, label: 'Material' } ],
+  //   identification:      [ { position: 17, label: 'Material' } ] }
+  //Material;
+
+  @UI: {  lineItem:       [ { position: 28, label: 'Custname' } ],
+     identification:      [ { position: 28, label: 'Custname' } ]}
+     //selectionField:      [ { position: 28}  ] }
+  custname;
+
+  //@UI: {  lineItem:       [ { position: 19, label: 'Profit Center' } ],
+    // identification:      [ { position: 19, label: 'Profit Center' } ] }
+  //ProfitCenter;
+  
+  @UI: {  lineItem:       [ { position: 29, label: 'taxno2' } ],
+     identification:      [ { position: 29, label: 'taxno2' } ]}
+    // selectionField:      [ { position: 29}  ] }
+  taxno2;
+
+  @UI: {  lineItem:       [ { position: 30, label: 'billdate' } ],
+     identification:      [ { position: 30, label: 'billdate' } ]}
+     //selectionField:      [ { position: 30}  ] }
+  billdate;
+
+  //@UI: {  lineItem:       [ { position: 16, label: 'Tax Code Description' } ],
+    // identification:      [ { position: 16, label: 'Tax Code Description' } ] }
+  //taxtype;
+
+ // @UI: {  lineItem:       [ { position: 17, label: 'Tax Calculation procedure' } ],
+   //  identification:      [ { position: 17, label: 'Tax Calculation procedure' } ] }
+  //zprocedure;
+
+  //@UI: {  lineItem:       [ { position: 18, label: 'Tax Rate' } ],
+    // identification:      [ { position: 18, label: 'Tax Rate' } ] }
+  //taxate;
+
+  @UI: {  lineItem:        [ { position: 31, label: 'Fidocdate'} ],
+     identification:       [ { position: 31, label: 'Fidocdate'} ]}
+     //selectionField:       [ { position: 31}  ] }
+  Fidocdate;
+
+
+  @UI: { lineItem:        [ { position: 32, label: 'stcurr' } ],
+     identification:      [ { position: 32, label: 'stcurr'} ]}
+    // selectionField:      [ { position: 32}  ] }
+  stcurr;
+
+
+  @UI: { lineItem:       [{ position: 33, label: 'tottaxamt'}],
+  identification:        [ { position: 33, label:'tottaxamt' } ]}
+  //selectionField:        [ { position: 33}  ]}
+  tottaxamt;
+
+  @UI: { lineItem:       [{ position: 34, label: 'totnetamt'}],
+  identification:        [ { position:34, label:'totnetamt' } ]}
+  //selectionField:        [ { position: 34}  ]}
+  totnetamt;
+  
+  @UI: { lineItem:       [{ position: 35, label: 'excgrate'}],
+  identification:        [ { position: 35, label:'excgrate' } ]}
+  //selectionField:        [ { position: 35}  ]}
+  excgrate;
+
+
+  //@UI: {  lineItem:       [ { position: 26, label: 'Is Reversal' } ],
+   //identification:        [ { position: 26, label: 'Is Reversal' } ] }
+  //IsReversal;
+
+  //@UI: {  lineItem:       [ { position: 27, label: 'Is Reversed' } ],
+   //identification:        [ { position: 27, label: 'Is Reversed' } ] }
+  //IsReversed;
+  
+  //@UI: {  lineItem:       [ { position: 36, label: 'State Code' } ],
+   //identification:        [ { position: 36, label: 'State Code' } ] }
+  //STATECODE;
+  
+  @UI : { lineItem:         [ { position: 37, label: 'prdgrp' } ],
+   identification:          [ { position: 37, label:'prdgrp' } ]}
+   prdgrp;
+   
+   @UI : { lineItem:         [ { position: 38, label: 'refdoc,' } ],
+   identification:          [ { position: 38, label:'refdoc,' } ]}
+   refdoc;
+   
+   @UI : { lineItem:         [ { position: 39, label: 'Gstrate' } ],
+   identification:          [ { position: 39, label:'Gstrate' } ]}
+   Gstrate;
+   
+   @UI : { lineItem:         [ { position: 40, label: 'cgstamt' } ],
+   identification:          [ { position: 40, label:'cgstamt' } ]}
+   cgstamt;
+   
+   @UI : { lineItem:         [ { position: 40, label: 'sgstamt' } ],
+   identification:          [ { position: 40, label:'sgstamt' } ]}
+   sgstamt;
+   
+   @UI : { lineItem:         [ { position: 40, label: 'igstamt' } ],
+   identification:          [ { position: 40, label:'igstamt' } ]}
+   igstamt;
+   
+   @UI : { lineItem:         [ { position: 40, label: 'IGSTCURR' } ],
+   identification:          [ { position: 40, label:'IGSTCURR' } ]}
+   IGSTCURR;
+   
+   @UI : { lineItem:         [ { position: 40, label: 'itmtxt' } ],
+   identification:          [ { position: 40, label:'itmtxt' } ]}
+   itmtxt;
+   
+   @UI : { lineItem:         [ { position: 40, label: 'uom' } ],
+   identification:          [ { position: 40, label:'uom' } ]}
+   uom;
+   
+   @UI : { lineItem:         [ { position: 40, label: 'billqty' } ],
+   identification:          [ { position: 40, label:'billqty' } ]}
+   billqty;
+   
+   
+   @UI : { lineItem:         [ { position: 40, label: 'hsncode' } ],
+   identification:          [ { position: 40, label:'hsncode' } ]}
+   hsncode;
+   
+   
+   @UI : { lineItem:         [ { position: 40, label: 'igstcntyp' } ],
+   identification:          [ { position: 40, label:'igstcntyp' } ]}
+   igstcntyp;
+   
+   @UI : { lineItem:         [ { position: 40, label: 'cgstcntyp' } ],
+   identification:          [ { position: 40, label:'cgstcntyp' } ]}
+   cgstcntyp;
+   
+   
+   @UI : { lineItem:         [ { position: 40, label: 'sgstcntyp' } ],
+   identification:          [ { position: 40, label:'sgstcntyp' } ]}
+   sgstcntyp;
+   
+   
+   @UI : { lineItem:         [ { position: 40, label: 'SupplierGSTIN' } ],
+   identification:          [ { position: 40, label:'SupplierGSTIN' } ]}
+   SupplierGSTIN;
+   
+   
+   @UI : { lineItem:         [ { position: 40, label: 'State' } ],
+   identification:          [ { position: 40, label:'State' } ]}
+   State;
+   
+   
+   @UI : { lineItem:         [ { position: 40, label: 'Divisionb' } ],
+   identification:          [ { position: 40, label:'Divisionb' } ]}
+   Divisionb;
+   
+   
+   @UI : { lineItem:         [ { position: 40, label: ' BillingType' } ],
+   identification:          [ { position: 40, label:' BillingType' } ]}
+    BillingType;
+   
+   
+   @UI : { lineItem:         [ { position: 40, label: 'Accdoc' } ],
+   identification:          [ { position: 40, label:'Accdoc' } ]}
+   accountdocument;
+   
+   
+    @UI : { lineItem:         [ { position: 40, label: 'InStus' } ],
+   identification:          [ { position: 40, label:'InStus' } ]}
+   InStus;
+   
+    @UI : { lineItem:         [ { position: 40, label: 'Cessamt' } ],
+   identification:          [ { position: 40, label:'Cessamt' } ]}
+   Cessamt;
+   
+   
+    @UI : { lineItem:         [ { position: 40, label: 'Supplytype1' } ],
+   identification:          [ { position: 40, label:'Supplytype1' } ]}
+   Supplytype1;
+   
+   
+    @UI : { lineItem:         [ { position: 40, label: 'Supply' } ],
+   identification:          [ { position: 40, label:'Supply' } ]}
+   Supply;
+   
+   
+    @UI : { lineItem:         [ { position: 40, label: 'ExportType' } ],
+   identification:          [ { position: 40, label:'ExportType' } ]}
+   ExportType;
+   
+   
+    @UI : { lineItem:         [ { position: 40, label: 'Notenumber' } ],
+   identification:          [ { position: 40, label:'Notenumber' } ]}
+   Notenumber;
+   
+   
+    @UI : { lineItem:         [ { position: 40, label: 'NoteDate' } ],
+   identification:          [ { position: 40, label:'NoteDate' } ]}
+   NoteDate;
+   
+   
+    @UI : { lineItem:         [ { position: 40, label: 'NoteValue' } ],
+   identification:          [ { position: 40, label:'NoteValue' } ]}
+   NoteValue;
+   
+   
+    @UI : { lineItem:         [ { position: 40, label: 'Plant' } ],
+   identification:          [ { position: 40, label:'Plant' } ]}
+   Plant;
+   
+   
+    @UI : { lineItem:         [ { position: 40, label: 'PlantName' } ],
+   identification:          [ { position: 40, label:'PlantName' } ]}
+   PlantName;
+ 
+}

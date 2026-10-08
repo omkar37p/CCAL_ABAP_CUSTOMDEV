@@ -1,0 +1,125 @@
+@Metadata.layer: #CUSTOMER
+@UI: { headerInfo: {
+typeName: 'Packing Slip',
+typeNamePlural: 'Packing Slips',
+title: { type: #STANDARD, value: 'Tokennum' },
+         description: { type: #STANDARD, value: 'Matdesc' }
+         } }
+annotate entity ZSD_APP02_RPV with
+{
+  @UI.facet: [ { id:              'Header',
+                      purpose:         #STANDARD,
+                      type:            #IDENTIFICATION_REFERENCE,
+                      label:           'Weigh-Bridge In',
+                      position:        10 } ,
+                    { id:              'Items',
+                      purpose:         #STANDARD,
+                      type:            #LINEITEM_REFERENCE,
+                      label:           'Weigh-Bridge Out',
+                      position:        20,
+                      targetElement:   '_Item'}]
+  @UI.hidden: true
+  Uuid;
+  @UI: { lineItem: [{ position: 10, label: 'Packing List Number'}],
+    identification: [{ position: 10, label: 'Packing List Number' } ,
+       { type: #FOR_ACTION, dataAction: 'GetTareUrl', label: 'Fetch Tare Weight' },
+     { type: #FOR_ACTION, dataAction: 'GetTare', label: 'Enter Tare Weight' }
+      ] }
+  Tokennum;
+  @UI: { lineItem: [{ position: 20, label: 'GateIn Date'}],
+  identification: [{ position: 20, label: 'GateIn Date' } ] }
+  Gidate;
+  @UI: { lineItem: [{ position: 30, label: 'GateIn Time'}],
+  identification: [{ position: 30, label: 'GateIn Time' } ] }
+  Gitime;
+  @UI: { lineItem: [{ position: 31, label: 'GateOut Date'}],
+  identification: [{ position: 31, label: 'GateOut Date' } ] }
+  Godate;
+  @UI: { lineItem: [{ position: 32, label: 'GateOut Time'}],
+  identification: [{ position: 32, label: 'GateOut Time' } ] }
+  Gotime;
+  @UI: { lineItem: [{ position: 95, label: 'Tare Weighed On'}],
+  identification: [{ position: 95, label: 'Tare Weighed On' } ] }
+  Trwdate;
+  @UI: { lineItem: [{ position: 96, label: 'Tare Weighed At'}],
+  identification: [{ position: 96, label: 'Tare Weighed At' } ] }
+  Trwtime;
+  @UI: { lineItem: [{ position: 15, label: 'Shiping Point'}],
+  identification: [{ position: 15, label: 'Shiping Point' } ] }
+  @Consumption.valueHelpDefinition: [{ entity: { name: 'ZI_PLANT_VH1',
+  element: 'Shpoint' }
+  //  , additionalBinding: [{localElement: 'Plantname', element: 'Shpname'}]
+    }]
+  Plant;
+  @UI.hidden: true
+  Plantname;
+  @UI: { lineItem: [{ position: 40, label: 'Vehicle Number'}],
+  identification: [{ position: 40, label: 'Vehicle Number' } ] }
+  Vehicleno;
+  @UI: { lineItem: [{ position: 60, label: 'Truck Type'}],
+  identification: [{ position: 60, label: 'Truck Type' } ] }
+  @Consumption.valueHelpDefinition: [{ entity: { name: 'ZI_TRUCKTYPES', element: 'value_low' }, distinctValues: true }]
+  Trucktyp;
+  @UI: { lineItem: [{ position: 90, label: 'Transporter'}],
+  identification: [{ position: 90, label: 'Transporter' } ] }
+  @Consumption.valueHelpDefinition: [{ entity: { name: 'ZI_TRANSPORTER_VH1',
+  element: 'SuppName' }  }]
+  Trspname;
+  @UI: { lineItem: [{ position: 100, label: 'Mode of Transport'}],
+  identification: [{ position: 100, label: 'Mode of Transport' } ] }
+  @Consumption.valueHelpDefinition: [{ entity: { name: 'ZI_TRANSMODE', element: 'value_low' }, distinctValues: true }]
+  Trspmode;
+  @UI: { lineItem: [{ position: 70, label: 'Driver Name'}],
+  identification: [{ position: 70, label: 'Driver Name' } ] }
+  Drivername;
+  @UI: { lineItem: [{ position: 80, label: 'LR Number'}],
+  identification: [{ position: 80, label: 'LR Number' } ] }
+  Lrnumber;
+  @UI: { lineItem: [{ position: 40, label: 'Material' }],
+  identification: [{ position: 40, label: 'Material'  }] }
+  @Consumption.valueHelpDefinition: [{ entity: { name: 'I_ProductStdVH',
+  element: 'Product' }  }]
+  Material;
+  @UI.hidden: true
+  Matdesc;
+  @UI: { lineItem: [{ position: 41, label: 'Division'}],
+  identification: [{ position: 41, label: 'Division' } ] }
+  Division;
+  @UI.hidden: true
+  Divmark;
+  @UI.hidden: true
+  Divname;
+  @UI: { lineItem: [{ position: 50, label: 'Batch' }],
+    identification: [{ position: 50, label: 'Batch'  }] }
+  @Consumption.valueHelpDefinition: [{ entity: { name: 'I_BatchStdVH',  element: 'Batch' },
+  additionalBinding: [  {localElement: 'Material', element: 'Material', usage:  #FILTER_AND_RESULT },
+                           {localElement: 'Plant', element: 'Plant',    usage: #FILTER_AND_RESULT } ] } ]
+  Batch;
+  @UI: { lineItem: [{ position: 60, label: 'Stor.Loc' }],
+      identification: [{ position: 60, label: 'Stor.Loc'  }] }
+  @Consumption.valueHelpDefinition: [{ entity: { name: 'I_StorageLocationStdVH',
+  element: 'StorageLocation' }  }]
+  Sloc;
+  @UI: { lineItem: [{ position: 90, label: 'Empty Vehicle Weight'}],
+  identification: [{ position: 90, label: 'Tare Weight(Empty Vehicle)' } ] }
+  Tarewgt;
+  @UI.hidden: true
+  Wgtunit;
+  @UI: { lineItem: [{ position: 110, label: 'Loading Status'}],
+  identification: [{ position: 110, label: 'Vehicle GateOut Status' } ] }
+  Status;
+  @UI.hidden: true
+  Mark;
+  @UI.hidden: true
+  Createdby;
+  @UI.hidden: true
+  Createdat;
+  @UI.hidden: true
+  Lastchangedby;
+  @UI.hidden: true
+  Lastchangedat;
+  /* Associations */
+  @UI.hidden: true
+  _Item;
+
+}

@@ -1,0 +1,59 @@
+@Metadata.layer: #CUSTOMER
+@UI: { headerInfo: {
+typeName: 'Department',
+typeNamePlural: 'Departments',
+title: { type: #STANDARD, value: 'Deptid' },
+         description: { type: #STANDARD, value: 'Deptname' }
+         } }
+
+annotate entity ZMM_APP08_RPV with
+{
+  @UI.facet: [ { id:              'Header',
+                        purpose:         #STANDARD,
+                        type:            #IDENTIFICATION_REFERENCE,
+                        label:           'Department',
+                        position:        10 } ,
+                      { id:              'Items',
+                        purpose:         #STANDARD,
+                        type:            #LINEITEM_REFERENCE,
+                        label:           'Budget Lines',
+                        position:        20,
+                        targetElement:   '_Item'}]
+
+  @UI: { lineItem: [{ position: 10, label: 'Plant'}],
+      identification: [{ position: 10, label: 'Plant' } ] }
+  @Consumption.valueHelpDefinition: [{ entity: { name: 'ZI_PLANT_VH1', element: 'Shpoint' } }]
+  Plant;
+  @UI: { lineItem: [{ position: 20, label: 'Department'}],
+  identification: [{ position: 20, label: 'Department' } ] }
+  @Consumption.valueHelpDefinition: [{ entity: { name: 'ZI_DEPARTMENT_VH1', element: 'deptid' },
+     additionalBinding: [  {localElement: 'Deptname', element: 'deptname', usage: #RESULT },
+                           {localElement: 'Plant', element: 'plant',    usage: #FILTER_AND_RESULT } ] } ]
+  Deptid;
+  @UI.lineItem: [{ position: 30, label: 'Budget Year' } ]
+  @UI.identification: [{ position: 30, label: 'Budget Year' } ]
+  Bdgyear;
+  @UI.lineItem: [{ position: 50, label: 'Valid From' } ]
+  @UI.identification: [{ position: 50, label: 'Valid From' } ]
+  Validon;
+  @UI.lineItem: [{ position: 60, label: 'Valid To' } ]
+  @UI.identification: [{ position: 60, label: 'Valid To' } ]
+  Validto;
+  @UI.lineItem: [{ position: 70, label: 'Allotted Budget' } ]
+  @UI.identification: [{ position: 70, label: 'Total Allotted Budget' } ]
+  Allcbdg;
+  @UI.hidden: true
+  Deptname;
+  @UI.hidden: true
+  Plntname;
+  @UI.hidden: true
+  Delemrk;
+  //  @UI.hidden: true
+  //  Createdat;
+  //  @UI.hidden: true
+  //  Createdby;
+  /* Associations */
+  @UI.hidden: true
+  _Item;
+
+}

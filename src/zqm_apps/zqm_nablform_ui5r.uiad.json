@@ -1,0 +1,35 @@
+{
+  "formatVersion": "2",
+  "header": {
+    "description": "Certificate Of Analysis",
+    "originalLanguage": "en",
+    "abapLanguageVersion": "cloudDevelopment"
+  },
+  "generalInformation": {
+    "appType": "ui5",
+    "catalogId": "SAP_TC_UI5_REPO_UIAD",
+    "targetMappingTitle": "Certificate Of Analysis"
+  },
+  "ui5AppDetails": {
+    "appId": "qmnablform.zqmcoaapp"
+  },
+  "navigation": {
+    "targetMappingId": "UI5R_21F3E5BA31D77454DBC633D6A2DED9AFF24890F4_TM",
+    "semanticObject": "zqm_coaapp",
+    "action": "display",
+    "desktop": true,
+    "tablet": true,
+    "phone": true
+  },
+  "tiles": [
+    {
+      "id": "UI5R_21F3E5BA31D77454DBC633D6A2DED9AFF24890F4_AL",
+      "tileType": "static",
+      "isDefault": true,
+      "standard": {
+        "title": "Certificate Of Analysis",
+        "subtitle": "NABL Form"
+      }
+    }
+  ]
+}

@@ -1,0 +1,47 @@
+@Metadata.layer: #CUSTOMER
+annotate entity ZI_PO_ITM_PV with
+{
+  @UI.facet: [{ id: 'PoItem',
+                purpose: #STANDARD,
+               type: #IDENTIFICATION_REFERENCE,
+               label: 'All Details',
+               position: 10}]
+
+  @UI.lineItem: [{ position: 10 , label: 'Purchase Order' }]
+  @UI.identification: [{ position: 10, label: 'Purchase Order' }]
+  PoId;
+  @UI.lineItem: [{ position: 20, label: 'Purchase Order Item' }]
+  @UI.identification: [{ position: 20, label: 'Purchase Order Item' }]
+  PoItem;
+  @UI.lineItem: [{ position: 30, label: 'Material' }]
+  @UI.identification: [{ position: 30, label: 'Material' }]
+  Material;
+  @UI.lineItem: [{ position: 40, label: 'Plant' }]
+  @UI.identification: [{ position: 40, label: 'Plant' }]
+  Plant;
+  @UI.lineItem: [{ position: 50, label: 'Storage Location' }]
+  @UI.identification: [{ position: 50, label: 'Storage Location' }]
+  StorageLoc;
+  @UI.lineItem: [{ position: 60, label: 'Tax Code' }]
+  @UI.identification: [{ position: 60 , label: 'Tax Code' }]
+  TaxCode;
+  @UI.lineItem: [{ position: 70, label: 'Order Quantity' }]
+  @UI.identification: [{ position: 70, label: 'Order Quantity' }]
+  OrderQty;
+  @UI.lineItem: [{ position: 80, label: 'Order Unit' }]
+  @UI.identification: [{ position: 80, label: 'Order Unit' }]
+  OrderUnit;
+  @UI.lineItem: [{ position: 90, label: 'Net Price' }]
+  @UI.identification: [{ position: 90, label: 'Net Price' }]
+  NetAmount;
+  @UI.lineItem: [{ position: 100, label: 'Currency' }]
+  @UI.identification: [{ position: 100, label: 'Currency' }]
+  Currency;
+  @UI.lineItem: [{ position: 110, label: 'Delivery Date' }]
+  @UI.identification: [{ position: 110, label: 'Delivery Date' }]
+  DeliveryDate;
+  /* Associations */
+  @UI.hidden: true
+  _Header;
+
+}

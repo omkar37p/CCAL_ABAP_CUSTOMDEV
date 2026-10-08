@@ -1,0 +1,66 @@
+@Metadata.layer: #CUSTOMER
+@UI: { headerInfo: {
+typeName: 'Budget Code',
+typeNamePlural: 'Budget Codes',
+title: { type: #STANDARD, value: 'Bdgcode' },
+         description: { type: #STANDARD, value: 'Bdghtxt' }
+         } }
+
+annotate entity ZMM_APP11_RPV with
+{
+  @UI.facet: [ { id:              'Header',
+                        purpose:         #STANDARD,
+                        type:            #IDENTIFICATION_REFERENCE,
+                        label:           'Budget/PO Summary',
+                        position:        10 }
+                          ,
+                        { id:              'Items',
+                          purpose:         #STANDARD,
+                          type:            #LINEITEM_REFERENCE,
+                          label:           'Budget Lines',
+                          position:        20,
+                          targetElement:   '_poline'}
+                        ]
+  @UI: { lineItem: [{ position: 30, label: 'Budget Code' }],
+  identification: [{ position: 30, label: 'Budget Code' }]}
+  Bdgcode;
+  @UI: { lineItem: [{ position: 10, label: 'Plant' }],
+  identification: [{ position: 10, label: 'Plant' }], selectionField: [ { position: 10  } ]}
+  Plant;
+  @UI.hidden: true
+  Deptid;
+//  @UI.hidden: true
+@EndUserText.label: 'Valid From '
+ @UI: { lineItem: [{ position: 34, label: 'Valid From' }], selectionField: [ { position: 25  } ]}
+  @Consumption.filter:{ selectionType: #INTERVAL,multipleSelections: false }
+  Validon;
+//  @UI.hidden: true
+@EndUserText.label: 'Valid To'
+@UI: { lineItem: [{ position: 35, label: 'Valid To' }], selectionField: [ { position: 30  } ]}
+  @Consumption.filter:{ selectionType: #INTERVAL,multipleSelections: false }
+  Validto;
+  @UI.hidden: true
+  Plntname;
+  @UI: { lineItem: [{ position: 20, label: 'Department' }],
+  identification: [{ position: 20, label: 'Department' }], selectionField: [ { position: 20 } ]}
+  Deptname;
+  @UI.hidden: true
+  Curky;
+  @UI.hidden: true
+  Basebdg;
+  @UI: { lineItem: [{ position: 50, label: 'Budget Value(INR)' }],
+  identification: [{ position: 50, label: 'Budget Value(INR)' }]}
+  Talcbdg;
+  @UI: { lineItem: [{ position: 40, label: 'Budget Desc' }],
+  identification: [{ position: 40, label: 'Budget Desc' }]}
+  Bdghtxt;
+  @UI.hidden: true
+  Bdgtype;
+  @UI: { lineItem: [{ position: 60, label: 'Utilised (PO)' }],
+  identification: [{ position: 60, label: 'Utilised (PO)' }]}
+  totpoamt;
+  @UI: { lineItem: [{ position: 70, label: 'Balance Budget' }],
+  identification: [{ position: 70, label: 'Balance Budget' }]}
+  bdgbal;
+
+}

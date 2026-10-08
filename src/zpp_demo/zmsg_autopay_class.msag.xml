@@ -1,0 +1,236 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<abapGit version="v1.0.0" serializer="LCL_OBJECT_MSAG" serializer_version="v1.0.0">
+ <asx:abap xmlns:asx="http://www.sap.com/abapxml" version="1.0">
+  <asx:values>
+   <T100A>
+    <ARBGB>ZMSG_AUTOPAY_CLASS</ARBGB>
+    <MASTERLANG>E</MASTERLANG>
+    <STEXT>Autopay RAP Messages</STEXT>
+   </T100A>
+   <T100>
+    <T100>
+     <SPRSL>E</SPRSL>
+     <ARBGB>ZMSG_AUTOPAY_CLASS</ARBGB>
+     <MSGNR>001</MSGNR>
+     <TEXT>Invalid Business Partner</TEXT>
+    </T100>
+    <T100>
+     <SPRSL>E</SPRSL>
+     <ARBGB>ZMSG_AUTOPAY_CLASS</ARBGB>
+     <MSGNR>002</MSGNR>
+     <TEXT>Invalid Alternate Business Partner</TEXT>
+    </T100>
+    <T100>
+     <SPRSL>E</SPRSL>
+     <ARBGB>ZMSG_AUTOPAY_CLASS</ARBGB>
+     <MSGNR>003</MSGNR>
+     <TEXT> Business Partner does not exist</TEXT>
+    </T100>
+    <T100>
+     <SPRSL>E</SPRSL>
+     <ARBGB>ZMSG_AUTOPAY_CLASS</ARBGB>
+     <MSGNR>004</MSGNR>
+     <TEXT>Alternate BP mapping not found</TEXT>
+    </T100>
+    <T100>
+     <SPRSL>E</SPRSL>
+     <ARBGB>ZMSG_AUTOPAY_CLASS</ARBGB>
+     <MSGNR>005</MSGNR>
+     <TEXT>Business Partner validated successfully</TEXT>
+    </T100>
+    <T100>
+     <SPRSL>E</SPRSL>
+     <ARBGB>ZMSG_AUTOPAY_CLASS</ARBGB>
+     <MSGNR>010</MSGNR>
+     <TEXT>Contract Account not found</TEXT>
+    </T100>
+    <T100>
+     <SPRSL>E</SPRSL>
+     <ARBGB>ZMSG_AUTOPAY_CLASS</ARBGB>
+     <MSGNR>011</MSGNR>
+     <TEXT>No Contract Accounts found for Business Partner</TEXT>
+    </T100>
+    <T100>
+     <SPRSL>E</SPRSL>
+     <ARBGB>ZMSG_AUTOPAY_CLASS</ARBGB>
+     <MSGNR>012</MSGNR>
+     <TEXT>Invalid Contract Account Identifier</TEXT>
+    </T100>
+    <T100>
+     <SPRSL>E</SPRSL>
+     <ARBGB>ZMSG_AUTOPAY_CLASS</ARBGB>
+     <MSGNR>013</MSGNR>
+     <TEXT>Contract Account is not eligible for enrollment</TEXT>
+    </T100>
+    <T100>
+     <SPRSL>E</SPRSL>
+     <ARBGB>ZMSG_AUTOPAY_CLASS</ARBGB>
+     <MSGNR>014</MSGNR>
+     <TEXT>Contract Account validated successfully</TEXT>
+    </T100>
+    <T100>
+     <SPRSL>E</SPRSL>
+     <ARBGB>ZMSG_AUTOPAY_CLASS</ARBGB>
+     <MSGNR>015</MSGNR>
+     <TEXT>Eligibility fetched successfully</TEXT>
+    </T100>
+    <T100>
+     <SPRSL>E</SPRSL>
+     <ARBGB>ZMSG_AUTOPAY_CLASS</ARBGB>
+     <MSGNR>016</MSGNR>
+     <TEXT>Contract Account mandatory for Identifier S</TEXT>
+    </T100>
+    <T100>
+     <SPRSL>E</SPRSL>
+     <ARBGB>ZMSG_AUTOPAY_CLASS</ARBGB>
+     <MSGNR>020</MSGNR>
+     <TEXT>Customer Token update failed</TEXT>
+    </T100>
+    <T100>
+     <SPRSL>E</SPRSL>
+     <ARBGB>ZMSG_AUTOPAY_CLASS</ARBGB>
+     <MSGNR>021</MSGNR>
+     <TEXT>Payment Token update failed</TEXT>
+    </T100>
+    <T100>
+     <SPRSL>E</SPRSL>
+     <ARBGB>ZMSG_AUTOPAY_CLASS</ARBGB>
+     <MSGNR>022</MSGNR>
+     <TEXT>Customer Token not found</TEXT>
+    </T100>
+    <T100>
+     <SPRSL>E</SPRSL>
+     <ARBGB>ZMSG_AUTOPAY_CLASS</ARBGB>
+     <MSGNR>023</MSGNR>
+     <TEXT>Payment Token not found</TEXT>
+    </T100>
+    <T100>
+     <SPRSL>E</SPRSL>
+     <ARBGB>ZMSG_AUTOPAY_CLASS</ARBGB>
+     <MSGNR>024</MSGNR>
+     <TEXT>Customer Token updated successfully</TEXT>
+    </T100>
+    <T100>
+     <SPRSL>E</SPRSL>
+     <ARBGB>ZMSG_AUTOPAY_CLASS</ARBGB>
+     <MSGNR>025</MSGNR>
+     <TEXT>Payment Token updated successfully</TEXT>
+    </T100>
+    <T100>
+     <SPRSL>E</SPRSL>
+     <ARBGB>ZMSG_AUTOPAY_CLASS</ARBGB>
+     <MSGNR>030</MSGNR>
+     <TEXT>Bank Account Number is mandatory</TEXT>
+    </T100>
+    <T100>
+     <SPRSL>E</SPRSL>
+     <ARBGB>ZMSG_AUTOPAY_CLASS</ARBGB>
+     <MSGNR>031</MSGNR>
+     <TEXT>Routing Number is mandatory</TEXT>
+    </T100>
+    <T100>
+     <SPRSL>E</SPRSL>
+     <ARBGB>ZMSG_AUTOPAY_CLASS</ARBGB>
+     <MSGNR>032</MSGNR>
+     <TEXT>Invalid Account Type</TEXT>
+    </T100>
+    <T100>
+     <SPRSL>E</SPRSL>
+     <ARBGB>ZMSG_AUTOPAY_CLASS</ARBGB>
+     <MSGNR>033</MSGNR>
+     <TEXT>Bank detail update failed</TEXT>
+    </T100>
+    <T100>
+     <SPRSL>E</SPRSL>
+     <ARBGB>ZMSG_AUTOPAY_CLASS</ARBGB>
+     <MSGNR>034</MSGNR>
+     <TEXT>Bank details updated successfully</TEXT>
+    </T100>
+    <T100>
+     <SPRSL>E</SPRSL>
+     <ARBGB>ZMSG_AUTOPAY_CLASS</ARBGB>
+     <MSGNR>040</MSGNR>
+     <TEXT>Enrollment failed</TEXT>
+    </T100>
+    <T100>
+     <SPRSL>E</SPRSL>
+     <ARBGB>ZMSG_AUTOPAY_CLASS</ARBGB>
+     <MSGNR>041</MSGNR>
+     <TEXT>Unenrollment failed</TEXT>
+    </T100>
+    <T100>
+     <SPRSL>E</SPRSL>
+     <ARBGB>ZMSG_AUTOPAY_CLASS</ARBGB>
+     <MSGNR>042</MSGNR>
+     <TEXT>Contract Account already enrolled</TEXT>
+    </T100>
+    <T100>
+     <SPRSL>E</SPRSL>
+     <ARBGB>ZMSG_AUTOPAY_CLASS</ARBGB>
+     <MSGNR>043</MSGNR>
+     <TEXT>Contract Account is not enrolled</TEXT>
+    </T100>
+    <T100>
+     <SPRSL>E</SPRSL>
+     <ARBGB>ZMSG_AUTOPAY_CLASS</ARBGB>
+     <MSGNR>044</MSGNR>
+     <TEXT>Enrollment successful</TEXT>
+    </T100>
+    <T100>
+     <SPRSL>E</SPRSL>
+     <ARBGB>ZMSG_AUTOPAY_CLASS</ARBGB>
+     <MSGNR>045</MSGNR>
+     <TEXT>Unenrollment successful</TEXT>
+    </T100>
+    <T100>
+     <SPRSL>E</SPRSL>
+     <ARBGB>ZMSG_AUTOPAY_CLASS</ARBGB>
+     <MSGNR>050</MSGNR>
+     <TEXT>Failed to connect to BNY API</TEXT>
+    </T100>
+    <T100>
+     <SPRSL>E</SPRSL>
+     <ARBGB>ZMSG_AUTOPAY_CLASS</ARBGB>
+     <MSGNR>051</MSGNR>
+     <TEXT>BNY API authentication failed</TEXT>
+    </T100>
+    <T100>
+     <SPRSL>E</SPRSL>
+     <ARBGB>ZMSG_AUTOPAY_CLASS</ARBGB>
+     <MSGNR>052</MSGNR>
+     <TEXT>BNY API returned error</TEXT>
+    </T100>
+    <T100>
+     <SPRSL>E</SPRSL>
+     <ARBGB>ZMSG_AUTOPAY_CLASS</ARBGB>
+     <MSGNR>053</MSGNR>
+     <TEXT>BNY API processed successfully</TEXT>
+    </T100>
+    <T100>
+     <SPRSL>E</SPRSL>
+     <ARBGB>ZMSG_AUTOPAY_CLASS</ARBGB>
+     <MSGNR>090</MSGNR>
+     <TEXT>Technical error occurred</TEXT>
+    </T100>
+    <T100>
+     <SPRSL>E</SPRSL>
+     <ARBGB>ZMSG_AUTOPAY_CLASS</ARBGB>
+     <MSGNR>091</MSGNR>
+     <TEXT>Customer Token mandatory</TEXT>
+    </T100>
+    <T100>
+     <SPRSL>E</SPRSL>
+     <ARBGB>ZMSG_AUTOPAY_CLASS</ARBGB>
+     <MSGNR>092</MSGNR>
+     <TEXT>Invalid request payload</TEXT>
+    </T100>
+    <T100>
+     <SPRSL>E</SPRSL>
+     <ARBGB>ZMSG_AUTOPAY_CLASS</ARBGB>
+     <MSGNR>093</MSGNR>
+     <TEXT>Request processed successfully</TEXT>
+    </T100>
+   </T100>
+  </asx:values>
+ </asx:abap>
+</abapGit>

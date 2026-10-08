@@ -1,0 +1,6 @@
+@EndUserText.label: 'COA FORM APPLICATION'
+define service ZPP_QM_COA001_UI {
+  expose ZPP_QM_COA01_RPV as MainPage;
+  expose ZPP_QM_COA01_IPV as ItemPage;
+  EXPOSE zpp_qm_productvh;
+}

@@ -1,0 +1,35 @@
+{
+  "formatVersion": "2",
+  "header": {
+    "description": "GRN AGING REPORT",
+    "originalLanguage": "en",
+    "abapLanguageVersion": "cloudDevelopment"
+  },
+  "generalInformation": {
+    "appType": "ui5",
+    "catalogId": "SAP_TC_UI5_REPO_UIAD",
+    "targetMappingTitle": "GRN AGING REPORT"
+  },
+  "ui5AppDetails": {
+    "appId": "grnagingreport.agingreport"
+  },
+  "navigation": {
+    "targetMappingId": "UI5R_96E7F85E3472E630676E8A5E62C34EF0E2FBDC60_TM",
+    "semanticObject": "GRN_AGING",
+    "action": "Display",
+    "desktop": true,
+    "tablet": true,
+    "phone": true
+  },
+  "tiles": [
+    {
+      "id": "UI5R_96E7F85E3472E630676E8A5E62C34EF0E2FBDC60_AL",
+      "tileType": "static",
+      "isDefault": true,
+      "standard": {
+        "title": "GRN AGING REPORT",
+        "subtitle": "GRN AGING REPORT"
+      }
+    }
+  ]
+}

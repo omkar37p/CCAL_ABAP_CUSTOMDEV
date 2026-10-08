@@ -1,0 +1,51 @@
+@Metadata.layer: #CUSTOMER
+@UI.headerInfo.title : { type: #STANDARD, label:'Purchase', value: 'PoId'  }
+@UI.presentationVariant: [{sortOrder: [ { by: 'PoId', direction: #ASC } ] 
+,  visualizations: [ { type: #AS_LINEITEM}] , text: 'Purchase' }]
+annotate entity ZI_PO_HDR_PV with
+{
+
+    @UI.facet: [{ id: 'Header', purpose: #STANDARD,
+                 type: #IDENTIFICATION_REFERENCE,
+                 label: 'Purchase Order Header',
+                 position: 10},
+            { id: 'Items',
+            purpose: #STANDARD,
+            type: #LINEITEM_REFERENCE,
+            label: 'Items',
+            position: 20,
+            targetElement: '_Item'}  ]
+
+  @UI.lineItem: [{ position: 10 , label: 'Purchase Order' }]
+  @UI.identification: [{ position: 10 , label: 'Purchase Order' }]
+  PoId;
+  @UI.lineItem: [{ position: 20, label: 'Document Type' }]
+  @UI.identification: [{ position: 20, label: 'Document Type' }]
+  DocType;
+  @UI.lineItem: [{ position: 30, label: 'Company Code' }]
+  @UI.identification: [{ position: 30, label: 'Company Code' }]
+  CompanyCode;
+  @UI.lineItem: [{ position: 40 , label: 'Vendor' }]
+  @UI.identification: [{ position: 40, label: 'Vendor' }]
+
+  Vendor;
+  @UI.lineItem: [{ position: 50 , label: 'Purchasing Organization' }]
+  @UI.identification: [{ position: 50, label: 'Purchasing Organization' }]
+  PurchOrg;
+  @UI.lineItem: [{ position: 60, label: 'Purchasing Group' }]
+  @UI.identification: [{ position: 60, label: 'Purchasing Group' }]
+  PurchGrp;
+  @UI.lineItem: [{ position: 70 , label: 'Document Date' }]
+  @UI.identification: [{ position: 70 , label: 'Document Date' }]
+  DocDate;
+  @UI.lineItem: [{ position: 80, label: 'Created By' }]
+  @UI.identification: [{ position: 80, label: 'Created By' }]
+  CreatedBy;
+  @UI.lineItem: [{ position: 90, label: 'Created On' }]
+  @UI.identification: [{ position: 90, label: 'Created On' }]
+  CreatedOn;
+  /* Associations */
+  @UI.hidden: true
+  _Item;
+
+}

@@ -1,0 +1,34 @@
+{
+  "formatVersion": "2",
+  "header": {
+    "description": "RGP/NRGP Material Outward Application",
+    "originalLanguage": "en",
+    "abapLanguageVersion": "cloudDevelopment"
+  },
+  "generalInformation": {
+    "appType": "ui5",
+    "catalogId": "SAP_TC_UI5_REPO_UIAD",
+    "targetMappingTitle": "RGP/NRGP Material Outward Application"
+  },
+  "ui5AppDetails": {
+    "appId": "zmmapp12r12"
+  },
+  "navigation": {
+    "targetMappingId": "UI5R_938A5E5273FBA22074547979D2D93F252B54BECE_TM",
+    "semanticObject": "YY1_MM_APP12",
+    "action": "manage",
+    "desktop": true,
+    "tablet": true,
+    "phone": true
+  },
+  "tiles": [
+    {
+      "id": "UI5R_938A5E5273FBA22074547979D2D93F252B54BECE_AL",
+      "tileType": "static",
+      "isDefault": true,
+      "standard": {
+        "title": "RGP/NRGP Material Outward Application"
+      }
+    }
+  ]
+}

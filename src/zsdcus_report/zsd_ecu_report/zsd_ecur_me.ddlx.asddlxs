@@ -1,0 +1,94 @@
+@Metadata.layer: #PARTNER
+@UI: {
+  headerInfo: { typeName: 'SD Report',
+                typeNamePlural: 'SD Report',
+                title: { type: #STANDARD, label: 'SD Report', value: 'VoucherNo' } },
+  presentationVariant: [{ sortOrder: [{ by: 'VoucherNo', direction:  #ASC }] }] }
+
+annotate entity ZSD_ECUR_PV
+    with 
+{
+  @UI.facet: [ { id:              'SD Report',
+                    purpose:         #STANDARD,
+                    type:            #IDENTIFICATION_REFERENCE,
+                    label:           'SD_Report',
+                    position:        10 } ]
+                    
+  @UI: {  lineItem:       [ { position: 09, label: 'ODN Invoice Number' } ],
+        identification:   [ { position: 09, label: 'ODN Invoice Number' } ]}                     
+ODNNumber;                    
+  @UI: {  lineItem:       [ { position: 10, label: 'Invoice Number' } ],
+//        { type: #FOR_INTENT_BASED_NAVIGATION, semanticObjectAction: 'manage' } ],
+        identification:   [ { position: 10, label: 'Invoice Number' } ] }
+    @UI.selectionField:   [ { element: 'VoucherNo', position: 10}   ]                           
+VoucherNo;
+  @UI: {  lineItem:       [ { position: 20, label: 'Date' } ],
+        identification:   [ { position: 20, label: 'Date' } ], 
+        selectionField:   [ { position: 20}  ]} 
+    @Consumption.filter:{ selectionType: #INTERVAL,multipleSelections: false }                                                           
+BillDate;
+  @UI: {  lineItem:       [ { position: 25, label: 'Invoice Time' } ],
+        identification:   [ { position: 25, label: 'Invoice Time' } ] }
+  @EndUserText.label: 'Invoice Time'      
+CreationTime;
+  @UI: {  lineItem:       [ { position: 30, label: 'Distribution Channel' } ],
+        identification:   [ { position: 30, label: 'Distribution Channel' } ], 
+        selectionField:   [ { position: 30}  ]}                            
+VoucherType;
+//  @UI.hidden: true
+  @UI.selectionField: [{ position: 40 }]
+Plant;
+  @UI.hidden: true
+BillingDocumentItem;
+  @UI: {  lineItem:       [ { position: 40, label: 'Customer Code' } ],
+        identification:   [ { position: 40, label: 'Customer Code' } ]}                            
+customerCode;
+  @UI: {  lineItem:       [ { position: 50, label: 'Customer Name' } ],
+        identification:   [ { position: 50, label: 'Customer Name' } ]}                            
+CustomerName;
+  @UI.hidden: true
+BillingDocumentType;
+  @UI: {  lineItem:       [ { position: 60, label: 'Quantity' } ],
+        identification:   [ { position: 60, label: 'Quantity' } ] }                            
+Quantity;
+  @UI: {  lineItem:       [ { position: 60, label: 'UOM' } ],
+        identification:   [ { position: 60, label: 'UOM' } ] }                            
+BaseUnit;
+  @UI: {  lineItem:       [ { position: 70, label: 'Product Number' } ],
+        identification:   [ { position: 70, label: 'Product Number' } ]}                            
+Product;
+  @UI: {  lineItem:       [ { position: 80, label: 'Product Des' } ],
+        identification:   [ { position: 80, label: 'Product Des' } ] }                            
+BillingDocumentItemText;
+  @UI: {  lineItem:       [ { position: 90, label: 'Basic Value' } ],
+        identification:   [ { position: 90, label: 'Basic Value' } ]}                            
+BaseValue;
+  @UI: {  lineItem:       [ { position: 100, label: 'Freight' } ],
+        identification:   [ { position: 100, label: 'Freight' } ]}                            
+Freight;
+  @UI: {  lineItem:       [ { position: 110, label: 'Taxble Value' } ],
+        identification:   [ { position: 110, label: 'Taxble Value' } ]}                            
+TaxbleValue;
+  @UI: {  lineItem:       [ { position: 120, label: 'IGST Value' } ],
+        identification:   [ { position: 120, label: 'IGST Value' } ]}                            
+igstvalue;
+  @UI: {  lineItem:       [ { position: 130, label: 'CGST Value' } ],
+        identification:   [ { position: 130, label: 'CGST Value' } ] }                            
+cgstvalue;
+  @UI: {  lineItem:       [ { position: 140, label: 'SGST Value' } ],
+        identification:   [ { position: 140, label: 'SGST Value' } ] } 
+sgstvalue;
+  @UI: {  lineItem:       [ { position: 150, label: 'TCS Value' } ],
+        identification:   [ { position: 150, label: 'TCS Value' } ] }                           
+tcsvalue;
+  @UI: {  lineItem:       [ { position: 160, label: 'Invoice Value' } ],
+        identification:   [ { position: 160, label: 'Invoice Value' } ] }   
+InvoiceValue;
+  @UI: {  lineItem:       [ { position: 170, label: 'Ship To Party' } ],
+        identification:   [ { position: 170, label: 'Ship To Party' } ] }   
+ShipToParty;
+  @UI: {  lineItem:       [ { position: 180, label: 'Ship To Party Name' } ],
+        identification:   [ { position: 180, label: 'Ship To Party Name' } ] }   
+shipcustomername; 
+   
+}

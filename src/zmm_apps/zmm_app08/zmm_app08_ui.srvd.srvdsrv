@@ -1,0 +1,7 @@
+@EndUserText.label: 'Department Base Budget'
+define service ZMM_APP08_UI {
+  expose ZMM_APP08_RPV     as MAINPAGE;
+  expose ZMM_APP08_IPV;
+  expose ZI_PLANT_VH1;
+  expose ZI_DEPARTMENT_VH1;
+}

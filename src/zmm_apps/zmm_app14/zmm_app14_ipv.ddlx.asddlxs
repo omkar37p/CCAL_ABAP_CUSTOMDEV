@@ -1,0 +1,74 @@
+@Metadata.layer: #CUSTOMER
+@UI: { headerInfo: {
+typeName: 'Material Outward - Gate Pass',
+typeNamePlural: 'Material Outward - Gate Passes' }}
+annotate entity ZMM_APP14_IPV
+    with 
+{
+  @UI.facet: [ { id:              'Item',
+                   purpose:         #STANDARD,
+                   type:            #IDENTIFICATION_REFERENCE,
+                   label:           'Standard Items',
+                   position:        10 },
+                   { id:              'Citems',
+                          purpose:         #STANDARD,
+                          type:            #LINEITEM_REFERENCE,
+                          label:           'Inward Line item',
+                          position:        20,
+                          targetElement:   '_ITMCH' } ]
+  @UI.hidden: true
+  Uuid;
+  @UI: { lineItem: [{ position: 10, label: 'Item No' }],
+  identification: [{ position: 10, label: 'Item No'  }] }
+  Itemno;
+  @UI: { lineItem: [{ position: 20, label: 'Material Code' }],
+  identification: [{ position: 20, label: 'Material Code'  }] }
+    @Consumption.valueHelpDefinition: [{ entity: { name: 'ZI_PRODUCTBYPLANT_VH', element: 'Product' },
+     additionalBinding: [  {localElement: 'Maktx', element: 'Prodesc', usage: #RESULT },
+                           {localElement: 'Uom', element: 'Baseunit', usage: #RESULT },
+                           {localElement: 'Hsncode', element: 'Hsncode', usage: #RESULT },
+                           {localElement: 'Netprice', element: 'Netprice', usage: #RESULT },
+                           {localElement: '_HDR.Plant', element: 'Plant',    usage: #FILTER_AND_RESULT } ] } ]
+  Matnr;
+  @UI: { lineItem: [{ position: 30, label: 'Material Desc.' }],
+  identification: [{ position: 30, label: 'Material Desc.'  }] }
+  Maktx;
+  @UI: { lineItem: [{ position: 40, label: 'UOM' }],
+  identification: [{ position: 40, label: 'UOM'  }] }
+  Uom;
+  @UI: { lineItem: [{ position: 50, label: 'HSN/SAC Code' }],
+  identification: [{ position: 50, label: 'HSN/SAC Code'  }] }
+  Hsncode;
+  @UI: { lineItem: [{ position: 60, label: 'Quantity' }],
+  identification: [{ position: 60, label: 'Quantity'  }] }
+  Quantity;
+  @UI.hidden: true
+  Curky;
+  @UI: { lineItem: [{ position: 70, label: 'Item Value' }],
+  identification: [{ position: 70, label: 'Item Value'  }] }
+  Netprice;
+  @UI: { lineItem: [{ position: 80, label: 'Total Amount' }],
+  identification: [{ position: 80, label: 'Total Amount'  }] }
+  Totvalue;
+    @UI: { lineItem: [{ position: 90, label: 'pending' }],
+  identification: [{ position: 90, label: 'pending'  }] }
+  Penqty;
+    @UI: { lineItem: [{ position: 100, label: 'recive qty' }],
+  identification: [{ position: 100, label: 'recive qty'  }] }
+  Recvqty;
+  @UI.hidden: true
+  Mark;
+  @UI.hidden: true
+  Createdby;
+  @UI.hidden: true
+  Createdat;
+  @UI.hidden: true
+  Lastchangedby;
+  @UI.hidden: true
+  Lastchangedat;
+  /* Associations */
+  @UI.hidden: true
+    _ITMCH;
+     @UI.hidden: true
+     _HDR;
+}

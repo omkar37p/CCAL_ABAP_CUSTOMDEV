@@ -1,0 +1,31 @@
+managed implementation in class zbp_mm_app17_pohd_rv unique;
+strict ( 2 );
+
+define behavior for ZMM_APP17_POHD_RV alias Header
+//persistent table <???>
+with unmanaged save
+lock master
+authorization master ( instance )
+//etag master <field_name>
+{
+  //create ( authorization : global );
+  //update;
+  //delete;
+  field ( readonly ) PurchaseOrder;
+  association _Item { create; }
+
+  action( features : instance ) Esign result [1] $self;
+}
+
+define behavior for ZMM_APP17_POIT_IV alias Line
+//persistent table <???>
+with unmanaged save
+lock dependent by _Header
+authorization dependent by _Header
+//etag master <field_name>
+{
+  //update;
+  //delete;
+  field ( readonly ) PurchaseOrder, PurchaseOrderItem;
+  association _Header;
+}

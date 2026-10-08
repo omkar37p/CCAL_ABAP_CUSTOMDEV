@@ -1,0 +1,5 @@
+@EndUserText.label: 'Asix Bank Integration - UI'
+define service ZFI_APP01_UI {
+  expose ZFI_APP01_PV  as Mainpage;
+  expose ZFI_APP01_IRV;
+}

@@ -1,0 +1,57 @@
+@Metadata.layer: #CUSTOMER
+annotate entity ZMM_APP09_IPV1 with
+{
+  @UI.facet: [ { id:              'Item',
+                   purpose:         #STANDARD,
+                   type:            #IDENTIFICATION_REFERENCE,
+                   label:           'Budget Item',
+                   position:        10 } ]
+  @UI.hidden: true
+  Plant;
+  @UI.hidden: true
+  Deptid;
+  @UI.hidden: true
+  Bdgcode;
+  @UI.hidden: true
+  Uuid;
+  @UI: { lineItem: [{ position: 10, label: 'Sno' }],
+  identification: [{ position: 10, label: 'Sno'  }] }
+  Itemno;
+  @UI: { lineItem: [{ position: 20, label: 'Budget Item Desc' }],
+  identification: [{ position: 20, label: 'Budget Item Description' }]}
+  Bdgitxt;
+  @UI: { lineItem: [{ position: 30, label: 'Remarks' }],
+  identification: [{ position: 30, label: 'Remarks' }]}
+  Remarks;
+  @UI.hidden: true
+  Curky;
+  @UI: { lineItem: [{ position: 40, label: 'Allotted Amount' }],
+  identification: [{ position: 40, label: 'Allotted Amount' }]}
+  Allcbdg;
+  @UI: { lineItem: [{ position: 50, label: 'Active Status' }],
+  identification: [{ position: 50, label: 'Active Status' }]}
+  Actstss;
+  //  @UI: { lineItem: [{ position: 60, label: 'Attachment' }],
+  //  identification: [{ position: 60, label: 'Attachment' }]}
+  //  Attachment;
+  //  @UI.hidden: true
+  //  Mimetype;
+  //  @UI.hidden: true
+  //  Filename;
+  @UI.hidden: true
+  Localcreatedby;
+  @UI.hidden: true
+  Localcreatedat;
+  @UI.hidden: true
+  Locallastchangedby;
+  @UI.hidden: true
+  Locallastchangedat;
+//  @UI.hidden: true
+  @UI: { lineItem: [{ position: 60, label: 'Last Changed Date' }],
+  identification: [{ position: 60, label: 'Last Changed Date' }]}
+  Lastchangedat;
+  /* Associations */
+  @UI.hidden: true
+  _Header;
+
+}

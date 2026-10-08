@@ -1,0 +1,34 @@
+{
+  "formatVersion": "2",
+  "header": {
+    "description": "Inventory Budget Report",
+    "originalLanguage": "en",
+    "abapLanguageVersion": "cloudDevelopment"
+  },
+  "generalInformation": {
+    "appType": "ui5",
+    "catalogId": "SAP_TC_UI5_REPO_UIAD",
+    "targetMappingTitle": "Inventory Budget Report"
+  },
+  "ui5AppDetails": {
+    "appId": "mmapp11v2"
+  },
+  "navigation": {
+    "targetMappingId": "UI5R_1DC85B352F374007466F8FD6B259C4879ED5F0AD_TM",
+    "semanticObject": "YY1_MM_APP11",
+    "action": "manage",
+    "desktop": true,
+    "tablet": true,
+    "phone": true
+  },
+  "tiles": [
+    {
+      "id": "UI5R_1DC85B352F374007466F8FD6B259C4879ED5F0AD_AL",
+      "tileType": "static",
+      "isDefault": true,
+      "standard": {
+        "title": "Inventory Budget Report"
+      }
+    }
+  ]
+}

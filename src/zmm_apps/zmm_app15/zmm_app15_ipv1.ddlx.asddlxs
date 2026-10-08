@@ -1,0 +1,58 @@
+@Metadata.layer: #CUSTOMER
+annotate entity ZMM_APP15_IPV1 with
+{
+  @UI.facet: [ { id:              'cItems',
+                     purpose:         #STANDARD,
+                     type:            #IDENTIFICATION_REFERENCE,
+                     label:           'Inward items',
+                     position:        10 }]
+  @UI.hidden: true
+  Uuid;
+  @UI: { lineItem: [{ position: 10, label: 'Item No' }],
+  identification: [{ position: 10, label: 'Item No'  }] }
+  Itemno;
+  @UI: { lineItem: [{ position: 13, label: 'S.No' }],
+  identification: [{ position: 13, label: 'S.No'  }] }
+  Sno;
+  //  @UI: { lineItem: [{ position: 20, label: 'Material Code' }],
+  //  identification: [{ position: 20, label: 'Material Code'  }] }
+  @UI.hidden: true
+  Matnr;
+  //  @UI: { lineItem: [{ position: 30, label: 'Material Desc.' }],
+  //  identification: [{ position: 30, label: 'Material Desc.'  }] }
+  @UI.hidden: true
+  Maktx;
+  @UI: { lineItem: [{ position: 85, label: 'UOM' }],
+  identification: [{ position: 85, label: 'UOM'  }] }
+
+  Uom;
+  //  @UI: { lineItem: [{ position: 60, label: 'Quantity' }],
+  //  identification: [{ position: 60, label: 'Quantity'  }] }
+  @UI.hidden: true
+  Quantity;
+  //  @UI: { lineItem: [{ position: 70, label: 'Pending Quantity' }],
+  //  identification: [{ position: 70, label: 'Pending Quantity'  }] }
+  @UI.hidden: true
+  Penqty;
+  @UI: { lineItem: [{ position: 80, label: 'Received Quantity' }],
+  identification: [{ position: 80, label: 'Received Quantity'  }] }
+  Recvqty;
+  @UI: { lineItem: [{ position: 120, label: 'Created By' }],
+  identification: [{ position: 120, label: 'Created By'  }] }
+  Createdby;
+  @UI.hidden: true
+  Createdat;
+  @UI: { lineItem: [{ position: 100, label: 'Received Date' }],
+  identification: [{ position: 100, label: 'Received Date'  }] }
+  Indt;
+  @UI: { lineItem: [{ position: 110, label: 'Received Time' }],
+  identification: [{ position: 110, label: 'Received Time'  }] }
+  Intim;
+  @UI: { lineItem: [{ position: 90, label: 'Ref Invoice' }],
+  identification: [{ position: 90, label: 'Ref Invoice'  }] }
+  Invoice;
+  @UI.hidden: true
+  /* Associations */
+  _Header;
+
+}

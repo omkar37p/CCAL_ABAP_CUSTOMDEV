@@ -1,0 +1,181 @@
+@Metadata.layer: #PARTNER
+@UI: {
+  headerInfo: { typeName: 'GSTR1 Report',
+                typeNamePlural: 'GSTR1 Report',
+                title: { type: #STANDARD, label: 'GSTR1 Report', value: 'AccountingDocument' } },
+  presentationVariant: [{ sortOrder: [{ by: 'AccountingDocument', direction:  #ASC }] }] }
+
+annotate entity ZFI_GSTR1_PV
+    with 
+{
+   @UI.facet: [ { id:              'GSTR1Report',
+                    purpose:         #STANDARD,
+                    type:            #IDENTIFICATION_REFERENCE,
+                    label:           'GSTR1 Report',
+                    position:        12 } ]
+//                  { id:              'GLAcc',
+//                    purpose:         #STANDARD,
+//                    type:            #LINEITEM_REFERENCE,
+//                    label:           'GLAcc',
+//                    position:        12,
+//                    targetElement:   'AccountingDocument'} ]
+                    
+  @UI: {  lineItem:       [ { position: 10, label: 'Document Number' } ],
+        identification:   [ { position: 10, label: 'Document Number' } ], 
+        selectionField:   [ { position: 10}  ]}                            
+AccountingDocument;                    
+  @UI: {  lineItem:       [ { position: 20, label: 'Fiscal Year' } ],
+        identification:   [ { position: 20, label: 'Fiscal Year' } ], 
+        selectionField: [{ position: 20 }]}
+FiscalYear;
+@UI.selectionField: [{ position: 50 }]
+AccountingDocumentType;
+  @UI: {  lineItem:       [ { position: 20, label: 'Supply Type' } ],
+        identification:   [ { position: 20, label: 'Supply Type' } ] }
+Supplytype1;
+  @UI: {  lineItem:       [ { position: 30, label: 'GSTR1 Return Period' } ],
+        identification:   [ { position: 30, label: 'GSTR1 Return Period' } ] }
+GSTR1RETURNPERIOD;
+  @UI: {  lineItem:       [ { position: 40, label: 'Company Code' } ],
+        identification:   [ { position: 40, label: 'Company Code' } ],
+        selectionField: [{ position: 40 }] }
+CompanyCode;
+  @UI: {  lineItem:       [ { position: 50, label: 'Customer GSTIN No' } ],
+        identification:   [ { position: 50, label: 'Customer GSTIN No' } ] }
+taxno2;
+  @UI: {  lineItem:       [ { position: 60, label: 'Supplier GSTIN' } ],
+        identification:   [ { position: 60, label: 'Supplier GSTIN' } ] }
+SupplierGSTIN;
+  @UI: {  lineItem:       [ { position: 70, label: 'Customer Code' } ],
+        identification:   [ { position: 70, label: 'Customer Code' } ] }
+cuscode;                    
+  @UI: {  lineItem:       [ { position: 80, label: 'Customer Name' } ],
+        identification:   [ { position: 80, label: 'Customer Name' } ] }
+custname;
+  @UI: {  lineItem:       [ { position: 90, label: 'Invoice Number' } ],
+        identification:   [ { position: 90, label: 'Invoice Number' } ] }
+//        selectionField:   [ { position: 10}  ]}                    
+billdoc;
+  @UI: {  lineItem:       [ { position: 100, label: 'Invoice date' } ],
+        identification:   [ { position: 100, label: 'Invoice date' } ] }
+billdate;
+  @UI: {  lineItem:       [ { position: 110, label: 'Invoice Value' } ],
+        identification:   [ { position: 110, label: 'Invoice Value' } ] }
+InvoiceValue;
+  @UI: {  lineItem:       [ { position: 120, label: 'Currency' } ],
+        identification:   [ { position: 120, label: 'Currency' } ] }
+TransactionCurrency;
+  @UI: {  lineItem:       [ { position: 125, label: 'Export Invoice Value' } ],
+        identification:   [ { position: 125, label: 'Export Invoice Value' } ] }
+ExportAmount;
+  @UI: {  lineItem:       [ { position: 130, label: 'Taxable Value' } ],
+        identification:   [ { position: 130, label: 'Taxable Value' } ] }
+TaxableValue;
+  @UI: {  lineItem:       [ { position: 135, label: 'Freight Amount' } ],
+        identification:   [ { position: 135, label: 'Freight Amount' } ] }
+freightAmount;
+  @UI: {  lineItem:       [ { position: 140, label: 'IGST Amount' } ],
+        identification:   [ { position: 140, label: 'IGST Amount' } ] }
+igstConditionAmount;
+  @UI: {  lineItem:       [ { position: 150, label: 'CGST Amount' } ],
+        identification:   [ { position: 150, label: 'CGST Amount' } ] }
+cgstconditionamount;
+  @UI: {  lineItem:       [ { position: 160, label: 'SGST Amount' } ],
+        identification:   [ { position: 160, label: 'SGST Amount' } ] }
+sgstconditionamount;
+  @UI: {  lineItem:       [ { position: 170, label: 'Cess Amount' } ],
+        identification:   [ { position: 170, label: 'Cess Amount' } ] }
+cessconditionamount;
+  @UI: {  lineItem:       [ { position: 180, label: 'Place Of Supply' } ],
+        identification:   [ { position: 180, label: 'Place Of Supply' } ] }
+State;
+  @UI: {  lineItem:       [ { position: 190, label: 'Applicable % of Tax of Rate' } ],
+        identification:   [ { position: 190, label: 'Applicable % of Tax of Rate' } ] }
+TaxPerc;
+  @UI: {  lineItem:       [ { position: 200, label: 'GL Account' } ],
+        identification:   [ { position: 200, label: 'GL Account' } ] }
+GLAccount;
+  @UI: {  lineItem:       [ { position: 210, label: 'Business Place' } ],
+        identification:   [ { position: 210, label: 'Business Place' } ],
+        selectionField: [{ position: 30 }] }
+plant;
+  @UI: {  lineItem:       [ { position: 230, label: 'Invoice Type' } ],
+        identification:   [ { position: 230, label: 'Invoice Type' } ] }
+BillingDocumentType;
+  @UI: {  lineItem:       [ { position: 240, label: 'UR Type' } ],
+        identification:   [ { position: 240, label: 'UR Type' } ] }
+UR_Type;
+  @UI: {  lineItem:       [ { position: 250, label: 'Export Type' } ],
+        identification:   [ { position: 250, label: 'Export Type' } ] }
+ExportType;
+  @UI: {  lineItem:       [ { position: 260, label: 'HSN/SAC Code' } ],
+        identification:   [ { position: 260, label: 'HSN/SAC Code' } ] }
+hsncode;
+  @UI: {  lineItem:       [ { position: 270, label: 'Item Description' } ],
+        identification:   [ { position: 270, label: 'Item Description' } ] }
+itmtxt;
+  @UI: {  lineItem:       [ { position: 280, label: 'Quantity' } ],
+        identification:   [ { position: 280, label: 'Quantity' } ] }
+billqty;
+  @UI: {  lineItem:       [ { position: 290, label: 'UOM' } ],
+        identification:   [ { position: 290, label: 'UOM' } ] }
+uom;
+  @UI: {  lineItem:       [ { position: 300, label: 'E-Way Bill No' } ],
+        identification:   [ { position: 300, label: 'E-Way Bill No' } ] }
+E_WayBillNo;
+  @UI: {  lineItem:       [ { position: 310, label: 'E-Way Bill Date' } ],
+        identification:   [ { position: 310, label: 'E-Way Bill Date' } ] }
+E_WayBilldate;
+  @UI: {  lineItem:       [ { position: 320, label: 'E-INVOICE NO' } ],
+        identification:   [ { position: 320, label: 'E-INVOICE NO' } ] }
+Einvoiceno;
+  @UI: {  lineItem:       [ { position: 330, label: 'E-INVOICE DATE' } ],
+        identification:   [ { position: 330, label: 'E-INVOICE DATE' } ] }
+Einvoicedate;
+
+  @UI: {  lineItem:       [ { position: 340, label: 'Credit/Debit Note Original Inv REF NO' } ],
+        identification:   [ { position: 340, label: 'Credit/Debit Note Original Inv REF NO' } ] }
+Notenumber;
+  @UI: {  lineItem:       [ { position: 350, label: 'Tax Invoice ID' } ],
+        identification:   [ { position: 350, label: 'Tax Invoice ID' } ] }
+DocumentReferenceID;
+  @UI: {  lineItem:       [ { position: 360, label: 'Original Invoice No' } ],
+        identification:   [ { position: 360, label: 'Original Invoice No' } ] }
+AssignmentReference;
+@UI.hidden: true
+SourceLedger;
+@UI.hidden: true
+LedgerGLLineItem;
+@UI.hidden: true
+billitm;
+@UI.hidden: true
+hsnproduct;
+@UI.hidden: true
+cuscustomer;
+@UI.hidden: true
+Language;
+@UI.hidden: true
+Country;
+@UI.hidden: true
+Region;
+@UI.hidden: true
+plaplant;
+@UI.hidden: true
+supBusinessPlace;
+@UI.hidden: true
+PostingDate;
+@UI.hidden: true
+DocumentDate;
+@UI.hidden: true
+FiscalPeriod;
+@UI.hidden: true
+CompanyCodeCurrency;
+@UI.hidden: true
+Product;
+@UI.hidden: true
+BillToPartyRegion;
+@UI.hidden: true
+BAUTOFILLPERIOD;
+@UI.hidden: true
+Divisionb;
+}

@@ -1,0 +1,46 @@
+@Metadata.layer: #PARTNER
+annotate entity ZMM_APP10_IPV1 with
+{
+  @UI.facet: [ { id:              'Item',
+                   purpose:         #STANDARD,
+                   type:            #IDENTIFICATION_REFERENCE,
+                   label:           'GR Items',
+                   position:        10 } ]
+  @UI.hidden: true
+  Uuid;
+  @UI: { lineItem: [{ position: 10, label: 'Item No' }],
+  identification: [{ position: 10, label: 'Item No'  }] }
+  Ebelp;
+  @UI: { lineItem: [{ position: 20, label: 'Material' }   ],
+  identification: [{ position: 20, label: 'Material'  } ] }
+  //   { type: #FOR_ACTION, dataAction: 'CrtIns', label: 'Create Inspection Lot' },
+  //   { type: #FOR_ACTION, dataAction: 'InsRst', label: 'Get Result Status' }
+  //  @Consumption.valueHelpDefinition: [{ entity: { name: 'I_ProductStdVH',
+  //  element: 'Product' }  }]
+  Maktx;
+  @UI.hidden: true
+  Matnr;
+  @UI: { lineItem: [{ position: 90, label: 'Entry Date' }],
+  identification: [{ position: 90, label: 'Entry Date'  }] }
+  Bedat;
+  @UI: { lineItem: [{ position: 50, label: 'Vendor Inv Qty' }],
+  identification: [{ position: 50, label: 'Vendor Invoice Quantity'  }] }
+  Vdinvqty;
+  //  @UI: { lineItem: [{ position: 70, label: 'Inspection Lot'}],
+  //    identification: [{ position: 70, label: 'Inspection Lot' } ] }
+  @UI.hidden: true
+  Inspectionlot;
+  //  @UI: { lineItem: [{ position: 80, label: 'Inspection Result'}],
+  //  identification: [{ position: 80, label: 'Inspection Result' } ] }
+  @UI.hidden: true
+  Insresult;
+  @UI.hidden: true
+  Inslotsts;
+  @UI: { lineItem: [{ position: 60, label: 'Unit'}],
+    identification: [{ position: 60, label: 'Unit' } ] }
+  Rcvunt;
+  /* Associations */
+  @UI.hidden: true
+  _Header;
+
+}

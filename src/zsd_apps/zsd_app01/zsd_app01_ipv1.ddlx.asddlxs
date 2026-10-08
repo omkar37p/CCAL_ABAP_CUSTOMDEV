@@ -1,0 +1,42 @@
+@Metadata.layer: #PARTNER
+annotate entity ZSD_APP01_IPV1 with
+{
+  @UI.facet: [ { id:              'Item',
+                 purpose:         #STANDARD,
+                 type:            #IDENTIFICATION_REFERENCE,
+                 label:           'SO Items',
+                 position:        10 } ]
+  @UI.hidden: true
+  Uuid;
+  @UI: { lineItem: [{ position: 10, label: 'SO Item' }],
+  identification: [{ position: 10, label: 'SO Item'  }] }
+  Soitem;
+  @UI: { lineItem: [{ position: 60, label: 'Division' }],
+    identification: [{ position: 60, label: 'Division'  }] }
+  Division;
+  @UI: { lineItem: [{ position: 20, label: 'Material' }],
+  identification: [{ position: 20, label: 'Material'  }] }
+  @Consumption.valueHelpDefinition: [{ entity: { name: 'I_ProductStdVH',
+  element: 'Product' }  }]
+  Material;
+  @UI.hidden: true
+  Matdesc;
+  @UI: { lineItem: [{ position: 50, label: 'Batch' }],
+  identification: [{ position: 50, label: 'Batch'  }] }
+  Batch;
+  @UI: { lineItem: [{ position: 30, label: 'Plant' }],
+  identification: [{ position: 30, label: 'Plant'  }] }
+  Plant;
+  @UI: { lineItem: [{ position: 40, label: 'Stor.Loc' }],
+    identification: [{ position: 40, label: 'Stor.Loc'  }] }
+  Sloc;
+  @UI: { lineItem: [{ position: 25, label: 'Open Order Qty' }],
+  identification: [{ position: 25, label: 'Order Quantity'  }] }
+  Ordqty;
+  @UI.hidden: true
+  Ordunt;
+  /* Associations */
+  @UI.hidden: true
+  _Header;
+
+}

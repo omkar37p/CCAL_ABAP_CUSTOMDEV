@@ -1,0 +1,34 @@
+projection;
+strict ( 2 );
+use draft;
+define behavior for ZMM_APP14_PV //alias <alias_name>
+{
+  use create;
+  use update;
+  use delete;
+  use action Resume;
+  use action Edit;
+  use action Activate;
+  use action Discard;
+  use action Prepare;
+  use action issueout ;
+
+  use association _ITM { create;with draft; }
+}
+
+define behavior for ZMM_APP14_IPV //alias <alias_name>
+{
+  use update;
+  use delete;
+  use association _HDR{with draft;}
+  use association _ITMCH { create;with draft; }
+}
+
+define behavior for ZMM_APP14_IIPV //alias <alias_name>
+{
+  use update;
+  use delete;
+
+  use association _HDR{with draft;}
+  use association _ITME{with draft;}
+}

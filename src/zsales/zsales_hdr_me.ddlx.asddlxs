@@ -1,0 +1,66 @@
+@Metadata.layer: #CUSTOMER
+@UI: { headerInfo: {
+typeName: 'Sales Document',
+typeNamePlural: 'Sales Document',
+title: { type: #STANDARD, value: 'SalesDocument' } } }
+@UI.createHidden: true
+@UI.deleteHidden: true
+@UI.updateHidden: true
+annotate entity ZSALES_HDR_C
+    with 
+{
+  @UI.facet: [ { id:              'Header',
+                        purpose:         #STANDARD,
+                        type:            #IDENTIFICATION_REFERENCE,
+                        label:           'Standard Header',
+                        position:        10 },
+                        { id:              'Items',
+                          purpose:         #STANDARD,
+                          type:            #LINEITEM_REFERENCE,
+                          label:           'Standard Item',
+                          position:        20,
+                          targetElement:   '_item'} ]
+  @UI:{ lineItem: [{ position: 10, label: 'SalesDocument' }],
+          identification: [{ position: 10, label: 'SalesDocument' },
+       { type: #FOR_ACTION, dataAction: 'PDF', label: 'Get PDF Output',position: 10 }          
+          ] }
+  @UI.selectionField: [{ position: 10 }]
+  @EndUserText.label: 'SalesDocument'                          
+SalesDocument;
+  @UI:{ lineItem: [{ position: 20, label: 'SalesDocumentDate' }],
+          identification: [{ position: 20, label: 'SalesDocumentDate' } ] }
+  @EndUserText.label: 'SalesDocumentDate' 
+SalesDocumentDate;
+  @UI:{ lineItem: [{ position: 30, label: 'SalesDocumentDescription' }],
+          identification: [{ position: 30, label: 'SalesDocumentDescription' } ] }
+  @EndUserText.label: 'SalesDocumentDescription' 
+SalesDocumentDescription;
+  @UI:{ lineItem: [{ position: 40, label: 'SoldToParty' }],
+          identification: [{ position: 40, label: 'SoldToParty' } ] }
+  @EndUserText.label: 'SoldToParty' 
+SoldToParty;
+  @UI:{ lineItem: [{ position: 50, label: 'DistributionChannel' }],
+          identification: [{ position: 50, label: 'DistributionChannel' } ] }
+  @EndUserText.label: 'DistributionChannel' 
+DistributionChannel;
+  @UI:{ lineItem: [{ position: 60, label: 'CreatedByUser' }],
+          identification: [{ position: 60, label: 'CreatedByUser' } ] }
+  @EndUserText.label: 'SalesDocument' 
+CreatedByUser;
+  @UI:{ lineItem: [{ position: 70, label: 'CreationDate' }],
+          identification: [{ position: 70, label: 'CreationDate' } ] }
+  @EndUserText.label: 'CreationDate' 
+CreationDate;
+  @UI:{ lineItem: [{ position: 80, label: 'attachment' }],
+          identification: [{ position: 80, label: 'attachment' } ] }
+  @EndUserText.label: 'attachment' 
+attachment;
+@UI.hidden: true
+filename;
+@UI.hidden: true
+mimetype;
+@UI.hidden: true
+/* Associations */
+_item;
+    
+}

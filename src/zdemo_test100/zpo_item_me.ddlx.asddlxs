@@ -1,0 +1,68 @@
+@Metadata.layer: #CUSTOMER
+annotate entity ZPO_ITEM_PVE
+    with 
+{
+  // Uuid;
+   @UI: { lineItem: [{ position: 10, label: 'PO Item' }],
+  identification: [{ position: 10, label: 'PO Item'  }] }
+   Ebelp;
+   @UI.hidden: true
+   Ebeln;
+    @UI: { lineItem: [{ position: 20, label: 'Material' }],
+  identification: [{ position: 20, label: 'Material'  }] }
+   Matnr;
+    @UI: { lineItem: [{ position: 25, label: 'Plant' }],
+  identification: [{ position: 25, label: 'Plant'  }] }
+   Werks;
+    @UI: { lineItem: [{ position: 110, label: 'SLoc' }],
+  identification: [{ position: 110, label: 'Stor.Loc.'  }] }
+   Lgort;
+    @UI: { lineItem: [{ position: 90, label: 'Material Group' }],
+  identification: [{ position: 90, label: 'Material Group'  }] }
+   Matkl;
+     @UI: { lineItem: [{ position: 100, label: 'Ext.Mat.Grp' }],
+  identification: [{ position: 100, label: 'Ext.Mat.Grp'  }] }
+   Extmatgrp;
+    @UI: { lineItem: [{ position: 30, label: 'Target Quantity' }],
+  identification: [{ position: 30, label: 'Target Quantity'  }] }
+   Ktmng;
+     @UI: { lineItem: [{ position: 40, label: 'Order Quantity' }],
+  identification: [{ position: 40, label: 'Order Quantity'  }] }
+   Menge;
+   @UI.hidden: true
+   Bprme;
+    @UI: { lineItem: [{ position: 50, label: 'Net Price' }],
+  identification: [{ position: 50, label: 'Net Price'  }] }
+   Netprice;
+    @UI: { lineItem: [{ position: 60, label: 'Net Value' }],
+  identification: [{ position: 60, label: 'Net Value'  }] }
+   Netvalue;
+    @UI: { lineItem: [{ position: 80, label: 'Allotted Budget' }],
+  identification: [{ position: 80, label: 'Allotted Budget'  }] }
+   Alltbdgamt;
+    @UI: { lineItem: [{ position: 70, label: 'Available Budget' }],
+  identification: [{ position: 70, label: 'Available Budget'  }] }
+   Avlbdgamt;
+    @UI: { lineItem: [{ position: 105, label: 'Purchase Requisition'}],
+  identification: [{ position: 105, label: 'PR Number' }] }
+   Banfn;
+   @UI: { lineItem: [{ position: 108, label: 'Purchase Item'}],
+  identification: [{ position: 108, label: 'PR Item' }] }
+   Bnfpo;
+    @UI.hidden: true
+   Meins;
+    @UI.hidden: true
+   Peinh;
+     @UI.hidden: true
+   Itemcreatedby;
+     @UI.hidden: true
+   Itemcreatedat;
+     @UI.hidden: true
+     
+   Itemlastchangedby;
+     @UI.hidden: true
+   Itemlastchangedat;
+   /* Associations */
+     @UI.hidden: true
+   _Header;
+}

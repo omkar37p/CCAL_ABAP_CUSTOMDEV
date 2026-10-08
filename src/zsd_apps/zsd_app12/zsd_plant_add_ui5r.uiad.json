@@ -1,0 +1,35 @@
+{
+  "formatVersion": "2",
+  "header": {
+    "description": "An SAP Fiori application.",
+    "originalLanguage": "en",
+    "abapLanguageVersion": "cloudDevelopment"
+  },
+  "generalInformation": {
+    "appType": "ui5",
+    "catalogId": "SAP_TC_UI5_REPO_UIAD",
+    "targetMappingTitle": "Plant Address"
+  },
+  "ui5AppDetails": {
+    "appId": "plantaddresss.zsdplantaddress"
+  },
+  "navigation": {
+    "targetMappingId": "UI5R_4A7A4BCA296C16E22EE8E329B815E207BF609E41_TM",
+    "semanticObject": "zsd_plant_address",
+    "action": "display",
+    "desktop": true,
+    "tablet": true,
+    "phone": true
+  },
+  "tiles": [
+    {
+      "id": "UI5R_4A7A4BCA296C16E22EE8E329B815E207BF609E41_AL",
+      "tileType": "static",
+      "isDefault": true,
+      "standard": {
+        "title": "Plant Address",
+        "subtitle": "Plant Address"
+      }
+    }
+  ]
+}

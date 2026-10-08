@@ -1,0 +1,56 @@
+@Metadata.layer: #PARTNER
+annotate entity ZMM_APP02_RPV with
+{
+  @UI.facet: [ { id:              'Header',
+                    purpose:         #STANDARD,
+                    type:            #IDENTIFICATION_REFERENCE,
+                    label:           'PR Header',
+                    position:        10 } ,
+                  { id:              'Items',
+                    purpose:         #STANDARD,
+                    type:            #LINEITEM_REFERENCE,
+                    label:           'PR Items',
+                    position:        20,
+                    targetElement:   '_Item'}]
+  @UI.hidden: true
+  Uuid;
+  @UI: { lineItem: [{ position: 10, label: 'Purchase Requisition'}],
+  identification: [{ position: 10, label: 'PR Number' },
+  { type: #FOR_ACTION, dataAction: 'CrtPr', label: 'Create PR' }] }
+  @Consumption.semanticObject: 'PurchaseRequisition'
+//  semanticObjectAction : 'displayAdvanced'
+  Purreqnum;
+  @UI: { lineItem: [{ position: 20, label: 'PR Description'}],
+  identification: [{ position: 20, label: 'PR Description' }] }
+  Purreqdesc;
+  @UI: { lineItem: [{ position: 30, label: 'Document Type'}],
+  identification: [{ position: 30, label: 'Document Type' }] }
+  @Consumption.valueHelpDefinition: [{ entity: { name: 'I_PurchaseRequisitionType',
+  element: 'PurchaseRequisitionType' }  }]
+  Purreqtyp;
+  @UI.hidden: true
+  Prtypdesc;
+  @UI: { lineItem: [{ position: 40, label: 'Number of Items'}],
+  identification: [{ position: 40, label: 'Number of Items' }] }
+  Totitms;
+  @UI: { lineItem: [{ position: 50, label: 'Total Net Value'}],
+  identification: [{ position: 50, label: 'Total Net Value' }] }
+  Totnet;
+  @UI.hidden: true
+  Currency;
+  @UI: { lineItem: [{ position: 60, label: 'Status'}],
+  identification: [{ position: 60, label: 'Status' }] }
+  Status;
+  //  CreatedBy;
+  //  CreatedAt;
+  //  @UI.hidden: true
+  //  LastChangedBy;
+  //  @UI.hidden: true
+  //  LastChangedAt;
+  //  @UI.hidden: true
+  //  LocalLastChangedAt;
+  //  /* Associations */
+  //  @UI.hidden: true
+  //  _Item;
+
+}

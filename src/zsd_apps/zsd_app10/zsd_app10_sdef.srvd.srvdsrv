@@ -1,0 +1,4 @@
+@EndUserText.label: 'DSC - Authorised Signer Details'
+define service ZSD_APP10_SDEF {
+  expose ZSD_APP10_RPV as MAINPAGE;
+}

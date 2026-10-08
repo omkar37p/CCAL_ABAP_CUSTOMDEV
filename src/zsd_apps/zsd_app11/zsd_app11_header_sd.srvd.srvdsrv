@@ -1,0 +1,5 @@
+@EndUserText.label: 'Service Definition'
+define service ZSD_APP11_HEADER_SD {
+  expose ZSD_APP11_HEADER_PV as BillingHeader;
+  expose ZSD_APP11_ITEM_PV   as BillingItem;
+}

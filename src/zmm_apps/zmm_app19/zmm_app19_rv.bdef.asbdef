@@ -1,0 +1,29 @@
+managed implementation in class zbp_mm_app19_rv unique;
+strict ( 2 );
+with draft;
+define behavior for ZMM_APP19_RV alias Head
+persistent table zmm_app19_tb1
+draft table zmm_app19_dt1
+lock master
+total etag Lastchangedat
+authorization master ( instance )
+etag master Lastchangedat
+{
+  create ( authorization : global );
+  update;
+  delete;
+
+  field ( mandatory : create ) Userid, Ccode, Cplant;
+  field ( mandatory ) Signername;
+  field ( readonly : update ) Userid, Ccode, Cplant;
+  field ( readonly ) Createdat, Createdby, Lastchangedat, Lastchangedby, Formname, Formtmp;
+
+  draft action Resume;
+  draft action Edit;
+  draft action Activate optimized;
+  draft action Discard;
+  draft determine action Prepare; //{ validation ( always )  ; }
+
+  mapping for zmm_app19_tb1 corresponding;
+
+}

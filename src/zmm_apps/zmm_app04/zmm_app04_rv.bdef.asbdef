@@ -1,0 +1,90 @@
+managed implementation in class zbp_mm_app04_rv unique;
+strict ( 1 );
+with draft;
+
+define behavior for ZMM_APP04_RV alias _GIHDR
+//persistent table zmm_app04_tb1
+with unmanaged save
+draft table zmm_app04_dt1
+lock master
+total etag LastChangedAt
+authorization master ( instance )
+etag master LastChangedAt
+{
+  create;
+  update;
+  delete;
+  field ( readonly, numbering : managed ) Uuid;
+  field ( readonly ) Tckdate, Tcktime, Ticketnum, Inetwgt, Itarewgt, Taredate, Taretime,Tcktim , Grstim, Grsdate, Grstime, Igrswgt, Wgtunit;
+  field ( mandatory : create ) Plant, Gateid, Drivername, Ebeln;
+
+  association _Item { create; with draft; }
+  association _Gout { create; with draft; }
+
+  draft action Resume;
+  draft action Edit;
+  draft action Activate optimized;
+  draft action Discard;
+  draft determine action Prepare;
+
+  determination GetData1 on save { create; field Ebeln; }
+  determination Upddata on save { field Igrswgt; }
+
+  action ( features : instance ) GetGross result [1] $self;
+  action ( features : instance ) PutGross parameter ZAE_WEIGHT result [1] $self;
+
+
+  mapping for zmm_app04_tb1 corresponding;
+}
+
+define behavior for ZMM_APP04_IV1 alias _Poitem
+//persistent table zmm_app04_tb2
+with unmanaged save
+draft table zmm_app04_dt2
+lock dependent by _Header
+authorization dependent by _Header
+//etag master
+{
+  update;
+  delete;
+  field ( readonly ) Uuid, Ebelp, Bedat, Lifnr, Maktx, Matnr, Meins, Poqty, Suppname, Rcvunt, Werks, Inslotsts, Inspectionlot, Insresult;
+
+  association _Header { with draft; }
+
+  determination UpdItm on save { create; update; field Vdinvqty, Actphqty, Rcvqty; }
+  validation reqty on save { field Rcvqty; }
+
+  action ( features : instance ) CrtIns result [1] $self;
+  action ( features : instance ) InsRst result [1] $self;
+
+  mapping for zmm_app04_tb2 corresponding;
+}
+
+define behavior for ZMM_APP04_IV2 alias _GOHDR
+//persistent table zmm_app04_tb3
+with unmanaged save
+draft table zmm_app04_dt3
+lock dependent by _Header
+authorization dependent by _Header
+//etag master <field_name>
+{
+  update;
+  delete;
+  field ( readonly ) Uuid, Ticketnum, Godate, Gotime, Wgtunit, Drivername, Lrnumber,Gotim,Wghgotim,
+  Veninvno, Vehicleno, Trspname, Trspmode, Trcuktyp, Onetwgt, Ogrswgt, Oitarewgt, Mark, Pcklistid, Cylinder, Concrate, Vhlistid, Wghgodate, Wghgotime;
+  association _Header { with draft; }
+
+  determination GetData2 on save { create; update; field Oitarewgt, Onetwgt; }
+  side effects
+  { field Oitarewgt affects field Onetwgt;
+    field Onetwgt affects field _Header.Inetwgt; }
+
+
+  validation Insprst on save { create; field Oitarewgt; }
+
+  action ( features : instance ) GetTare result [1] $self;
+  action ( features : instance ) PutTare parameter ZAE_WEIGHT result [1] $self;
+  action ( features : instance ) PostGR result [1] $self;
+
+  mapping for zmm_app04_tb3 corresponding;
+}

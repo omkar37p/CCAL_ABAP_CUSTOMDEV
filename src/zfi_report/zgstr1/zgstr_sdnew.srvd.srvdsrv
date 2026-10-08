@@ -1,0 +1,4 @@
+@EndUserText.label: 'Service Defination New'
+define service ZGSTR_SDNEW {
+  expose ZGSTR1_PVNEW as GSTR1Report;
+}

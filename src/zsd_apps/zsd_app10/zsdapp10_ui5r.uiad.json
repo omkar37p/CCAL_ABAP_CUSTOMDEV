@@ -1,0 +1,34 @@
+{
+  "formatVersion": "2",
+  "header": {
+    "description": "DSC - Authorized Signer Details",
+    "originalLanguage": "en",
+    "abapLanguageVersion": "cloudDevelopment"
+  },
+  "generalInformation": {
+    "appType": "ui5",
+    "catalogId": "SAP_TC_UI5_REPO_UIAD",
+    "targetMappingTitle": "DSC - Authorized Signer Details"
+  },
+  "ui5AppDetails": {
+    "appId": "dscapp10"
+  },
+  "navigation": {
+    "targetMappingId": "UI5R_D697F633C90C71CCBDEFAA8D260C5AFFE0C214DC_TM",
+    "semanticObject": "YY1_SD_APP01",
+    "action": "manage",
+    "desktop": true,
+    "tablet": true,
+    "phone": true
+  },
+  "tiles": [
+    {
+      "id": "UI5R_D697F633C90C71CCBDEFAA8D260C5AFFE0C214DC_AL",
+      "tileType": "static",
+      "isDefault": true,
+      "standard": {
+        "title": "DSC - Authorized Signer Details"
+      }
+    }
+  ]
+}

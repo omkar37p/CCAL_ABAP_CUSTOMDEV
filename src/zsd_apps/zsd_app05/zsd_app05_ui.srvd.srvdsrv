@@ -1,0 +1,4 @@
+@EndUserText.label: 'Billing Document - DSC Print'
+define service ZSD_APP05_UI {
+  expose ZSD_APP05_RPV as MAINPAGE;
+}

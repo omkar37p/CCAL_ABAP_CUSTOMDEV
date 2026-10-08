@@ -1,0 +1,8 @@
+projection;
+strict ( 2 );
+
+define behavior for ZSD_APP05_RPV //alias <alias_name>
+{
+
+  use action print;
+}

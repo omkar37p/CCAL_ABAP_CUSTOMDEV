@@ -1,0 +1,5 @@
+@EndUserText.label: 'sales print ce'
+define service Zsales_PrintSD {
+  expose zsales_CusEntity;
+  expose ZSALES_ITEM;
+}

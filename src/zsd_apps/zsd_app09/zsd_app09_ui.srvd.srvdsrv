@@ -1,0 +1,5 @@
+@EndUserText.label: 'DSC - Domestic Invoices'
+define service ZSD_APP09_UI {
+  expose ZSD_APP09_DMRPV  as Mainpage;
+  expose ZSD_APP09_DMIPV1 as MainItem;
+}

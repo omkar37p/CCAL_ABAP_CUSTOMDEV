@@ -1,0 +1,26 @@
+@Metadata.layer: #PARTNER
+annotate entity ZSD_APP06_PVC1
+with
+{
+   @UI.facet: [ { id:              'Item',
+                 purpose:         #STANDARD,
+                 type:            #IDENTIFICATION_REFERENCE,
+                 label:           'Delivery Details',
+                 position:        10 } ]
+                 
+     @UI: { lineItem: [{ position: 10, label: 'DeliveryDocument'}],
+    identification: [{ position: 10, label: 'DeliveryDocument' }  ]}            
+    DeliveryDocument;
+    @UI.hidden: true
+    OverallSDProcessStatus;     @UI.hidden: true
+    OverallGoodsMovementStatus;    
+   @UI.hidden: true
+    /* Associations */    
+    _header;   
+    @UI: { lineItem: [{ position: 20, label: 'Delivery Status'}],
+    identification: [{ position: 20, label: 'Delivery Status' }  ]}  
+    STAUSDEL;
+    
+  
+    
+}

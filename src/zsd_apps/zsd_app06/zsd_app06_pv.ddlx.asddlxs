@@ -1,0 +1,178 @@
+@Metadata.layer: #CUSTOMER
+@UI: { headerInfo: {
+typeName: 'Packing Slip',
+typeNamePlural: 'Packing Slips',
+title: { type: #STANDARD, value: 'Tokennum' },
+         description: { type: #STANDARD, value: 'Matdesc' }
+         } }
+
+                      
+annotate entity ZSD_APP06_PV
+    with 
+{
+    
+  @UI.facet: [ { label: 'Information',
+  id: 'info',
+  type: #COLLECTION,
+  position: 10
+  
+  },{ id:              'Header',
+                      purpose:         #STANDARD,
+                      type:            #IDENTIFICATION_REFERENCE,
+                      label:           'Weigh-Bridge In - Weigh-Bridge Out',
+                      parentId: 'info',
+                      position:        10 } ,
+                    { id:              'Items',
+                      purpose:         #STANDARD,
+                      type:            #IDENTIFICATION_REFERENCE,
+                      label:           'Delivery Details',
+                      position:        20,
+                      targetElement:   '_delv'},
+                       { id:              'Items2',
+                      purpose:         #STANDARD,
+                      type:            #IDENTIFICATION_REFERENCE,
+                      label:           'Billing Details',
+                      position:        30,
+                      targetElement:   '_delv2'}]
+Delvnum;
+@UI.hidden: true
+Uuid;
+@UI: { lineItem: [{ position: 10, label: 'Packing List Number'}],
+    identification: [{ position: 10, label: 'Packing List Number' } ,
+       { type: #FOR_ACTION, dataAction: 'Getout', label: 'Gate Out' }
+      ] }
+       @UI.selectionField: [{ position: 10 }] 
+Tokennum;
+
+@UI: { lineItem: [{ position: 20, label: 'GateIn Date'}],
+  identification: [{ position: 20, label: 'GateIn Date' } ] }
+  Gidate;
+  @UI: { lineItem: [{ position: 30, label: 'GateIn Time'}],
+  identification: [{ position: 30, label: 'GateIn Time' } ] }
+  Gitime;
+  @UI: { lineItem: [{ position: 31, label: 'GateOut Date'}],
+  identification: [{ position: 31, label: 'GateOut Date' } ] }
+  Godate;
+  @UI: { lineItem: [{ position: 32, label: 'GateOut Time'}],
+  identification: [{ position: 32, label: 'GateOut Time' } ] }
+  Gotime;
+  @UI: { lineItem: [{ position: 95, label: 'Tare Weighed On'}],
+  identification: [{ position: 95, label: 'Tare Weighed On' } ] }
+  trwdate;
+  @UI: { lineItem: [{ position: 96, label: 'Tare Weighed At'}],
+  identification: [{ position: 96, label: 'Tare Weighed At' } ] }
+  trwtime;
+  @UI: { lineItem: [{ position: 15, label: 'Shiping Point'}],
+  identification: [{ position: 15, label: 'Shiping Point' } ] }
+  Plant;
+   @UI.hidden: true
+  Plantname;
+  @UI: { lineItem: [{ position: 40, label: 'Vehicle Number'}],
+  identification: [{ position: 40, label: 'Vehicle Number' } ] }
+  Vehicleno;
+  @UI: { lineItem: [{ position: 60, label: 'Truck Type'}],
+  identification: [{ position: 60, label: 'Truck Type' } ] }
+
+  Trucktyp;
+  @UI: { lineItem: [{ position: 90, label: 'Transporter'}],
+  identification: [{ position: 90, label: 'Transporter' } ] }
+
+  Trspname;
+  @UI: { lineItem: [{ position: 100, label: 'Mode of Transport'}],
+  identification: [{ position: 100, label: 'Mode of Transport' } ] }
+ // @Consumption.valueHelpDefinition: [{ entity: { name: 'ZI_TRANSMODE', element: 'value_low' }, distinctValues: true }]
+  Trspmode;
+  @UI: { lineItem: [{ position: 70, label: 'Driver Name'}],
+  identification: [{ position: 70, label: 'Driver Name' } ] }
+  Drivername;
+  @UI: { lineItem: [{ position: 80, label: 'LR Number'}],
+  identification: [{ position: 80, label: 'LR Number' } ] }
+  Lrnumber;
+  @UI: { lineItem: [{ position: 40, label: 'Material' }],
+  identification: [{ position: 40, label: 'Material'  }] }
+  //@Consumption.valueHelpDefinition: [{ entity: { name: 'I_ProductStdVH',
+ // element: 'Product' }  }]
+  Material;
+  @UI.hidden: true
+  Matdesc;
+  @UI: { lineItem: [{ position: 41, label: 'Division'}],
+  identification: [{ position: 41, label: 'Division' } ] }
+  Division;
+  @UI.hidden: true
+  Divmark;
+  @UI.hidden: true
+  Divname;
+  @UI: { lineItem: [{ position: 50, label: 'Batch' }],
+    identification: [{ position: 50, label: 'Batch'  }] }
+  Batch;
+  @UI: { lineItem: [{ position: 60, label: 'Stor.Loc' }],
+      identification: [{ position: 60, label: 'Stor.Loc'  }] }
+  Sloc;
+  @UI: { lineItem: [{ position: 90, label: 'Empty Vehicle Weight'}],
+  identification: [{ position: 90, label: 'Tare Weight(Empty Vehicle)' } ] }
+  Tarewgt;
+  @UI.hidden: true
+  Wgtunit;
+  @UI: { lineItem: [{ position: 110, label: 'Loading Status'}],
+  identification: [{ position: 110, label: 'Loading Status' } ] }
+  Status;
+@UI.hidden: true
+  Mark;
+ @UI: { //lineItem: [{ position: 120, label: 'Loading Status'}],
+  identification: [{ position: 120, label: 'Tare Weight' } ] }
+TAREWG;
+ @UI: { //lineItem: [{ position: 130, label: 'Loading Status'}],
+  identification: [{ position: 130, label: 'Gross Weight' } ] }
+Grswgt;
+ @UI: { //lineItem: [{ position: 140, label: 'Loading Status'}],
+  identification: [{ position: 140, label: 'Concentration Rate' } ] }
+Concnrate;
+ @UI: { //lineItem: [{ position: 150, label: 'Loading Status'}],
+  identification: [{ position: 150, label: 'Chargable Weight' } ] }
+Chbwgt;
+ @UI: { //lineItem: [{ position: 160, label: 'Loading Status'}],
+  identification: [{ position: 160, label: 'Gross Weighed On' } ] }
+Grsdate;
+ @UI: { //lineItem: [{ position: 170, label: 'Loading Status'}],
+  identification: [{ position: 170, label: 'Gross Weighed At' } ] }
+Grstime;
+ @UI: { //lineItem: [{ position: 180, label: 'Loading Status'}],
+  identification: [{ position: 180, label: 'Net Weight' } ] }
+Netwgt;
+ @UI: { //lineItem: [{ position: 190, label: 'Loading Status'}],
+  identification: [{ position: 190, label: 'No. of Cylinders' } ] }
+Totcyln;
+ @UI: { //lineItem: [{ position: 200, label: 'Loading Status'}],
+  identification: [{ position: 200, label: 'Volume per Cylinder' } ] }
+Cylnvol;
+ @UI: { //lineItem: [{ position: 210, label: 'Loading Status'}],
+  identification: [{ position: 210, label: 'Cylinder details/Seal No.' } ] }
+Sealnum;
+ @UI: { //lineItem: [{ position: 220, label: 'Loading Status'}],
+  identification: [{ position: 220, label: 'Frieght Terms' } ] }
+Frgtrms;
+ @UI: { //lineItem: [{ position: 230, label: 'Loading Status'}],
+  identification: [{ position: 230, label: 'Place' } ] }
+Dlvplace;
+ @UI: { //lineItem: [{ position: 240, label: 'Loading Status'}],
+  identification: [{ position: 240, label: 'Remarks' } ] }
+Remarks;
+ @UI: { //lineItem: [{ position: 250, label: 'Loading Status'}],
+  identification: [{ position: 250, label: 'Gate Entry Completion' } ] }
+Loadsts;
+
+@UI.hidden: true
+Createdby;
+@UI.hidden: true
+Createdat;
+@UI.hidden: true
+Lastchangedby;
+@UI.hidden: true
+Lastchangedat;
+/* Associations */
+@UI.hidden: true
+_delv;
+@UI.hidden: true
+_delv2;
+    
+}

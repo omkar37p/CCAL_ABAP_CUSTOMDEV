@@ -1,0 +1,43 @@
+projection;
+strict ( 1 );
+use draft;
+
+define behavior for ZMM_APP10_RPV //alias <alias_name>
+{
+  use create;
+  use update;
+  use delete;
+
+  //  use action GetGross;
+
+  use action Resume;
+  use action Edit;
+  use action Activate;
+  use action Discard;
+  use action Prepare;
+
+  use association _Item { create; with draft; }
+  use association _Gout { create; with draft; }
+}
+
+define behavior for ZMM_APP10_IPV1 //alias <alias_name>
+{
+  use update;
+  use delete;
+
+  //  use action CrtIns;
+  //  use action InsRst;
+
+  use association _Header { with draft; }
+}
+
+define behavior for ZMM_APP10_IPV2 //alias <alias_name>
+{
+  use update;
+  use delete;
+
+  //  use action GetTare;
+  //  use action PostGR;
+
+  use association _Header { with draft; }
+}

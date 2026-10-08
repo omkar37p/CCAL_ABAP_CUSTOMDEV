@@ -1,0 +1,64 @@
+@Metadata.layer: #CUSTOMER
+annotate entity ZMM_APP03_RPV with
+{
+  @UI.facet: [ { id:              'Header',
+                      purpose:         #STANDARD,
+                      type:            #IDENTIFICATION_REFERENCE,
+                      label:           'PO Header',
+                      position:        10 } ,
+                    { id:              'Items',
+                      purpose:         #STANDARD,
+                      type:            #LINEITEM_REFERENCE,
+                      label:           'PO Items',
+                      position:        20,
+                      targetElement:   '_Item'}]
+  @UI: { lineItem: [{ position: 10, label: 'Purchase Order'}],
+  identification: [{ position: 10, label: 'PO Number' },
+  { type: #FOR_ACTION, dataAction: 'CrtPO', label: 'Create PO' }] }
+  //  @Consumption.semanticObject: 'PurchaseOrder'
+  @Consumption.semanticObject: 'AccountingDocument' 
+  Ebeln;
+  @UI: { lineItem: [{ position: 30, label: 'Purchase Requisition'}],
+  identification: [{ position: 30, label: 'PR Number' }] }
+  @Consumption.valueHelpDefinition: [{ entity: { name: 'I_PurchaseRequisitionAPI01',
+  element: 'PurchaseRequisition' }  }]
+  Banfn;
+  @UI: { lineItem: [{ position: 20, label: 'Document Type'}],
+  identification: [{ position: 20, label: 'Document Type' }] }
+  @Consumption.valueHelpDefinition: [{ entity: { name: 'I_PurchaseOrderType',
+  element: 'PurchaseOrderType' }  }]
+  Bsart;
+  @UI: { lineItem: [{ position: 40, label: 'Supplier'}],
+  identification: [{ position: 40, label: 'Supplier' }] }
+  @Consumption.valueHelpDefinition: [{ entity: { name: 'ZI_SupplierVH',
+  element: 'Supplier' }  }]
+  Lifnr;
+  @UI: { lineItem: [{ position: 60, label: 'Purch. Org.'}],
+  identification: [{ position: 60, label: 'Purch. Org.' }] }
+  Ekorg;
+  @UI: { lineItem: [{ position: 70, label: 'Purch. Grp.'}],
+  identification: [{ position: 70, label: 'Purch. Grp.' }] }
+  @Consumption.valueHelpDefinition: [{ entity: { name: 'I_PurchasingGroup',
+  element: 'PurchasingGroup' }  }]
+  Ekgrp;
+  //  @UI: { lineItem: [{ position: 80, label: 'Company Code'}],
+  //  identification: [{ position: 80, label: 'Company Code' }] }
+  //  Bukrs;
+  @UI.hidden: true
+  Waers;
+  @UI: { lineItem: [{ position: 50, label: 'PO Date'}],
+  identification: [{ position: 50, label: 'PO Date' }] }
+  Bedat;
+  @UI.hidden: true
+  CreatedBy;
+  @UI.hidden: true
+  CreatedAt;
+  @UI.hidden: true
+  LastChangedBy;
+  @UI.hidden: true
+  LastChangedAt;
+  /* Associations */
+  @UI.hidden: true
+  _Item;
+
+}

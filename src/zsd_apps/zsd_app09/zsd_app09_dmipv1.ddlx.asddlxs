@@ -1,0 +1,67 @@
+@Metadata.layer: #PARTNER
+annotate entity ZSD_APP09_DMIPV1 with
+{
+  @UI.facet: [ { id:              'Item',
+                   purpose:         #STANDARD,
+                   type:            #IDENTIFICATION_REFERENCE,
+                   label:           'Item Details',
+                   position:        10 } ]
+  @UI.hidden: true
+  ccode;
+
+  @UI: { lineItem: [{ position: 10, label: 'S.No'}],
+  identification: [{ position: 10, label: 'S.No' } ] }
+  billitm;
+  @UI: { lineItem: [{ position: 20, label: 'Billing Document'}],
+  identification: [{ position: 20, label: 'Billing Document' } ] }
+  billdoc;
+  @UI: { lineItem: [{ position: 30, label: 'Material'}],
+  identification: [{ position: 30, label: 'Material' } ] }
+  product;
+  @UI: { lineItem: [{ position: 40, label: 'Material Description'}],
+  identification: [{ position: 40, label: 'Material Description' } ] }  
+  Matdesc;
+  @UI: { lineItem: [{ position: 50, label: 'Billing Quantity'}],
+  identification: [{ position: 50, label: 'Billing Quantity' } ] }
+  billqty;
+  @UI: { lineItem: [{ position: 60, label: 'HSN Code'}],
+  identification: [{ position: 60, label: 'HSN Code' } ] }
+  hsnno;
+    @UI: { lineItem: [{ position: 70, label: 'Plant'}],
+  identification: [{ position: 70, label: 'Plant' } ] }
+  Plant;
+      @UI: { lineItem: [{ position: 80, label: 'Batch'}],
+  identification: [{ position: 80, label: 'Batch' } ] }
+  Batch;
+  @UI.hidden: true
+  unit;
+  @UI.hidden: true
+  netamt;
+  @UI.hidden: true
+  curky;
+
+  @UI.hidden: true
+  RateUnit;
+  //  @UI: { lineItem: [{ position: 50, label: 'Total Value'}],
+  //  identification: [{ position: 50, label: 'Total Value' } ] }
+  //  TotalValue;
+  //  @UI: { lineItem: [{ position: 60, label: 'IGST'}],
+  //  identification: [{ position: 60, label: 'IGST' } ] }
+  //  IGSTAmount;
+  //  @UI: { lineItem: [{ position: 70, label: 'CGST'}],
+  //  identification: [{ position: 70, label: 'CGST' } ] }
+  //  CGSTAmount;
+  //  @UI: { lineItem: [{ position: 80, label: 'SGST'}],
+  //  identification: [{ position: 80, label: 'SGST' } ] }
+  //  SGSTAmount;
+  //  @UI: { lineItem: [{ position: 90, label: 'ROUND OFF'}],
+  //  identification: [{ position: 90, label: 'ROUND OFF' } ] }
+  //  RoundoffAmount;
+  //  @UI: { lineItem: [{ position: 100, label: 'Freight Amount'}],
+  //  identification: [{ position: 100, label: 'Freight Amount' } ] }
+  //  FreightAmount;
+  /* Associations */
+  @UI.hidden: true
+  _Header;
+
+}

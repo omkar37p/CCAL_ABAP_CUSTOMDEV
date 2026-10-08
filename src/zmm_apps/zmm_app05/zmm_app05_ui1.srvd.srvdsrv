@@ -1,0 +1,4 @@
+@EndUserText.label: 'Business User Department'
+define service ZMM_APP05_UI1 {
+  expose ZMM_APP05_RPV as MAINPAGE;
+}

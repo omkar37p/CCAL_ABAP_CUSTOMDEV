@@ -1,0 +1,27 @@
+managed implementation in class zbp_mm_app01_rv1 unique;
+strict ( 2 );
+with draft;
+define behavior for ZMM_APP01_RV1 //alias <alias_name>
+//persistent table zmm_app01_tb3
+with unmanaged save
+draft table zmm_app01_dt3
+lock master total etag Prodgrp
+authorization master ( instance )
+//etag master <field_name>
+{
+  create;
+  update;
+  delete;
+  field ( readonly : update ) Prodgrp, Exprdgrp;
+  field ( readonly ) Exgrpname, prodgrpname;
+  draft action ( features : instance ) Edit;
+  draft action Activate optimized;
+  draft action Discard;
+  draft action Resume;
+  draft determine action Prepare;
+
+  determination data1 on save { create; update; field Prodgrp, Exgrpname; }
+
+  mapping for zmm_app01_tb3 corresponding;
+
+}

@@ -1,0 +1,65 @@
+@Metadata.layer: #CORE
+annotate entity ZSD_PLANT_PV
+    with 
+{
+  @UI.facet: [{ id: 'ID01', type: #COLLECTION, label: 'Plant', position: 10 },
+      { id: 'Idc01', type: #IDENTIFICATION_REFERENCE, parentId: 'ID01' } ]
+  @UI.lineItem: [{ position: 10, label: 'Plant' }]
+  @UI.identification:  [{ position: 10, label: 'Plant' }]
+  @EndUserText.label: 'Plant'
+plant;
+  @UI.lineItem: [{ position: 20, label: 'Plant Address' }]
+  @UI.identification:  [{ position: 20, label: 'Plant Address' }]
+  @EndUserText.label: 'Plant'
+plantaddress;
+  @UI.lineItem: [{ position: 30, label: 'Plant GST' }]
+  @UI.identification:  [{ position: 30, label: 'Plant GST' }]
+  @EndUserText.label: 'Plant'
+plantgst;
+  @UI.lineItem: [{ position: 40, label: 'Plant Pan' }]
+  @UI.identification:  [{ position: 40, label: 'Plant Pan' }]
+  @EndUserText.label: 'Plant'
+plantpan;
+  @UI.lineItem: [{ position: 50, label: 'Plant Tan' }]
+  @UI.identification:  [{ position: 50, label: 'Plant Tan' }]
+  @EndUserText.label: 'Plant'
+planttan;
+  @UI.lineItem: [{ position: 60, label: 'Email' }]
+  @UI.identification:  [{ position: 60, label: 'Email' }]
+  @EndUserText.label: 'Plant'
+email;
+  @UI.lineItem: [{ position: 70, label: 'Cin Number' }]
+  @UI.identification:  [{ position: 70, label: 'Cin Number' }]
+  @EndUserText.label: 'Plant'
+cinnumber;
+  @UI.lineItem: [{ position: 80, label: 'Created By' }]
+  @UI.identification:  [{ position: 80, label: 'Created By' }]
+  @EndUserText.label: 'Plant'
+createdby;
+  @UI.lineItem: [{ position: 90, label: 'Created Date' }]
+  @UI.identification:  [{ position: 90, label: 'Created Date' }]
+  @EndUserText.label: 'Plant'
+createdat;
+  @UI.lineItem: [{ position: 100, label: 'Last Changed By' }]
+  @UI.identification:  [{ position: 100, label: 'Last Changed By' }]
+  @EndUserText.label: 'Plant'
+lastchangedby;
+  @UI.lineItem: [{ position: 110, label: 'last Changed Date' }]
+  @UI.identification:  [{ position: 110, label: 'last Changed Date' }]
+  @EndUserText.label: 'Plant'
+lastchangedate;
+  @UI.lineItem: [{ position: 120, label: 'Phone No' }]
+  @UI.identification:  [{ position: 120, label: 'Phone No' }]
+  @EndUserText.label: 'Plant'
+phoneno;
+  @UI.lineItem: [{ position: 130, label: 'ISO' }]
+  @UI.identification:  [{ position: 130, label: 'ISO' }]
+  @EndUserText.label: 'Plant'
+iso;
+  @UI.lineItem: [{ position: 140, label: 'MSME No' }]
+  @UI.identification:  [{ position: 140, label: 'MSME No' }]
+  @EndUserText.label: 'Plant'
+msmeno;
+
+    
+}

@@ -1,0 +1,4 @@
+@EndUserText.label: 'po report2 service definition'
+define service Zpo_report2_sd {
+  expose zpo_report2_pv;
+}

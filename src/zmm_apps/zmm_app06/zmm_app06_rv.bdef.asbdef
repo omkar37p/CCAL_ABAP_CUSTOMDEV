@@ -1,0 +1,31 @@
+managed implementation in class zbp_mm_app06_rv unique;
+strict ( 2 );
+with draft;
+
+define behavior for ZMM_APP06_RV alias BDGCODE
+//persistent table zmm_app06_tb1
+with unmanaged save
+draft table zmm_app06_dt1
+lock master total etag Bdgcode
+authorization master ( instance )
+//etag master <field_name>
+{
+  create;
+  update;
+  delete;
+
+  draft action ( features : instance ) Edit;
+  draft action Activate optimized;
+  draft action Discard;
+  draft action Resume;
+  draft determine action Prepare;
+
+  field ( mandatory : create ) Plant, Deptid;
+  field ( readonly : update ) Plant, Deptid;
+  field ( readonly ) Bdgcode, Validon, Validto;
+
+  determination CrtData on save { create; field Bdgcode; }
+
+  mapping for zmm_app06_tb1 corresponding;
+
+}

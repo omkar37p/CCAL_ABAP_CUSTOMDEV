@@ -1,0 +1,4 @@
+@EndUserText.label: 'Purchase Key Register Report - SD'
+define service ZMM_POKEY_REPORT_UI {
+  expose ZMM_POKEY_REPORT_PV as PurchaseKeyRegister;
+}

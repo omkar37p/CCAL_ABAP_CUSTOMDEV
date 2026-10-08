@@ -1,0 +1,56 @@
+@Metadata.layer: #CUSTOMER
+@UI: { headerInfo: {
+typeName: 'Payment Journal Entry',
+typeNamePlural: 'Payment Journal Entry',
+title: { type: #STANDARD, value: 'AccountingDocument' },
+         description: { type: #STANDARD, value: 'AccountingDocument' }  } }
+annotate entity ZFI_APP01_PV
+    with 
+{
+  
+  @UI.facet: [ { id:              'Header',
+                          purpose:         #STANDARD,
+                          type:            #IDENTIFICATION_REFERENCE,
+                          label:           'Payment Journal Entry',
+                          position:        10 } ,
+                        { id:              'Items',
+                          purpose:         #STANDARD,
+                          type:            #LINEITEM_REFERENCE,
+                          label:           'Payment Journal Entry Item',
+                          position:        20,
+                          targetElement:   '_item'}]
+ @UI: { lineItem: [{ position: 10, label: 'Company Code' },{ type: #FOR_ACTION , dataAction: 'submit' , label: 'Submit' }],
+  identification: [{ position: 10, label: 'Company Code' },{ type: #FOR_ACTION , dataAction: 'submit' , label: 'Submit' }]}
+    CompanyCode;
+     @UI: { lineItem: [{ position: 20, label: 'Fiscal Year' }],
+  identification: [{ position: 20, label: 'Fiscal Year' }]}
+    FiscalYear;
+     @UI: { lineItem: [{ position: 30, label: 'Accounting Document' }],
+  identification: [{ position: 30, label: 'Accounting Document' }]}
+    AccountingDocument;
+     @UI: { lineItem: [{ position: 40, label: 'Accounting Document Type' }],
+  identification: [{ position: 40, label: 'Accounting Document Type' }]}
+    AccountingDocumentType;
+     @UI: { lineItem: [{ position: 50, label: 'Document Date' }],
+  identification: [{ position: 50, label: 'Document Date' }]}
+    DocumentDate;
+     @UI: { lineItem: [{ position: 60, label: 'Posting Date' }],
+  identification: [{ position: 60, label: 'Posting Date' }]}
+    PostingDate;
+//     @UI: { lineItem: [{ position: 70, label: 'Company Code' }],
+//  identification: [{ position: 70, label: 'Company Code' }]}
+@UI.hidden: true
+    FiscalPeriod;
+         @UI: { lineItem: [{ position: 65, label: 'Original Reference Document' }],
+  identification: [{ position: 65, label: 'Original Reference Document' }]}
+    OriginalReferenceDocument;
+     @UI: { lineItem: [{ position: 70, label: 'Document Header Text - UTR No' }],
+  identification: [{ position: 70, label: 'Document Header Text - UTR No' }]}
+    DocumentReferenceID;
+      @UI: { lineItem: [{ position: 75, label: 'Status' }],
+  identification: [{ position: 75, label: 'Status' }]}
+    documentreferenceid1;
+    @UI.hidden: true
+    /* Associations */
+    _item;
+}

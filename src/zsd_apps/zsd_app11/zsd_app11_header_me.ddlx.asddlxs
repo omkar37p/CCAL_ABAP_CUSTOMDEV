@@ -1,0 +1,47 @@
+@Metadata.layer: #CUSTOMER
+@UI: { headerInfo: {
+typeName: 'Tax Document',
+typeNamePlural: 'Tax Invoices',
+title: { type: #STANDARD, value: 'BillingDocument' },
+         description: { value: 'BillingDocumentType' }
+         } }
+annotate entity ZSD_APP11_HEADER_PV
+    with 
+{
+  @UI.facet: [ { id:              'Header',
+                        purpose:         #STANDARD,
+                        type:            #IDENTIFICATION_REFERENCE,
+                        label:           'Invoice Header',
+                        position:        10 },
+                        { id:              'Items',
+                          purpose:         #STANDARD,
+                          type:            #LINEITEM_REFERENCE,
+                          label:           'Invoice Items',
+                          position:        20,
+                          targetElement:   '_Item'} ]
+  @UI: { lineItem: [{ position: 10, label: 'Billing Document'}] }
+  @UI: { identification: [{ position: 10, label: 'Billing Document' },
+        { type: #FOR_ACTION, dataAction: 'PDF', label: 'Submit E-sign',position: 10 },
+        { type: #FOR_ACTION, dataAction: 'POPDF', label: 'PO PDF',position: 20 } ]}
+  @UI.selectionField: [{ position: 10 }]                        
+BillingDocument;
+  @UI: { lineItem: [{ position: 20, label: 'Billing DocumentDate'}] }
+  @UI: { identification: [{ position: 20, label: 'Billing DocumentDate' } ]}
+BillingDocumentDate;
+  @UI: { lineItem: [{ position: 30, label: 'Billing DocumentType'}] }
+  @UI: { identification: [{ position: 30, label: 'Billing DocumentType' } ]}
+BillingDocumentType;
+  @UI: { lineItem: [{ position: 40, label: 'CompanyCode'}] }
+  @UI: { identification: [{ position: 40, label: 'CompanyCode' } ]}
+    @UI.selectionField: [{ position: 20 }]
+CompanyCode;
+  @UI: { lineItem: [{ position: 50, label: 'Distribution Channel'}] }
+  @UI: { identification: [{ position: 50, label: 'Distribution Channel' } ]}
+DistributionChannel;
+  @UI: { lineItem: [{ position: 60, label: 'Division'}] }
+  @UI: { identification: [{ position: 60, label: 'Division' } ]}
+Division;
+  @UI: { lineItem: [{ position: 70, label: 'attachment'}] }
+  @UI: { identification: [{ position: 70, label: 'attachment' } ]}
+attachment;    
+}

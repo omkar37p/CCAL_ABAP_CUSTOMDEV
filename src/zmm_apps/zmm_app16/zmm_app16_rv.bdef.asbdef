@@ -1,0 +1,38 @@
+managed implementation in class zbp_mm_app16_rv unique;
+strict ( 2 );
+with draft;
+define behavior for ZMM_APP16_RV alias _hdr
+//persistent table <???>
+with unmanaged save
+draft table zmm_app16_dt1
+lock master
+total etag LastChangedAt
+authorization master ( instance )
+etag master LastChangedAt
+
+//etag master <field_name>
+{
+  create;
+  update ( features : instance );
+  delete ( features : instance );
+  field ( readonly,numbering : managed ) Uuid;
+//  field(mandatory)Gptype
+  field(mandatory: create)Gptype;
+  field(readonly : update)Gptype;
+  field(readonly) Createdat,Createdby,Curky,Delmark,Ebeln,Ewabillno,Filename,Frghtscope,Gateno,Gitdat,Gittim,Gotdat,Gottim,Gpnum,Gpvalue,Grosswgt,Insurno,
+  Issuedate,Issuedby,Lastchangedat,Lastchangedby,Mark,Minetype,Netwgt,Pcklist,Plnrtndate,Remarks,Rsngp,Statustext,Tarewgt,Uom,Zattachment;
+
+
+    determination GetData1 on save { create; field Plant,Gptype; }
+    determination Getdata2 on save { field Plant,Vehicleno,Transporter,Dispby;}
+    action(features : instance ) Statusc result [1] $self;
+    action(features : instance) Gateout result[1] $self;
+
+  draft action Resume;
+  draft action (features : instance) Edit;
+  draft action Activate optimized;
+  draft action Discard;
+  draft determine action Prepare;
+
+   mapping for zmm_app12_tb1 corresponding;
+}

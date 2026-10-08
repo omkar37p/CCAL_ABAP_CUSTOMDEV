@@ -1,0 +1,30 @@
+managed implementation in class zbp_sd_app10_rv unique;
+strict ( 2 );
+with draft;
+
+define behavior for ZSD_APP10_RV alias HDR
+persistent table zsd_app10_tb1
+draft table zsd_app10_dt1
+lock master
+total etag LastChangedAt
+authorization master ( instance )
+etag master LastChangedAt
+{
+  create;
+  update;
+  delete;
+
+  field ( mandatory : create ) Userid, Ccode, Distchnl, Division;
+  field ( mandatory ) Signername, Prntque;
+  field ( readonly : update ) Userid, Ccode, Distchnl, Division;
+  field ( readonly ) Createdat, Createdby, Lastchangedat, Lastchangedby;
+
+  draft action Resume;
+  draft action Edit;
+  draft action Activate optimized;
+  draft action Discard;
+  draft determine action Prepare; //{ validation ( always )  ; }
+
+  mapping for zsd_app10_tb1 corresponding;
+
+}

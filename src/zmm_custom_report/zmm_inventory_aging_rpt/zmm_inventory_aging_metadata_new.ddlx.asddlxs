@@ -1,0 +1,122 @@
+@Metadata.layer: #PARTNER
+@UI:{
+headerInfo: { typeName: ' Inventory Ageing Report',
+              typeNamePlural: ' Inventory Ageing Report',
+              title : { type: #STANDARD, label: ' Inventory Ageing Report', value: 'mat'}
+            },
+            presentationVariant: [{ sortOrder: [{ by: 'mat', direction:  #DESC }] }]
+
+     }
+annotate view ZMM_INVENTORY_AG_PV_NEW
+    with 
+{
+    @UI.facet: [{  purpose: #STANDARD ,
+               type: #IDENTIFICATION_REFERENCE,
+               position: 10,
+               label: 'Inventory Ageing Report'}]
+               
+    @UI: { lineItem: [{ position: 40,label: 'Material' }],
+  identification: [{ position: 40,label: 'Material' }],
+  selectionField  : [{position: 10}]}
+  @Consumption.valueHelpDefinition: [{entity: {name: 'I_ProductPlantStdVH', element: 'Product' }}]
+    mat;
+     @UI: { lineItem: [{ position: 80,label: 'Batch' }],
+  identification: [{ position: 80,label: 'Batch' }]}
+    Batch;
+     // @UI: { lineItem: [{ position: 30,label: 'Materialdoc' }],
+ // identification: [{ position: 30,label: 'Materialdoc' }]}
+ //   materialdoc;
+    
+    
+     @UI: { lineItem: [{ position: 20,label: 'Plant' }],
+  identification: [{ position: 20,label: 'Plant' }],
+  selectionField  : [{position: 20}]}
+  @Consumption.valueHelpDefinition: [{entity: {name: 'I_PlantStdVH', element: 'Plant' }}]
+    Plant;
+    @UI: { lineItem: [{ position: 70,label: 'Storage Location' }],
+  identification: [{ position: 70,label: 'Storage Location' }]}
+  
+   StorageL;
+    @UI: { lineItem: [{ position: 10,label: 'Company Code' }],
+  selectionField  : [{position: 40}]}
+  @Consumption.valueHelpDefinition: [{entity: {name: 'I_COMPANYCODEVH', element: 'CompanyCode' }}]
+    Companycode;
+ //   uom;
+         @UI: { lineItem: [{ position: 140,label: 'Current Stock Quantity' }],
+  identification: [{ position: 140,label: 'Current Stock Quantity' }] }
+    currentstockqty;
+     @UI: { lineItem: [{ position: 60,label: 'Material Type' }],
+  identification: [{ position: 60,label: 'Material Type' }] }
+  @EndUserText.label: 'Material Type'
+  
+  
+    materialtype;
+ //   stroagelocationname;
+ //   Batchmafdate;
+  //  Batchmafdate1;
+  //  BatchExpDate;
+     @UI: { lineItem: [{ position: 50,label: 'Material Description' }],
+     
+  identification: [{ position: 50,label: 'Material Description' }] }
+  @EndUserText.label: 'Material Description'
+   @Consumption.valueHelpDefinition: [{entity: {name: 'I_ProductStdVH', element: 'Product Description ' }}]
+    materialdesc;
+     @UI: { lineItem: [{ position: 90,label: 'Inventory Ageing Days' }],
+  identification: [{ position: 90,label: 'Inventory Ageing Days' }] }
+    
+    Nonmovingdays;
+//    cucy;
+ @UI: { lineItem: [{ position: 120,label: 'Stock Value' }],
+  identification: [{ position: 120,label: 'Stock Value' }] }
+    Currentstocka;
+   
+  //  Postingd;
+    @UI: { lineItem: [{ position: 100,label: 'Posting Date' }],
+   identification: [{ position: 100,label: 'Posting Date' }] }
+    @EndUserText.label: 'Date'
+    Pos;
+ //   sales;
+ //   Sitem;
+  //  Customer;
+   @UI: { lineItem: [{ position: 110,label: 'supplier' }],
+   identification: [{ position: 110,label: 'supplier' }] }
+    Supplier;
+  //  Productgroupname;
+     @UI: { lineItem: [{label: '0 - 30 days Value', position: 220 }],
+  identification: [{ label: '0 - 30 days Value', position: 220}] }
+    Amt30;
+     @UI: { lineItem: [{ label: '0 - 30 days Quantity', position: 150 }],
+  identification: [{ label: '0 - 30 days Quantity', position: 150 }] }
+    Qty30;
+    @UI: { lineItem: [{ label: '30 - 60 days Value', position: 230 }],
+  identification: [{ label: '30 - 60 days Value', position: 230 }] }
+    Amt60;
+     @UI: { lineItem: [{label: '30 - 60 days Quantity', position: 160 }],
+  identification: [{ label: '30 - 60 days Quantity', position: 160 }] }
+    Qty60;
+    @UI: { lineItem: [{ label: '61 - 90 days Value', position: 240}],
+  identification: [{ label: '61 - 90 days Value', position: 240}] }
+    Amt90;
+      @UI: { lineItem: [{ label: '61 - 90 days Quantity', position: 170 }],
+  identification: [{ label: '61 - 90 days Quantity', position: 170 }] }
+    Qty90;
+     @UI: { lineItem: [{ label: '91 - 180 days Value', position: 250 }],
+  identification: [{ label: '91 - 180 days Value', position: 250 }] }
+    Amt180;
+     @UI: { lineItem: [{label: '91 - 180 days Quantity', position: 180 }],
+  identification: [{ label: '91 - 180 days Quantity', position: 180 }] }
+    Qty180;
+     @UI: { lineItem: [{ label: '181 - 365 days Value', position: 260  }],
+  identification: [{ label: '181 - 365 days Value', position: 260 }] }
+    Amt365;
+    @UI: { lineItem: [{ label: '181 - 365 days Quantity', position: 190 }],
+  identification: [{ label: '181 - 365 days Quantity', position: 190 }] }
+    Qty365;
+     @UI: { lineItem: [{ label: '> Year Value', position: 270 }],
+  identification: [{ label: '> Year Value', position: 270 }] }
+    Amt1year;
+     @UI: { lineItem: [{ label: '> Year Quantity', position: 200 }],
+   identification: [{label: '> Year Quantity', position: 200 }] }
+    Qty1year;
+    
+}

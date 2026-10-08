@@ -1,0 +1,28 @@
+managed implementation in class zbp_app03_fi_plan unique;
+strict ( 2 );
+with draft;
+
+
+define behavior for ZAPP03_FI_PLAN //alias <alias_name>
+persistent table zapp03_fi_ac2
+draft table zapp03_fi_ad2
+lock master
+total etag lastchangedby
+authorization master ( instance )
+etag master lastchangedby
+{
+  create ( authorization : global );
+  update;
+  delete;
+  field ( readonly ) Createdat, Createdby;
+//   Lastchangedate, Lastchangedby;
+
+  draft action Resume;
+  draft action Edit;
+  draft action Activate optimized;
+  draft action Discard;
+  draft determine action Prepare; //{ validation ( always )  ; }
+
+
+mapping for zapp03_fi_ac2 corresponding ;
+}

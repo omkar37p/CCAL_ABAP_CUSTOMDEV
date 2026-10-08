@@ -1,0 +1,57 @@
+@Metadata.layer: #CUSTOMER
+annotate entity ZMM_APP14_IIPV
+    with 
+{
+@UI.facet: [ { id:              'cItems',
+                   purpose:         #STANDARD,
+                   type:            #IDENTIFICATION_REFERENCE,
+                   label:           'Inward items',
+                   position:        10 }]
+@UI.hidden: true
+    Uuid;
+  @UI: { lineItem: [{ position: 10, label: 'Item No' }],
+  identification: [{ position: 10, label: 'Item No'  }] }
+  Itemno;
+   @UI: { lineItem: [{ position: 13, label: 'Item No1' }],
+  identification: [{ position: 13, label: 'Item No1'  }] }
+  Itemo;
+  @UI: { lineItem: [{ position: 20, label: 'Material Code' }],
+  identification: [{ position: 20, label: 'Material Code'  }] }
+  Matnr;
+  @UI: { lineItem: [{ position: 30, label: 'Material Desc.' }],
+  identification: [{ position: 30, label: 'Material Desc.'  }] }
+  Maktx;
+  @UI: { lineItem: [{ position: 40, label: 'UOM' }],
+  identification: [{ position: 40, label: 'UOM'  }] }
+  Uom;
+  @UI: { lineItem: [{ position: 60, label: 'Quantity' }],
+  identification: [{ position: 60, label: 'Quantity'  }] }
+  Quantity;
+   @UI: { lineItem: [{ position: 70, label: 'Pending Quantity' }],
+  identification: [{ position: 70, label: 'Pending Quantity'  }] }
+  Penqty;
+  @UI: { lineItem: [{ position: 80, label: 'Recived Quantity' }],
+  identification: [{ position: 80, label: 'Recived Quantity'  }] }
+  Recvqty;
+  @UI: { lineItem: [{ position: 120, label: 'Created By' }],
+  identification: [{ position: 120, label: 'Created By'  }] }
+    Createdby;
+    @UI.hidden: true
+    Createdat;
+      @UI: { lineItem: [{ position: 100, label: 'Recived Date' }],
+  identification: [{ position: 100, label: 'Recived Date'  }] }
+    Indt;
+    @UI: { lineItem: [{ position: 110, label: 'Recived Time' }],
+  identification: [{ position: 110, label: 'Recived Time'  }] }
+    Intim;
+     
+    @UI.hidden: true
+    Itemn;
+    
+    @UI.hidden: true
+    /* Associations */
+    _HDR;
+    @UI.hidden: true
+    _ITME;
+    
+}

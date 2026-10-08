@@ -1,0 +1,27 @@
+@Metadata.layer: #CUSTOMER
+annotate entity ZFI_APP01_IRV
+    with 
+{
+     @UI.facet: [ { id:              'Item',
+                   purpose:         #STANDARD,
+                   type:            #IDENTIFICATION_REFERENCE,
+                   label:           'Payment Journal Entry Item',
+                   position:        10 } ] 
+                   @UI.hidden: true
+                   SourceLedger;
+                     @UI.hidden: true
+                   CompanyCode;
+                     @UI.hidden: true
+                   FiscalYear;
+                        @UI: { lineItem: [{ position: 10, label: 'Accounting Document' }] }
+                   AccountingDocument;
+                   @UI: { lineItem: [{ position: 20, label: 'Ledger GLLineItem' }] }
+                   LedgerGLLineItem;
+                   @UI: { lineItem: [{ position: 30, label: 'Ledger' }] }
+                   Ledger;
+                   @UI: { lineItem: [{ position: 40, label: 'AmountInCompanyCodeCurrency' }] }
+                   AmountInCompanyCodeCurrency;
+                   @UI.hidden: true
+                   CompanyCodeCurrency;
+    
+}

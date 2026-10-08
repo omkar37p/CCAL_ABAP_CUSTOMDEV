@@ -1,0 +1,38 @@
+managed implementation in class zbp_qm_head_rv unique;
+strict ( 2 );
+with draft;
+
+define behavior for ZQM_HEAD_RV alias Head
+//persistent table zqm_head_db
+with unmanaged save
+draft table ZQM_HEAD_DRAFT
+lock master total etag Lastchangedat
+authorization master ( instance )
+etag master Lastchangedat
+{
+  create;
+  update( features : instance );
+  delete( features : instance );
+  field ( readonly, numbering : managed ) Uuid;
+  field ( mandatory : create )Inspection,Product, Nablformat;
+  field ( readonly : update )Plant;
+  field ( readonly ) Createdby, Createdat, Lastchangedat, Lastchangedby, Ulrnum;
+  field ( readonly ) Discipline, Partyaddress,Productdesc, Coaattachment,Coafilename,Coamimetype,Lapattachment,Lapfilename,Lapmimetype ;
+  field ( mandatory) Customer, Termscond;
+
+  action (features : instance) Print_View result[1]$self;
+  action (features : instance) Label_View result[1]$self;
+
+  draft action Resume;
+  draft action Edit;
+  draft action Activate optimized;
+  draft action Discard;
+  draft determine action Prepare;
+
+  determination GetData_Header on save { create; update; field Product; }
+  determination update_Head on modify { field Batch,Dateofanalyis, Truckno, Reference,Samplereceipt,
+                                              Driver,Conc, Description, Reportissueon; }
+  validation ValidateInsp on save { create; field Inspection; }
+  mapping for zqm_head_db corresponding;
+
+}

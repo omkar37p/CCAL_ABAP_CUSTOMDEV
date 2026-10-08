@@ -1,0 +1,5 @@
+@EndUserText.label: 'Budget Maintenance Application'
+define service ZMM_APP01_UI {
+  expose ZMM_APP01_RPV  as MAINPAGE;
+  expose ZMM_APP01_IPV1 as ITEM;
+}

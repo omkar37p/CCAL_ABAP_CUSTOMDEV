@@ -1,0 +1,34 @@
+{
+  "formatVersion": "2",
+  "header": {
+    "description": "Inventory Budget utilization Report",
+    "originalLanguage": "en",
+    "abapLanguageVersion": "cloudDevelopment"
+  },
+  "generalInformation": {
+    "appType": "ui5",
+    "catalogId": "SAP_TC_UI5_REPO_UIAD",
+    "targetMappingTitle": "Inventory Budget utilization Report"
+  },
+  "ui5AppDetails": {
+    "appId": "mmapp11"
+  },
+  "navigation": {
+    "targetMappingId": "UI5R_CCCC2F32A1BAF81D9DE9FA588DBC783C8431BACC_TM",
+    "semanticObject": "YY1_MM_APP11",
+    "action": "manage",
+    "desktop": true,
+    "tablet": true,
+    "phone": true
+  },
+  "tiles": [
+    {
+      "id": "UI5R_CCCC2F32A1BAF81D9DE9FA588DBC783C8431BACC_AL",
+      "tileType": "static",
+      "isDefault": true,
+      "standard": {
+        "title": "Inventory Budget utilization Report"
+      }
+    }
+  ]
+}

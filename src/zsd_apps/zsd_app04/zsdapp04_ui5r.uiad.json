@@ -1,0 +1,34 @@
+{
+  "formatVersion": "2",
+  "header": {
+    "description": "Sales Packing List - Delivery processing Application",
+    "originalLanguage": "en",
+    "abapLanguageVersion": "cloudDevelopment"
+  },
+  "generalInformation": {
+    "appType": "ui5",
+    "catalogId": "SAP_TC_UI5_REPO_UIAD",
+    "targetMappingTitle": "Sales Packing List - Delivery processing Application"
+  },
+  "ui5AppDetails": {
+    "appId": "sdapp04"
+  },
+  "navigation": {
+    "targetMappingId": "UI5R_1E5B46E7549CF337D26A6FCB8752FA8CAB67EA3A_TM",
+    "semanticObject": "YY1_SD_APP04",
+    "action": "manage",
+    "desktop": true,
+    "tablet": true,
+    "phone": true
+  },
+  "tiles": [
+    {
+      "id": "UI5R_1E5B46E7549CF337D26A6FCB8752FA8CAB67EA3A_AL",
+      "tileType": "static",
+      "isDefault": true,
+      "standard": {
+        "title": "Sales Packing List - Delivery processing Application"
+      }
+    }
+  ]
+}

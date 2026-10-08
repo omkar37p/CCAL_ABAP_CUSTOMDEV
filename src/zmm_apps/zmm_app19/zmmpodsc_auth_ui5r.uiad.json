@@ -1,0 +1,34 @@
+{
+  "formatVersion": "2",
+  "header": {
+    "description": "An SAP Fiori application.",
+    "originalLanguage": "en",
+    "abapLanguageVersion": "cloudDevelopment"
+  },
+  "generalInformation": {
+    "appType": "ui5",
+    "catalogId": "SAP_TC_UI5_REPO_UIAD",
+    "targetMappingTitle": "DSC-PO Authorized Signer Details"
+  },
+  "ui5AppDetails": {
+    "appId": "zpodscuserauth.zmmpodscuserauth"
+  },
+  "navigation": {
+    "targetMappingId": "UI5R_783E0FAFACB864F1522829E5769458460B9B4C1B_TM",
+    "semanticObject": "zmmpodsc_userauth",
+    "action": "display",
+    "desktop": true,
+    "tablet": true,
+    "phone": true
+  },
+  "tiles": [
+    {
+      "id": "UI5R_783E0FAFACB864F1522829E5769458460B9B4C1B_AL",
+      "tileType": "static",
+      "isDefault": true,
+      "standard": {
+        "title": "DSC-PO Authorized Signer Details"
+      }
+    }
+  ]
+}

@@ -1,0 +1,6 @@
+@EndUserText.label: 'SD ECU Report Service Definition'
+define service ZSD_ECUR_SD {
+
+
+  expose ZSD_ECUR_PV as SalesReport;
+}

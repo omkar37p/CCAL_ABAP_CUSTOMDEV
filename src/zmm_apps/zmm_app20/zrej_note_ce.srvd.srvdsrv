@@ -1,0 +1,5 @@
+@EndUserText.label: 'Service Defin of Rejection note Form'
+define service ZREJ_NOTE_CE {
+  expose ZREJ_NOTE_HEAD_CE as Header;
+  expose ZMM_FORM_ITEM_CE  as Item;
+}

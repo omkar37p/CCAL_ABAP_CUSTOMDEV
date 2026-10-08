@@ -1,0 +1,149 @@
+@Metadata.layer: #CUSTOMER
+@UI: { headerInfo: {
+typeName: 'Purchase Document',
+typeNamePlural: 'Purchase Order',
+title: { type: #STANDARD, value: 'Purchasekey' },
+         description:{ value: 'PurchaseOrder' }
+         } }
+annotate entity ZMM_APP17_POHD_RPV with
+{
+  @UI.facet: [ { id:              'Header',
+                        purpose:         #STANDARD,
+                        type:            #IDENTIFICATION_REFERENCE,
+                        label:           'Purchase Header',
+                        position:        10 },
+                        { id:              'Items',
+                          purpose:         #STANDARD,
+                          type:            #LINEITEM_REFERENCE,
+                          label:           'Purchase Item',
+                          position:        20,
+                          targetElement:   '_Item'},
+                        { id: 'PurchaseStatus',
+                          purpose: #HEADER,
+                          type: #DATAPOINT_REFERENCE,
+                          position: 10,
+                          targetQualifier: 'POStatus'
+                          },
+                        { id: 'User',
+                          purpose: #HEADER,
+                          type: #DATAPOINT_REFERENCE,
+                          position: 20,
+                          targetQualifier: 'UserId'
+                          }                          
+                          ]
+                          
+  @UI: { lineItem: [{ position: 10, label: 'Company Code' }],
+          identification: [{ position: 10, label: 'Company Code' },
+          { type: #FOR_ACTION, dataAction: 'Esign', label: 'Submit E-Sign' }] }
+  @UI.selectionField: [{ element: 'CompanyCode', position: 10 }]
+  @Consumption.valueHelpDefinition: [{ entity: { name: 'I_CompanyCodeStdVH', element: 'CompanyCode' }}]
+  @Consumption.filter:{ mandatory: true, multipleSelections: false }
+  @EndUserText.label: 'Company Code'
+  CompanyCode;
+  @UI:{ lineItem: [{ position: 20, label: 'Purchase Document' }],
+          identification: [{ position: 20, label: 'Purchase Document' }] }
+  @UI.selectionField: [{ position: 20 }]
+  @Consumption.valueHelpDefinition: [{ entity: { name: 'ZMM_APP17_POVH', element: 'PurchaseOrder' },
+    additionalBinding: [{ localElement: 'CompanyCode', element: 'CompanyCode',
+                          usage: #FILTER_AND_RESULT  }]  }]
+ 
+  @EndUserText.label: 'Purchase Document'
+  PurchaseOrder;
+  @UI:{ lineItem: [{ position: 30, label: 'Purchase Order Type' }],
+          identification: [{ position: 30, label: 'Purchase Order Type' }] }
+  @EndUserText.label: 'Purchase Order Type'
+  PurchaseOrderType;
+  @UI:{ lineItem: [{ position: 40, label: 'Purchase Order Date' }],
+          identification: [{ position: 40, label: 'Purchase Order Date' }] }
+  @UI.selectionField: [{ position: 30 }]  
+    @Consumption.filter:{ selectionType: #INTERVAL,multipleSelections: false }          
+  @EndUserText.label: 'Purchase Order Date'
+  PurchaseOrderDate;
+  @UI:{ lineItem: [{ position: 50, label: 'Supplier' }],
+          identification: [{ position: 50, label: 'Supplier' }] }
+  @EndUserText.label: 'Supplier'
+  Vendorcode;
+  @UI:{ lineItem: [{ position: 60, label: 'Plant' }],
+          identification: [{ position: 60, label: 'Plant' }] }
+  @EndUserText.label: 'Plant'
+  Plant;
+  @UI:{ lineItem: [{ position: 70, label: 'Created By' }],
+          identification: [{ position: 70, label: 'Created By' }] }
+  @UI.dataPoint: { qualifier: 'UserId', title: 'PO Created By' }          
+  @EndUserText.label: 'Created By'
+  CreatedByUser;
+  @UI:{ lineItem: [{ position: 80, label: 'PO Approval Status' }],
+          identification: [{ position: 110, label: 'PO Approval Status' }] }
+  @UI.dataPoint: { qualifier: 'POStatus', title: 'PO Approval Status' }
+  @UI.selectionField: [{ position: 40 }]    
+  @EndUserText.label: 'PO Approval Status'   
+  Purchasestatus;
+    @UI:{ identification: [{ position: 80, label: 'PaymentTerms Description' }] }
+  @EndUserText.label: 'PaymentTerms Description'
+  PaymentTermsDescription;
+  @UI:{ identification: [{ position: 90, label: 'Custom Delivery Date' }] }
+  @EndUserText.label: 'Custom Delivery Date'
+  CusDeliveryDate;
+  @UI:{   identification: [{ position: 100, label: 'Freight Terms' }] }
+  @EndUserText.label: 'Freight Terms'
+  FreightTerms;
+  @UI.hidden: true
+  BPSupplierFullName;
+  @UI.hidden: true
+  StreetName;
+  @UI.hidden: true
+  StreetPrefixName1;
+  @UI.hidden: true
+  PostalCode;
+  @UI.hidden: true
+  GSTN;
+  @UI.hidden: true
+  Region;
+  ///Bill to Address
+  @UI.hidden: true
+  BillcomName;
+  @UI.hidden: true
+  Billadd1;
+  @UI.hidden: true
+  Billstreet1;
+  @UI.hidden: true
+  Billstreet2;
+  @UI.hidden: true
+  Billcity;
+  @UI.hidden: true
+  Billpostal;
+  @UI.hidden: true
+  BillGSTN;
+  @UI.hidden: true
+  BillRegion;
+  ///Ship to Address
+  @UI.hidden: true
+  ShipcomName;
+  @UI.hidden: true
+  Shipadd1;
+  @UI.hidden: true
+  Shipstreet1;
+  @UI.hidden: true
+  Shipstreet2;
+  @UI.hidden: true
+  Shipcity;
+  @UI.hidden: true
+  Shippostal;
+  @UI.hidden: true
+  ShipGSTN;
+  @UI.hidden: true
+  ShipRegion;
+  @UI.hidden: true
+  Customer;
+  @UI.hidden: true
+  CreationDate;
+  @UI.hidden: true
+  DocumentCurrency;
+  @UI.hidden: true
+  ExchangeRate;
+
+  /* Associations */
+  @UI.hidden: true
+  _Item;
+
+}

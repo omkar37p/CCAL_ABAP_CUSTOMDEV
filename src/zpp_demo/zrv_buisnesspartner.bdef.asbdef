@@ -1,0 +1,33 @@
+unmanaged implementation in class zbp_rv_buisnesspartner unique;
+strict ( 2 );
+
+define behavior for ZRV_BUISNESSPARTNER
+lock master
+authorization master ( instance )
+{
+//  create ( authorization : global );
+  update;
+//  delete;
+  field ( readonly ) BusinessPartner;
+  association _Child { create; }
+
+  action validateBP parameter ZABS_VALIDATE_BP result [1] $self;
+//
+  action fetchEligibility parameter ZABS_FETCH_ELIGIBILITY result [1] $self;
+//
+//  action updateCustomerToken parameter ZABS_UPDATE_TOKEN result [1] $self;
+//
+//  action enroll parameter ZABS_ENROLL result [1] $self;
+
+//  action unenroll parameter ZABS_UNENROLL result [1] $self;
+}
+
+define behavior for ZCV_CONTRACTACCOUNTPARTNER
+lock dependent by _Parent
+authorization dependent by _Parent
+{
+  update;
+  // delete;
+  field ( readonly ) BusinessPartner, ContractAccount;
+  association _Parent;
+}

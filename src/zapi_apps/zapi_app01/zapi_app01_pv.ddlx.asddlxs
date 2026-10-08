@@ -1,0 +1,82 @@
+@Metadata.layer: #CUSTOMER
+@UI: {
+  headerInfo: { typeName: 'Invoice APIs',
+                typeNamePlural: 'SD Report',
+                title: { type: #STANDARD, label: 'Invoice APIs', value: 'BillingDocument' } },
+  presentationVariant: [{ sortOrder: [{ by: 'BillingDocument', direction:  #ASC }] }] }
+annotate entity ZAPI_APP01_PV
+    with 
+    
+    
+{
+ @UI.facet: [ { id:              'Invoice APIs',
+                    purpose:         #STANDARD,
+                    type:            #IDENTIFICATION_REFERENCE,
+                    label:           'Invoice APIs',
+                    position:        10 } ]
+                    
+
+    @UI: {  lineItem:       [ { position: 10, label: 'Invoice Number' } ],
+        identification:   [ { position: 10, label: 'Invoice Number' } ]} 
+   BillingDocument;
+       @UI: {  lineItem:       [ { position: 20, label: 'Invoice Number Item' } ],
+        identification:   [ { position: 20, label: 'Invoice Number Item' } ]} 
+   BillingDocumentItem;
+   @UI: {  lineItem:       [ { position: 30, label: 'Invoice Date' } ],
+        identification:   [ { position: 30, label: 'Invoice Date' } ]} 
+   BillDate;
+      @UI: {  lineItem:       [ { position: 40, label: 'Invoice Type' } ],
+        identification:   [ { position: 40, label: 'Invoice Type' } ]} 
+   BillingDocumentType;
+   @UI.hidden: true
+   VoucherType;
+     @UI.hidden: true
+   ODNNumber;
+    @UI: {  lineItem:       [ { position: 50, label: 'Product' } ],
+        identification:   [ { position: 50, label: 'Product' } ]} 
+   Product;
+      @UI: {  lineItem:       [ { position: 60, label: 'Billing Document ItemText' } ],
+        identification:   [ { position: 60, label: 'Billing Document ItemText' } ]} 
+   BillingDocumentItemText;
+     @UI: {  lineItem:       [ { position: 70, label: 'Plant' } ],
+        identification:   [ { position: 70, label: 'Plant' } ]}
+   Plant;
+   @UI.hidden: true
+   BaseUnit;
+     @UI.hidden: true
+   curr;
+    @UI: {  lineItem:       [ { position: 80, label: 'TaxbleValue' } ],
+        identification:   [ { position: 80, label: 'TaxbleValue' } ]}
+   TaxbleValue;
+    @UI: {  lineItem:       [ { position: 90, label: 'TaxAmount' } ],
+        identification:   [ { position: 90, label: 'TaxAmount' } ]}
+   TaxAmount;
+   @UI: {  lineItem:       [ { position: 100, label: 'Totalvalue' } ],
+        identification:   [ { position: 100, label: 'Totalvalue' } ]}
+   totalvalue;
+      @UI: {  lineItem:       [ { position: 110, label: 'Quantity' } ],
+        identification:   [ { position: 110, label: 'Quantity' } ]}
+   Quantity;
+     @UI: {  lineItem:       [ { position: 120, label: 'Customer Name' } ],
+        identification:   [ { position: 120, label: 'Customer Name' } ]}
+   CustomerName;
+   @UI: {  lineItem:       [ { position: 130, label: 'Base Value' } ],
+        identification:   [ { position: 130, label: 'Base Value' } ]}
+   BaseValue;
+      @UI: {  lineItem:       [ { position: 140, label: 'Freight Value' } ],
+        identification:   [ { position: 140, label: 'Freight Value' } ]}
+   Freight;
+      @UI: {  lineItem:       [ { position: 150, label: 'Igst Value' } ],
+        identification:   [ { position: 150, label: 'Igst Value' } ]}
+   igstvalue;
+      @UI: {  lineItem:       [ { position: 160, label: 'Cgst Value' } ],
+        identification:   [ { position: 160, label: 'Cgst Value' } ]}
+   cgstvalue;
+      @UI: {  lineItem:       [ { position: 170, label: 'Sgst Value' } ],
+        identification:   [ { position: 170, label: 'Sgst Value' } ]}
+   sgstvalue;
+      @UI: {  lineItem:       [ { position: 180, label: 'Tcs Value' } ],
+        identification:   [ { position: 180, label: 'Tcs Value' } ]}
+   tcsvalue;
+    
+}

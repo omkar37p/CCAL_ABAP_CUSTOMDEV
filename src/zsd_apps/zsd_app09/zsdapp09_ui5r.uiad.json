@@ -1,0 +1,34 @@
+{
+  "formatVersion": "2",
+  "header": {
+    "description": "Digital Signature Cockpit",
+    "originalLanguage": "en",
+    "abapLanguageVersion": "cloudDevelopment"
+  },
+  "generalInformation": {
+    "appType": "ui5",
+    "catalogId": "SAP_TC_UI5_REPO_UIAD",
+    "targetMappingTitle": "Digital Signature Cockpit"
+  },
+  "ui5AppDetails": {
+    "appId": "dscapp09"
+  },
+  "navigation": {
+    "targetMappingId": "UI5R_502DA72DD6BF3A8985198008A3634DB64F6355A9_TM",
+    "semanticObject": "YY1_SDAPP09",
+    "action": "manage",
+    "desktop": true,
+    "tablet": true,
+    "phone": true
+  },
+  "tiles": [
+    {
+      "id": "UI5R_502DA72DD6BF3A8985198008A3634DB64F6355A9_AL",
+      "tileType": "static",
+      "isDefault": true,
+      "standard": {
+        "title": "Digital Signature Cockpit"
+      }
+    }
+  ]
+}

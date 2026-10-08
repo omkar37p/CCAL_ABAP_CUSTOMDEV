@@ -1,0 +1,118 @@
+@Metadata.layer: #CUSTOMER
+@UI: { headerInfo: { typeName: 'Packing - List ready for Dispatch',
+                     title: { value: 'Tokennum' },
+                     typeNamePlural: 'Packing Lists - Ready for Dispatch'
+                   } 
+     }
+annotate entity ZSD_APP03_RPV with
+{
+  @UI.facet: [ { id:              'Item',
+                 purpose:         #STANDARD,
+                 type:            #IDENTIFICATION_REFERENCE,
+                 label:           'Packing List Details',
+                 position:        10 } ]
+  @UI.hidden: true
+  Uuid;
+  @UI: { lineItem: [{ position: 10, label: 'Packing List Number'}],
+  identification: [{ position: 10, label: 'Packing List Number' } ,
+  //  { type: #FOR_ACTION, dataAction: 'CrtSo', label: 'Create Order', position: 10 },
+   { type: #FOR_ACTION, dataAction: 'CrtDlv', label: 'Create Delivery', position: 20 },
+       { type: #FOR_ACTION, dataAction: 'PostGI', label: 'Update Delivery', position: 30 }
+      ] }
+  Tokennum;
+  @UI.hidden: true
+  Gidate;
+  @UI.hidden: true
+  Gitime;
+  @UI: { lineItem: [{ position: 15, label: 'Shiping Point'}],
+  identification: [{ position: 15, label: 'Shiping Point' } ] }
+  Plant;
+  @UI.hidden: true
+  Plantname;
+  @UI: { lineItem: [{ position: 210, label: 'Vehicle Number'}],
+  identification: [{ position: 210, label: 'Vehicle Number' } ] }
+  Vehicleno;
+//  @UI: { lineItem: [{ position: 220, label: 'Truck Type'}],
+//  identification: [{ position: 220, label: 'Truck Type' } ] }
+//  Trucktyp;
+  @UI: { lineItem: [{ position: 230, label: 'Transporter'}],
+  identification: [{ position: 230, label: 'Transporter' } ] }
+  Trspname;
+  @UI: { lineItem: [{ position: 240, label: 'Mode of Transport'}],
+  identification: [{ position: 240, label: 'Mode of Transport' } ] }
+  Trspmode;
+  @UI: { lineItem: [{ position: 250, label: 'Driver Name'}],
+  identification: [{ position: 250, label: 'Driver Name' } ] }
+  Drivername;
+  @UI: { lineItem: [{ position: 260, label: 'LR Number'}],
+  identification: [{ position: 260, label: 'LR Number' } ] }
+  Lrnumber;
+  @UI: { lineItem: [{ position: 60, label: 'Empty Vehicle Weight'}],
+  identification: [{ position: 60, label: 'Tare Weight(Empty Vehicle)' } ] }
+  Tarewgt;
+  @UI.hidden: true
+  Wgtunit;
+  @UI.hidden: true
+  Status;
+  @UI.hidden: true
+  Mark;
+  @UI: { lineItem: [{ position: 50, label: 'Gross Weight'}],
+  identification: [{ position: 50, label: 'Gross Weight' } ] }
+  grswgt;
+  @UI: { lineItem: [{ position: 70, label: 'Net Weight'}],
+  identification: [{ position: 70, label: 'Net Weight' } ] }
+  netwgt;
+  @UI: { lineItem: [{ position: 80, label: 'Chargable Weight'}],
+  identification: [{ position: 80, label: 'Chargable Weight' } ] }
+  chbwgt;
+  @UI: { lineItem: [{ position: 20, label: 'Material' }],
+  identification: [{ position: 20, label: 'Material'  }] }
+  material;
+  @UI.hidden: true
+  matdesc;
+  @UI: { lineItem: [{ position: 30, label: 'Batch' }],
+    identification: [{ position: 30, label: 'Batch'  }] }
+  batch;
+  @UI: { lineItem: [{ position: 40, label: 'Stor.Loc' }],
+      identification: [{ position: 40, label: 'Stor.Loc'  }] }
+  sloc;
+  @UI: { lineItem: [{ position: 75, label: 'Concentration Rate'}],
+  identification: [{ position: 75, label: 'Concentration Rate' } ] }
+  concnrate;
+  //  @UI: { lineItem: [{ position: 85, label: 'Contract Number'}],
+  //  identification: [{ position: 85, label: 'Contract Number' } ] }
+  //  @Consumption.valueHelpDefinition: [{ entity: { name: 'I_SalesOrderItemStdVH',
+  //  element: 'SalesOrder' }  }]
+  @UI.hidden: true
+  Contnum;
+  //  @UI: { lineItem: [{ position: 86, label: 'Contract Item'}],
+  //  identification: [{ position: 86, label: 'Contract Item' } ] }
+  @UI.hidden: true
+  Contitem;
+  @UI: { lineItem: [{ position: 90, label: 'Sales Order'}],
+  identification: [{ position: 90, label: 'SO Number' } ] }
+  @Consumption.valueHelpDefinition: [{ entity: { name: 'I_SalesOrderItemStdVH',
+  element: 'SalesOrder' }  }]
+  sonum;
+  @UI: { lineItem: [{ position: 100, label: 'SO Item'}],
+  identification: [{ position: 100, label: 'SO Item' } ] }
+  soitem;
+  @UI: { lineItem: [{ position: 105, label: 'Cust.Ref'}],
+  identification: [{ position: 105, label: 'Customer Reference' } ] }
+  Custref;
+  @UI: { lineItem: [{ position: 110, label: 'Delivery Number'}],
+  identification: [{ position: 110, label: 'Delivery Number' } ] }
+  delvnum;
+  @UI: { identification: [{ position: 280, label: 'Cylinder/Seal Number' } ] }
+  Sealnum;
+  @UI: { identification: [{ position: 290, label: 'Number of Cylinders' } ] }
+  Totcyln;
+  @UI: { identification: [{ position: 300, label: 'Volume per Cylinder' } ] }
+  Cylnvol;
+  @UI: { identification: [{ position: 310, label: 'Place' } ] }
+  Dlvplace;
+  @UI: { identification: [{ position: 320, label: 'Freight Terms' } ] }
+  Frgtrms;
+  @UI: { identification: [{ position: 330, label: 'Remarks' } ] }
+  Remarks;
+}

@@ -1,0 +1,5 @@
+@EndUserText.label: 'Digital Signature Cockpit - PO'
+define service ZMM_APP17_UI {
+  expose ZMM_APP17_POHD_RPV as MainHead;
+  expose ZMM_APP17_POIT_IPV as MainItem;
+}

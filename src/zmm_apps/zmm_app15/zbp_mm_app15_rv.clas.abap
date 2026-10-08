@@ -1,0 +1,9 @@
+CLASS zbp_mm_app15_rv DEFINITION PUBLIC ABSTRACT FINAL FOR BEHAVIOR OF zmm_app15_rv.
+  CLASS-DATA : gt_updgpl  TYPE TABLE OF zmm_app12_tb2,
+               gt_crtgpls TYPE TABLE OF zmm_app15_tb1.
+ENDCLASS.
+
+
+
+CLASS ZBP_MM_APP15_RV IMPLEMENTATION.
+ENDCLASS.

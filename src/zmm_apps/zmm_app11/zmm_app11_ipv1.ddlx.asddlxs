@@ -1,0 +1,93 @@
+@Metadata.layer: #CUSTOMER
+annotate entity ZMM_APP11_IPV1 with
+{
+  @UI.facet: [ { id:              'Item',
+                   purpose:         #STANDARD,
+                   type:            #IDENTIFICATION_REFERENCE,
+                   label:           'Budget PO Item',
+                   position:        10 } ]
+  @UI.hidden: true
+  bdgcode;
+  @UI: { lineItem: [{ position: 10, label: 'Purchase Order' }],
+  identification: [{ position: 10, label: 'Purchase Order'  }] }
+  PurchaseOrder;
+  @UI: { lineItem: [{ position: 20, label: 'Line Item' }],
+  identification: [{ position: 20, label: 'Line Item'  }] }
+  PurchaseOrderItem;
+  @UI: { lineItem: [{ position: 22, label: 'PO Date' }],
+  identification: [{ position: 22, label: 'PO Date'  }] }
+  POdate;
+  @UI: { lineItem: [{ position: 24, label: 'Status' }],
+  identification: [{ position: 24, label: 'Status'  }] }
+  status;
+  @UI: { lineItem: [{ position: 25, label: 'Supplier' }],
+  identification: [{ position: 25, label: 'Supplier'  }] }
+  suppname;
+  @UI: { lineItem: [{ position: 45, label: 'PO Curr.' }],
+  identification: [{ position: 45, label: 'PO Curr.'  }] }
+  DocumentCurrency;
+  @UI.hidden: true
+  PurchasingDocumentDeletionCode;
+  @UI: { lineItem: [{ position: 26, label: 'Item Code' }],
+  identification: [{ position: 26, label: 'Item Code'  }] }
+  Material;
+  @UI: { lineItem: [{ position: 27, label: 'Item Desc' }],
+  identification: [{ position: 27, label: 'Item Desc'  }] }
+  matdesc;
+  @UI.hidden: true
+  MaterialType;
+  @UI.hidden: true
+  Plant;
+  @UI.hidden: true
+  POUNIT;
+  @UI.hidden: true
+  NetPriceQuantity;
+  @UI.hidden: true
+  IsCompletelyDelivered;
+  @UI.hidden: true
+  IsFinallyInvoiced;
+  @UI.hidden: true
+  PurchaseRequisition;
+  @UI.hidden: true
+  PurchaseRequisitionItem;
+  @UI.hidden: true
+  BaseUnit;
+  @UI.hidden: true
+  PRICEUNIT;
+  @UI: { lineItem: [{ position: 30, label: 'Quantity' }],
+  identification: [{ position: 30, label: 'Quantity'  }] }
+  OrderQuantity;
+  @UI: { lineItem: [{ position: 40, label: 'Net Price' }],
+  identification: [{ position: 40, label: 'Net Price'  }] }
+  NetPriceAmount;
+  //  @UI: { lineItem: [{ position: 50, label: 'Net Amount' }],
+  //  identification: [{ position: 50, label: 'Net Amount'  }] }
+  @UI.hidden: true
+  netamt;
+  @UI.hidden: true
+  effamt;
+  @UI: { lineItem: [{ position: 60, label: 'Exchange Rate' }],
+  identification: [{ position: 60, label: 'Exchange Rate'  }] }
+  ExcRate;
+  @UI: { lineItem: [{ position: 70, label: 'Base Value' }],
+  identification: [{ position: 70, label: 'Base Value'  }] }
+  inramt;
+  //  @UI: { lineItem: [{ position: 0, label: '' }],
+  //  identification: [{ position: 0, label: ''  }] }
+  @UI.hidden: true
+  bdgamt;
+  @UI.hidden: true
+  bdgcurr;
+  /* Associations */
+  @UI.hidden: true
+  _hdr;
+  @UI.hidden: true
+  _PurchaseOrder;
+  @UI.hidden: true
+  _PurOrdAcctAssignment;
+  @UI.hidden: true
+  _PurOrdScheduleLine;
+  @UI.hidden: true
+  _YY1_allotted_budget_PDI;
+
+}

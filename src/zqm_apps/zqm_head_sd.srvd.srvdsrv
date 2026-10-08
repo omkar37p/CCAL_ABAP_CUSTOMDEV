@@ -1,0 +1,5 @@
+@EndUserText.label: 'COA Print Service Definition'
+define service ZQM_HEAD_SD {
+  expose ZQM_HEAD_CE as Head;
+  expose ZQM_ITEM_CE as Item;
+}

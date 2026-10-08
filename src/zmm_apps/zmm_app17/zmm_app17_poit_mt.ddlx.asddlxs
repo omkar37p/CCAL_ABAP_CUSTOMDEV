@@ -1,0 +1,67 @@
+@Metadata.layer: #CUSTOMER
+annotate entity ZMM_APP17_POIT_IPV
+    with 
+{
+  @UI.facet: [ { id:              'Item',
+                   purpose:         #STANDARD,
+                   type:            #IDENTIFICATION_REFERENCE,
+                   label:           'Item Details',
+                   position:        10 } ]
+@UI:{ lineItem: [{ position: 10, label: 'Purchase Document' }],
+        identification: [{ position: 10, label: 'Purchase Document' }] } 
+@EndUserText.label: 'Purchase Document'                          
+PurchaseOrder;
+@UI:{ lineItem: [{ position: 20, label: 'Purchase Item' }],
+        identification: [{ position: 20, label: 'Purchase Item' }] } 
+@EndUserText.label: 'Purchase Item'
+PurchaseOrderItem;
+@UI:{ lineItem: [{ position: 30, label: 'Product' }],
+        identification: [{ position: 30, label: 'Product' }] } 
+@EndUserText.label: 'Product'
+Material;
+@UI:{ lineItem: [{ position: 40, label: 'Product Description' }],
+        identification: [{ position: 40, label: 'Product Description' }] } 
+@EndUserText.label: 'Product Description'
+PurchaseOrderItemText;
+@UI:{ lineItem: [{ position: 50, label: 'HSN Code' }],
+        identification: [{ position: 50, label: 'HSN Code' }] } 
+@EndUserText.label: 'HSN Code'
+HSN;
+@UI:{ lineItem: [{ position: 60, label: 'Plant' }],
+        identification: [{ position: 60, label: 'Plant' }] } 
+@EndUserText.label: 'Plant'
+Plant;
+@UI:{ lineItem: [{ position: 70, label: 'Order Quantity' }],
+        identification: [{ position: 70, label: 'Order Quantity' }] } 
+@EndUserText.label: 'Order Quantity'
+OrderQuantity;
+@UI:{ lineItem: [{ position: 80, label: 'Net Amount' }],
+        identification: [{ position: 80, label: 'Net Amount' }] } 
+@EndUserText.label: 'Net Amount'
+NetAmount;
+@UI:{ lineItem: [{ position: 90, label: 'PO Item Deleted Key' }],
+        identification: [{ position: 90, label: 'PO Item Deleted Key' }] } 
+@EndUserText.label: 'PO Item Deleted Key'
+Isdeleate;
+
+@UI.hidden: true
+PurchaseOrderCategory;
+@UI.hidden: true
+DocumentCurrency;
+@UI.hidden: true
+MaterialGroup;
+@UI.hidden: true
+MaterialType;
+@UI.hidden: true
+BaseUnit;
+@UI.hidden: true
+CompanyCode;
+@UI.hidden: true
+OrderPriceUnit;
+@UI.hidden: true
+TaxCode;
+
+/* Associations */
+@UI.hidden: true
+_Header;    
+}

@@ -1,0 +1,79 @@
+@Metadata.layer: #CUSTOMER
+@UI: { headerInfo: {
+typeName: 'Material Inward - Gate Pass',
+typeNamePlural: 'Material Inward - Gate Passes',
+title: { type: #STANDARD, value: 'Gpnum' },
+         description: { type: #STANDARD, value: 'Gptype' }  } }
+annotate entity ZMM_APP15_RPV with
+{
+  @UI.facet: [ { id:              'Header',
+                          purpose:         #STANDARD,
+                          type:            #IDENTIFICATION_REFERENCE,
+                          label:           'Gate Pass Detials',
+                          position:        10 } ,
+                        { id:              'Items',
+                          purpose:         #STANDARD,
+                          type:            #LINEITEM_REFERENCE,
+                          label:           'Standard Material Line',
+                          position:        20,
+                          targetElement:   '_Item'}]
+  @UI.hidden: true
+  Uuid;
+  @UI: { lineItem: [{ position: 10, label: 'Item No' }],
+  identification: [{ position: 10, label: 'Item No'  }] }
+  Itemno;
+@UI.hidden: true
+  Gateno;
+  @UI: { lineItem: [{ position: 14, label: 'Document Number' }],
+  identification: [{ position: 14, label: 'Document Number' }]}
+  Gpnum;
+  
+  @UI: { lineItem: [{ position: 18, label: 'Reference Type' }],
+  identification: [{ position: 18, label: 'Reference Type' }] }
+  Gptype;
+  @UI: { lineItem: [{ position: 20, label: 'Material Code' }],
+  identification: [{ position: 20, label: 'Material Code'  }] }
+  Matnr;
+  @UI: { lineItem: [{ position: 30, label: 'Material Desc.' }],
+  identification: [{ position: 30, label: 'Material Desc.'  }] }
+  Maktx;
+  @UI: { lineItem: [{ position: 40, label: 'UOM' }],
+  identification: [{ position: 40, label: 'UOM'  }] }
+  Uom;
+  @UI: { lineItem: [{ position: 50, label: 'HSN/SAC Code' }],
+  identification: [{ position: 50, label: 'HSN/SAC Code'  }] }
+  Hsncode;
+  @UI: { lineItem: [{ position: 60, label: 'Quantity' }],
+  identification: [{ position: 60, label: 'Quantity'  }] }
+  Quantity;
+  @UI: { lineItem: [{ position: 62, label: 'Received Quantity' }],
+  identification: [{ position: 62, label: 'Received Quantity'  }] }
+  Totrcvqty;
+  @UI: { lineItem: [{ position: 65, label: 'Pending Quantity' }],
+  identification: [{ position: 65, label: 'Pending Quantity'  }] }
+  Totopnqty;
+  @UI.hidden: true
+  Curky;
+  @UI: { lineItem: [{ position: 70, label: 'Item Value' }],
+  identification: [{ position: 70, label: 'Item Value'  }] }
+  Netprice;
+  @UI: { lineItem: [{ position: 80, label: 'Total Amount' }],
+  identification: [{ position: 80, label: 'Total Amount'  }] }
+  Totvalue;
+  @UI.hidden: true
+  Mark;
+  @UI.hidden: true
+  Createdby;
+  @UI.hidden: true
+  Createdat;
+  @UI.hidden: true
+  Lastchangedby;
+  @UI.hidden: true
+  Lastchangedat;
+  /* Associations */
+  @UI.hidden: true
+  _HDR;
+  @UI.hidden: true
+  _Item;
+
+}

@@ -1,0 +1,82 @@
+@Metadata.layer: #CUSTOMER
+@UI: { headerInfo: {
+typeName: 'Budget Code',
+typeNamePlural: 'Budget Codes',
+title: { type: #STANDARD, value: 'Bdgcode' },
+         description: { type: #STANDARD, value: 'Bdgtype' }
+//         presentationVariant: [{
+//         sortOrder: [{ by: 'Bdgcode', direction: #ASC }],
+//         visualizations: [{type: #AS_LINEITEM}] }] }
+         } }
+annotate entity ZMM_APP09_RPV with
+{
+  @UI.facet: [ { id:              'Header',
+                        purpose:         #STANDARD,
+                        type:            #IDENTIFICATION_REFERENCE,
+                        label:           'Budget Code',
+                        position:        10 } ,
+                      { id:              'Items',
+                        purpose:         #STANDARD,
+                        type:            #LINEITEM_REFERENCE,
+                        label:           'Budget Lines',
+                        position:        20,
+                        targetElement:   '_Item'}]
+  @UI: { lineItem: [{ position: 10, label: 'Plant'}],
+      identification: [{ position: 10, label: 'Plant' } ] }
+  @Consumption.valueHelpDefinition: [{ entity: { name: 'ZI_PLANT_VH1',
+    element: 'Shpoint' }  , additionalBinding: [{localElement: 'Plntname', element: 'Shpname', usage: #RESULT }]    }]
+  Plant;
+  @UI: { lineItem: [{ position: 20, label: 'Department'}],
+  identification: [{ position: 20, label: 'Department' } ] }
+  @Consumption.valueHelpDefinition: [{ entity: { name: 'ZI_DEPARTMENT_VH1', element: 'deptid' },
+     additionalBinding: [  {localElement: 'Deptname', element: 'deptname', usage: #RESULT },
+                           {localElement: 'Plant', element: 'plant',    usage: #FILTER_AND_RESULT } ] } ]
+  Deptid;
+  @UI: { lineItem: [{ position: 30, label: 'Budget Code' }],
+  identification: [{ position: 30, label: 'Budget Code' }]}
+  Bdgcode;
+  @UI.lineItem: [{ position: 50, label: 'Valid From' } ]
+  @UI.identification: [{ position: 50, label: 'Valid From' } ]
+  @UI.selectionField: [{ position: 20 }]
+   @Consumption.filter:{ selectionType: #INTERVAL,multipleSelections: false }
+  Validon;
+    @UI.selectionField: [{ position: 30 }]
+  @UI.lineItem: [{ position: 60, label: 'Valid To' } ]
+  @UI.identification: [{ position: 60, label: 'Valid To' } ]
+  @Consumption.filter:{ selectionType: #INTERVAL,multipleSelections: false }
+  Validto;
+  @UI.hidden: true
+  Plntname;
+  @UI.hidden: true
+  Deptname;
+  //  @UI: { lineItem: [{ position: 35, label: 'Base Budget' }],
+  //  identification: [{ position: 35, label: 'Base Budget' }]}
+  @UI.hidden: true
+  Basebdg;
+  @UI: { lineItem: [{ position: 70, label: 'Total Budget Allotted' }],
+  identification: [{ position: 70, label: 'Total Budget Allotted' }]}
+  Talcbdg;
+  @UI: { lineItem: [{ position: 40, label: 'Budget Desc' }],
+  identification: [{ position: 40, label: 'Budget Description' }]}
+  Bdghtxt;
+  @UI: { lineItem: [{ position: 45, label: 'Budget Type' }],
+  identification: [{ position: 45, label: 'Budget Type' }]}
+  @Consumption.valueHelpDefinition: [{ entity: { name: 'ZI_BDGTYP', element: 'value_low' }, distinctValues: true }]
+  Bdgtype;
+  @UI.identification: [{ position: 80, label: 'Inventory allottment(WBS Element)' } ]
+  Wbselmt;
+  @UI.identification: [{ position: 90, label: 'Exemption' } ]
+  Exmptmrk;
+  //  @UI.hidden: true
+  @UI: { lineItem: [{ position: 100, label: 'Budget Code Deleted' }],
+  identification: [{ position: 100, label: 'Budget Code Deleted' }]}
+  Delemrk;
+  @UI.hidden: true
+  Createdat;
+  @UI.hidden: true
+  Createdby;
+  /* Associations */
+  @UI.hidden: true
+  _Item;
+
+}

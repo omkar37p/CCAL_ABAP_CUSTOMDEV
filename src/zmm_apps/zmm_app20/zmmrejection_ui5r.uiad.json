@@ -1,0 +1,34 @@
+{
+  "formatVersion": "2",
+  "header": {
+    "description": "Rejection Note Form App",
+    "originalLanguage": "en",
+    "abapLanguageVersion": "cloudDevelopment"
+  },
+  "generalInformation": {
+    "appType": "ui5",
+    "catalogId": "SAP_TC_UI5_REPO_UIAD",
+    "targetMappingTitle": "Rejection Note Form App"
+  },
+  "ui5AppDetails": {
+    "appId": "zrejectionnote.zmmrejectionnote"
+  },
+  "navigation": {
+    "targetMappingId": "UI5R_363CC5844E69858773689E7ED1C21320E9907121_TM",
+    "semanticObject": "zmm_rejection_note",
+    "action": "display",
+    "desktop": true,
+    "tablet": true,
+    "phone": true
+  },
+  "tiles": [
+    {
+      "id": "UI5R_363CC5844E69858773689E7ED1C21320E9907121_AL",
+      "tileType": "static",
+      "isDefault": true,
+      "standard": {
+        "title": "Rejection Note Form App"
+      }
+    }
+  ]
+}

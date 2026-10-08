@@ -1,0 +1,9 @@
+@EndUserText.label: 'Inventory Budget Utilization Report'
+define service ZMM_APP11_UI {
+  expose ZMM_APP11_RPV    as Main;
+  expose ZMM_APP11_IPV1;
+  expose ZI_PURORD_DATA01;
+  expose ZMM_APP11_BDG1;
+  expose ZMM_APP11_BDGHDR;
+  expose ZMM_APP11_PO2;
+}

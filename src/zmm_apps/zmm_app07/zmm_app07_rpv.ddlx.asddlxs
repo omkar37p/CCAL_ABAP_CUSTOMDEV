@@ -1,0 +1,69 @@
+@Metadata.layer: #CUSTOMER
+@UI: {
+    headerInfo: {
+    typeName: 'Purchase Requisition',
+    typeNamePlural: 'Purchase Requisitions',
+    title: { type: #STANDARD, value: 'Purreqnum' }
+    }
+}
+annotate entity ZMM_APP07_RPV with
+{
+  @UI.facet: [ { id:              'Header',
+                    purpose:         #STANDARD,
+                    type:            #IDENTIFICATION_REFERENCE,
+                    label:           'PR Header',
+                    position:        10 } ,
+                  { id:              'Items',
+                    purpose:         #STANDARD,
+                    type:            #LINEITEM_REFERENCE,
+                    label:           'PR Items',
+                    position:        20,
+                    targetElement:   '_Item'}]
+
+  @UI.hidden: true
+  Uuid;
+  @UI: { lineItem: [{ position: 10, label: 'Purchase Requisition'}],
+  identification: [{ position: 10, label: 'PR Number' },
+  { type: #FOR_ACTION, dataAction: 'CrtPr', label: 'Create PR' }] }
+  @Consumption.semanticObject: 'PurchaseRequisition'
+  Purreqnum;
+  @UI: { lineItem: [{ position: 20, label: 'PR Description'}],
+  identification: [{ position: 20, label: 'PR Description' }] }
+  Purreqdesc;
+  @UI: { lineItem: [{ position: 30, label: 'Document Type'}],
+  identification: [{ position: 30, label: 'Document Type' }] }
+  @Consumption.valueHelpDefinition: [{ entity: { name: 'ZI_PRDOCTYPE', element: 'value_low' }, distinctValues: true }]
+  Purreqtyp;
+  @UI.hidden: true
+  Prtypdesc;
+  @UI: { lineItem: [{ position: 40, label: 'Number of Items'}],
+  identification: [{ position: 40, label: 'Number of Items' }] }
+  Totitms;
+  @UI: { lineItem: [{ position: 50, label: 'Total Net Value'}],
+  identification: [{ position: 50, label: 'Total Net Value' }] }
+  Totnet;
+  @UI.hidden: true
+  Currency;
+  @UI: { lineItem: [{ position: 60, label: 'Status'}],
+  identification: [{ position: 60, label: 'Status' }] }
+  Status;
+  @UI: { lineItem: [{ position: 70, label: 'Deletion Indicator'}],
+  identification: [{ position: 70, label: 'Deletion Indicator' }] }
+  Delmark;
+  @UI.hidden: true
+  Mark;
+  @UI.hidden: true
+  CreatedBy;
+  @UI.hidden: true
+  CreatedAt;
+  @UI.hidden: true
+  LastChangedBy;
+  @UI.hidden: true
+  LastChangedAt;
+  @UI.hidden: true
+  LocalLastChangedAt;
+  /* Associations */
+  @UI.hidden: true
+  _Item;
+
+}

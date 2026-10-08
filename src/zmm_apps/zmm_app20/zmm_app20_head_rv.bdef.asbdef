@@ -1,0 +1,64 @@
+managed implementation in class zbp_mm_app20_head_rv unique;
+strict ( 1 );
+with draft;
+
+define behavior for ZMM_APP20_HEAD_RV alias RejHead
+//persistent table <???>
+with unmanaged save
+draft table zmm_reject_hdb_d
+lock master total etag Lastchangedat
+authorization master ( instance )
+etag master Lastchangedat
+{
+  create ( authorization : global );
+  update;
+  delete;
+  field ( readonly, numbering : managed ) Uuid;
+  field ( readonly : update ) Materialdocument, Plant;
+  field ( readonly ) Mdn, Mdnno, Mdndate,Purchaseorder, Purchaseorderdate, Purchaseorderitem,
+                     Supplierfullname,Street1, Street2,Cityname,Postalcode, Attachmentsul,Mimetypeul,
+                     Filenameul, Companycode,Goodsmovementtype,Region,Country;
+  field ( readonly ) Createdat, Lastchangedat, Lastchangedby, Createdby;
+
+  association _Item { create; with draft; }
+  determination GetData on save { create; field Mdnno; }
+  action( features : instance ) GetPDF result [1] $self;
+
+  determination uphead on modify { update; field Remark; }
+  draft action Resume;
+  draft action ( features : instance )Edit;
+  draft action Activate optimized;
+  draft action Discard;
+  draft determine action Prepare;
+
+    validation MigoValid on save { create; field Materialdocument; }
+    mapping for zmm_reject_hdb corresponding;
+}
+
+define behavior for ZMM_APP20_ITEM_RV alias RejItem
+//persistent table zmm_reject_idb
+with unmanaged save
+draft table zmm_reject_idb_d
+lock dependent by _Header
+authorization dependent by _Header
+//etag master <field_name>
+{
+  update;
+  delete;
+  field ( readonly ) Uuid, Materialdocument, Materialdocumentyear, Materialdocumentitem;
+  field (readonly ) plant, Companycode, Companycodecurrency, Material,
+                    Productdescription,Materialbaseunit,Migoqty, Poqty,
+                    Createdat, Createdby, Lastchangedat,Lastchangedby;
+
+  association _Header {with draft;}
+  side effects {
+            field Invoiceqty affects $self;
+            field Receivedqty affects $self;
+            field Acceptedqty affects $self;
+            field Rejectedqty affects $self;
+            }
+  determination UpdateItem on modify {update; field Invoiceqty, Receivedqty,Acceptedqty,Rejectedqty;}
+  validation ValidQty on save  { field Invoiceqty,Receivedqty,Acceptedqty,Rejectedqty; }
+  mapping for zmm_reject_idb corresponding;
+
+}

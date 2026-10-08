@@ -1,0 +1,34 @@
+{
+  "formatVersion": "2",
+  "header": {
+    "description": "Purchase Requisition Creation Application",
+    "originalLanguage": "en",
+    "abapLanguageVersion": "cloudDevelopment"
+  },
+  "generalInformation": {
+    "appType": "ui5",
+    "catalogId": "SAP_TC_UI5_REPO_UIAD",
+    "targetMappingTitle": "Purchase Requisition Creation Application"
+  },
+  "ui5AppDetails": {
+    "appId": "mmapp05"
+  },
+  "navigation": {
+    "targetMappingId": "UI5R_C173C22C29EE8447119ACF0AD552BF52D3EA15A7_TM",
+    "semanticObject": "YY1_MM_APP05",
+    "action": "manage",
+    "desktop": true,
+    "tablet": true,
+    "phone": true
+  },
+  "tiles": [
+    {
+      "id": "UI5R_C173C22C29EE8447119ACF0AD552BF52D3EA15A7_AL",
+      "tileType": "static",
+      "isDefault": true,
+      "standard": {
+        "title": "Purchase Requisition Creation Application"
+      }
+    }
+  ]
+}

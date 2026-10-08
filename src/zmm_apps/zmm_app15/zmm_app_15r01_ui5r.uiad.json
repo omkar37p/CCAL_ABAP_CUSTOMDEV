@@ -1,0 +1,34 @@
+{
+  "formatVersion": "2",
+  "header": {
+    "description": "RGP Material Inward Application",
+    "originalLanguage": "en",
+    "abapLanguageVersion": "cloudDevelopment"
+  },
+  "generalInformation": {
+    "appType": "ui5",
+    "catalogId": "SAP_TC_UI5_REPO_UIAD",
+    "targetMappingTitle": "RGP Material Inward Application"
+  },
+  "ui5AppDetails": {
+    "appId": "zmmapp15r01"
+  },
+  "navigation": {
+    "targetMappingId": "UI5R_C50A3A7D336C846677200FF6FC3B0102C3C27882_TM",
+    "semanticObject": "YY1_MM_APP15R01",
+    "action": "manage",
+    "desktop": true,
+    "tablet": true,
+    "phone": true
+  },
+  "tiles": [
+    {
+      "id": "UI5R_C50A3A7D336C846677200FF6FC3B0102C3C27882_AL",
+      "tileType": "static",
+      "isDefault": true,
+      "standard": {
+        "title": "RGP Material Inward Application"
+      }
+    }
+  ]
+}

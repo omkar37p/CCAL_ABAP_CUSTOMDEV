@@ -1,0 +1,5 @@
+@EndUserText.label: 'Service Definition for Purchase Order'
+define service Z_PO_SD {
+  expose ZI_PO_HDR_PV as Mainpage;
+  expose ZI_PO_ITM_PV as Item;
+}

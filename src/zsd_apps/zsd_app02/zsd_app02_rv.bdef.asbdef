@@ -1,0 +1,67 @@
+managed implementation in class zbp_sd_app02_rv unique;
+strict ( 1 );
+with draft;
+
+define behavior for ZSD_APP02_RV alias GateIn
+//persistent table zsd_app02_tb1
+with unmanaged save
+draft table zsd_app02_dt1
+lock master
+total etag LastChangedAt
+authorization master ( instance )
+etag master LastChangedAt
+{
+  create;
+  update ( features : instance );
+  delete ( features : instance );
+  field ( readonly, numbering : managed ) Uuid;
+  field ( readonly ) Gidate, Gitime, Godate, Gotime, Trwdate, Trwtime, Tokennum, Wgtunit, Tarewgt, Status, Division;
+  field ( mandatory ) Plant, Trspname, Drivername, Material;
+  association _Item { internal create; with draft; }
+
+  draft action Resume;
+  draft action Edit;
+  draft action Activate optimized;
+  draft action Discard;
+  draft determine action Prepare; //{ validation ( always )  ; }
+
+  determination GetData1 on save { create; update; field Material; }
+  validation mandatory on save { create; update; field Plant, Material, Drivername, Trspname; }
+
+
+  action ( features : instance ) GetTare parameter ZAE_WEIGHT result [1] $self;
+  action ( features : instance ) GetTareUrl result [1] $self;
+
+  mapping for zsd_app02_tb3 corresponding;
+
+}
+
+define behavior for ZSD_APP02_IV alias GateOut
+//persistent table zsd_app02_tb2
+with unmanaged save
+draft table zsd_app02_dt2
+lock dependent by _Header
+authorization dependent by _Header
+//etag master <field_name>
+{
+  update ( features : instance );
+  delete ( features : instance );
+  field ( readonly ) Uuid, Chbwgt, Godate, Gotime, Grsdate, Grstime, Grswgt, Netwgt, Tarewgt, Tokennum, Custref, Concrate, Material, Matdesc, Sloc, Batch;
+  //  field ( mandatory ) Material, Sloc, Batch;
+  association _Header { with draft; }
+
+  determination GetData2 on save { create; update; field Concnrate, Sealnum, Totcyln, Cylnvol, Frgtrms, Dlvplace, Tarewgt, Remarks, Loadsts, Grsdate, Grstime; }
+  action ( features : instance ) GetGross parameter ZAE_WEIGHT result [1] $self;
+  action ( features : instance ) GetGrossUrl result [1] $self;
+
+
+  determination upddata on modify { update; field Concnrate, Sealnum, Totcyln, Cylnvol, Frgtrms, Dlvplace, Tarewgt, Grswgt, Grsdate, Grstime, Netwgt, Chbwgt, Remarks, Loadsts; }
+  side effects { field Concnrate affects field ( Loadsts, Chbwgt ); }
+
+  determination compgate on modify { update; field Loadsts; }
+
+  validation weigh on save { create; update; field Loadsts; }
+
+  mapping for zsd_app02_tb2 corresponding;
+
+}

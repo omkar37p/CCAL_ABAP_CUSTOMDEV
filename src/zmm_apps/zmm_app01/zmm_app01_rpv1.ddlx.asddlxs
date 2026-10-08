@@ -1,0 +1,27 @@
+@Metadata.layer: #PARTNER
+annotate entity ZMM_APP01_RPV1 with
+{
+  @UI.facet: [ { id:              'UserID',
+                   purpose:         #STANDARD,
+                   type:            #IDENTIFICATION_REFERENCE,
+                   label:           'Business User Department',
+                   position:        10 } ]
+  @UI: { lineItem: [{ position: 10, label: 'Head-Department' }],
+  identification: [{ position: 10, label: 'Head-Department' }]}
+  @Consumption.valueHelpDefinition: [{ entity: { name: 'I_ProductGroup_2', element: 'ProductGroup' } }]
+  //  additionalBinding: [{ element: '_ProductGroupText.ProductGroupName', localElement: 'Prodgrpname' }]  }]
+  Prodgrp;
+//  @UI: { lineItem: [{ position: 15, label: 'Head Department Desc.' }],
+//  identification: [{ position: 15, label: 'Head Department Desc.' }]}
+//  Prodgrpname;
+  @UI: { lineItem: [{ position: 20, label: 'Sub-Department' }],
+  identification: [{ position: 20, label: 'Sub-Department' }]}
+  @Consumption.valueHelpDefinition: [{ entity: { name: 'ZI_DEPARTMENTVH1',
+  element: 'ExternalProductGroup' },
+  additionalBinding: [{ element: 'Groupname', localElement: 'Exgrpname' }]  }]
+  Exprdgrp;
+//  @UI: { lineItem: [{ position: 25, label: 'Sub Department Description' }],
+//  identification: [{ position: 25, label: 'Sub Department Description' }]}
+//  Exgrpname;
+
+}

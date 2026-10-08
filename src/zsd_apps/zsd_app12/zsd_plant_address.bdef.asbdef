@@ -1,0 +1,28 @@
+managed implementation in class zbp_sd_plant_address unique;
+strict ( 2 );
+with draft;
+
+define behavior for ZSD_PLANT_ADDRESS //alias <alias_name>
+persistent table zsd_plant
+draft table zsd_plant_draft
+lock master
+total etag lastchangedby
+authorization master ( instance )
+etag master lastchangedby
+{
+  create (authorization : global) ;
+  update;
+  delete;
+//  field ( readonly ) plant;
+field (readonly : update) plant;
+field ( readonly ) Createdat, Createdby, Lastchangedate, Lastchangedby;
+
+   draft action Resume;
+  draft action Edit;
+  draft action Activate optimized;
+  draft action Discard;
+  draft determine action Prepare; //{ validation ( always )  ; }
+
+
+mapping for zsd_plant corresponding ;
+}

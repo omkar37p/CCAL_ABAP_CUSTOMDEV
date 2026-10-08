@@ -1,0 +1,4 @@
+@EndUserText.label: 'PO-DSC Authorized Sign User'
+define service ZMM_APP19_UI {
+  expose ZMM_APP19_RPV as MainPage;
+}

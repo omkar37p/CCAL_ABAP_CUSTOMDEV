@@ -1,0 +1,45 @@
+@Metadata.layer: #CORE
+annotate entity zpo_report2_pv with
+{
+  @UI.selectionField: [{position: 10,element: 'PurchaseOrder'  }]
+  @UI.lineItem: [{ position: 10, label: 'Purchase Order' }]
+  PurchaseOrder;
+
+  @UI.lineItem: [{ position: 20, label: 'Item' }]
+  PurchaseOrderItem;
+
+  @UI.selectionField: [{position: 30,element: 'Material'  }]
+  @UI.lineItem: [{ position: 30, label: 'Material' }]
+  Material;
+
+  @UI.lineItem: [{ position: 40, label: 'Material Description' }]
+  ProductName;
+  
+  @UI.selectionField: [{position: 50,element: 'Plant'  }]
+  @UI.lineItem: [{ position: 50, label: 'Plant' }]
+  Plant;
+
+  @UI.lineItem: [{ position: 60, label: 'Quantity' }]
+  OrderQuantity;
+
+  @UI.lineItem: [{ position: 70, label: 'Price' }]
+  NetPriceAmount;
+
+  @UI.lineItem: [{ position: 80, label: 'Amount' }]
+  Amount;
+
+  @UI.lineItem: [{ position: 90, label: 'GRN Number' }]
+  MaterialDocument;
+
+  @UI.selectionField: [{position: 100,element: 'MaterialDocumentYear'  }]
+  @UI.lineItem: [{ position: 100, label: 'Fiscal Year' }]
+  MaterialDocumentYear;
+
+  @UI.selectionField: [{position: 110,element: 'DocumentDate'  }]
+  @UI.lineItem: [{ position: 110, label: 'GRN Date' }]
+  DocumentDate;
+
+  @UI.lineItem: [{ position: 120, label: 'GRN Quantity' }]
+  QuantityInEntryUnit;
+
+}

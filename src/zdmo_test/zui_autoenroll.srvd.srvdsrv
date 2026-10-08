@@ -1,0 +1,5 @@
+@EndUserText.label: 'Autopay Enrollment Service'
+define service ZUI_AUTOENROLL {
+  expose ZI_AUTOENROLL  as AutoEnroll;
+  expose ZCV_AUTOENROLL as ContractAccount;
+}

@@ -1,0 +1,48 @@
+@Metadata.layer: #CUSTOMER
+
+annotate entity ZPO_HEAD_PVE
+    with 
+{
+
+
+ @UI: { lineItem: [{ position: 10, label: 'Purchase Order'}],
+  identification: [{ position: 10, label: 'PO Number' }]}
+   Ebeln;
+   @UI: { lineItem: [{ position: 20, label: 'Purchase Requisition'}],
+  identification: [{ position: 20, label: 'PR Number' }]}
+   Banfn;
+    @UI: { lineItem: [{ position: 30, label: 'Document Type'}],
+  identification: [{ position: 30, label: 'Document Type' }]}
+
+   Bsart;
+   
+ //   Bukrs;
+//   Doctypdesc;
+@UI: { lineItem: [{ position: 40, label: 'Supplier'}],
+  identification: [{ position: 40, label: 'Supplier' }] }
+   Lifnr;
+   @UI: { lineItem: [{ position: 50, label: 'PO Date'}],
+  identification: [{ position: 50, label: 'PO Date' }] }
+   Bedat;
+  // Suppname;
+   @UI: { lineItem: [{ position: 60, label: 'Purch. Org.'}],
+  identification: [{ position: 60, label: 'Purch. Org.' }] }
+  Ekorg;
+   @UI: { lineItem: [{ position: 70, label: 'Purch. Grp.'}],
+  identification: [{ position: 70, label: 'Purch. Grp.' }] }
+   Ekgrp;
+   
+  // Waers;
+  
+//   Mark;
+ @UI:{hidden: true }
+   Createdby;
+   @UI:{hidden: true }
+   Createdat;
+   @UI:{hidden: true }
+   Lastchangedby;
+   @UI:{hidden: true }
+   Lastchangedat;
+   
+    
+}

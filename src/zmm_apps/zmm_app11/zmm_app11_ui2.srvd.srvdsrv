@@ -1,0 +1,5 @@
+@EndUserText.label: 'Budget Report'
+define service ZMM_APP11_UI2 {
+  expose ZMM_APP11_RPV  as Main;
+  expose ZMM_APP11_IPV1;
+}

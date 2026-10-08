@@ -1,0 +1,5 @@
+@EndUserText.label: 'Rejection Note Service Definition'
+define service ZMM_APP20_UI {
+  expose ZMM_APP20_HEAD_PV as MainHead;
+  expose ZMM_APP20_ITEM_PV as MainItem;
+}

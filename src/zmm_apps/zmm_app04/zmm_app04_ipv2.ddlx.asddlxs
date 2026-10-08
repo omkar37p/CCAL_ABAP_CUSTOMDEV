@@ -1,0 +1,93 @@
+@Metadata.layer: #PARTNER
+annotate entity ZMM_APP04_IPV2 with
+{
+  @UI.facet: [ { id:              'Item',
+                   purpose:         #STANDARD,
+                   type:            #IDENTIFICATION_REFERENCE,
+                   label:           'Gate Out Info',
+                   position:        10 } ]
+  @UI.hidden: true
+  Uuid;
+  @UI: { lineItem: [{ position: 10, label: 'Ticket Number'}],
+  identification: [{ position: 10, label: 'Ticket Number' },
+  { type: #FOR_ACTION, dataAction: 'GetTare', label: 'Fetch Tare Weight' },
+  { type: #FOR_ACTION, dataAction: 'PutTare', label: 'Enter Tare Weight' },
+  { type: #FOR_ACTION, dataAction: 'PostGR', label: 'Post GR' }] }
+  Ticketnum;
+  //  @UI: { lineItem: [{ position: 110, label: 'Vehicle List ID'}],
+  //  identification: [{ position: 110, label: 'Vehicle List ID' } ] }
+  //  Vhlistid;
+  //  @UI: { lineItem: [{ position: 120, label: 'Packing List ID'}],
+  //  identification: [{ position: 120, label: 'Packing List ID' } ] }
+  //  Pcklistid;
+//  @UI: { lineItem: [{ position: 30, label: 'Gate Out Time'}],
+//  identification: [{ position: 30, label: 'Gate Out Time' } ] }
+  @UI.hidden: true
+  Gotime;
+    @UI: { lineItem: [{ position: 30, label: 'Gate Out Time'}],
+  identification: [{ position: 30, label: 'Gate Out Time' } ] }
+  Gotim;
+  @UI: { lineItem: [{ position: 20, label: 'Gate Out Date'}],
+  identification: [{ position: 20, label: 'Gate Out Date' } ] }
+  Godate;
+  @UI: { lineItem: [{ position: 40, label: 'Vehicle Number'}],
+  identification: [{ position: 40, label: 'Vehicle Number' } ] }
+  Vehicleno;
+  @UI: { lineItem: [{ position: 50, label: 'Vendor Invoice'}],
+  identification: [{ position: 50, label: 'Vendor Invoice' } ] }
+  Veninvno;
+  @UI: { lineItem: [{ position: 60, label: 'Truck Type'}],
+  identification: [{ position: 60, label: 'Truck Type' } ] }
+  Trcuktyp;
+  @UI: { lineItem: [{ position: 70, label: 'Driver Name'}],
+  identification: [{ position: 70, label: 'Driver Name' } ] }
+  Drivername;
+  @UI: { lineItem: [{ position: 80, label: 'LR Number'}],
+  identification: [{ position: 80, label: 'LR Number' } ] }
+  Lrnumber;
+  @UI: { lineItem: [{ position: 90, label: 'Transporter'}],
+  identification: [{ position: 90, label: 'Transporter' } ] }
+  Trspname;
+  @UI: { lineItem: [{ position: 100, label: 'Transport Mode'}],
+  identification: [{ position: 100, label: 'Transport Mode' } ] }
+  Trspmode;
+  //  @UI: { lineItem: [{ position: 180, label: 'Concentration Rate'}],
+  //    identification: [{ position: 180, label: 'Concentration Rate' } ] }
+  //  Concrate;
+  //  @UI: { lineItem: [{ position: 190, label: 'Cylinder'}],
+  //    identification: [{ position: 190, label: 'Cylinder' } ] }
+  //  Cylinder;
+  @UI: { lineItem: [{ position: 150, label: 'Gross Weight'}],
+  identification: [{ position: 150, label: 'Gross Weight' } ] }
+  Ogrswgt;  
+  @UI: { lineItem: [{ position: 160, label: 'Net Weight'}],
+  identification: [{ position: 160, label: 'Net Weight' } ] }
+  Onetwgt;
+  @UI: { lineItem: [{ position: 170, label: 'Tare Weight'}],
+  identification: [{ position: 170, label: 'Tare Weight' } ] }
+  Oitarewgt;
+  @UI: { lineItem: [{ position: 151, label: 'Tare Weighed On'}],
+  identification: [{ position: 151, label: 'Tare Weighed On' } ] }
+  Wghgodate;
+@UI.hidden: true
+  Wghgotime;
+    @UI: { lineItem: [{ position: 152, label: 'Tare Weighed At'}],
+  identification: [{ position: 152, label: 'Tare Weighed At' } ] }
+  Wghgotim;
+  @UI.hidden: true
+  Wgtunit;
+  @UI.hidden: true
+  Mark;
+  @UI.hidden: true
+  Createdby;
+  @UI.hidden: true
+  Createdat;
+  @UI.hidden: true
+  Lastchangedby;
+  @UI.hidden: true
+  Lastchangedat;
+  /* Associations */
+  @UI.hidden: true
+  _Header;
+
+}

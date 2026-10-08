@@ -1,0 +1,21 @@
+{
+  "formatVersion": "1",
+  "header": {
+    "description": "Invoice APIs For Application Jobs Catlogs",
+    "originalLanguage": "en",
+    "abapLanguageVersion": "cloudDevelopment"
+  },
+  "generalInformation": {
+    "className": "ZAPI_APP01_C_JOB"
+  },
+  "parameters": [
+    {
+      "name": "ZDATE",
+      "mandatory": true
+    },
+    {
+      "name": "ZTIME",
+      "mandatory": true
+    }
+  ]
+}

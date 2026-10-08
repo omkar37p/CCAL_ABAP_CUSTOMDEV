@@ -1,0 +1,62 @@
+@Metadata.layer: #CUSTOMER
+@UI: { headerInfo: {
+typeName: 'DSC - Signer',
+typeNamePlural: 'DSC - Signers',
+title: { type: #STANDARD, value: 'Userid' },
+         description: { type: #STANDARD, value: 'Signername' }
+         } }
+annotate entity ZSD_APP10_RPV with
+{
+  @UI.facet: [ { id:              'Header',
+                      purpose:         #STANDARD,
+                      type:            #IDENTIFICATION_REFERENCE,
+                      label:           'Authorised Signer Details',
+                      position:        10 } ]
+
+  @UI: { lineItem: [{ position: 10, label: 'User ID'}],
+    identification: [{ position: 10, label: 'User ID' } ] }
+  @Consumption.valueHelpDefinition: [{ entity: { name: 'I_BusinessUserVH',element: 'UserID' },
+  additionalBinding: [{localElement: 'Usrname', element: 'PersonFullName'}]  }]
+  Userid;
+  @UI: { lineItem: [{ position: 20, label: 'Company Code'}],
+  identification: [{ position: 20, label: 'Company Code' } ] }
+  @Consumption.valueHelpDefinition: [{ entity: { name: 'I_CompanyCodeVH',element: 'CompanyCode' },
+  additionalBinding: [{localElement: 'Ccname', element: 'CompanyCodeName'}]  }]
+  Ccode;
+  @UI: { lineItem: [{ position: 30, label: 'Dist. Chnl.'}],
+  identification: [{ position: 30, label: 'Distribution Channel' } ] }
+  @Consumption.valueHelpDefinition: [{ entity: { name: 'I_DistributionChannelText',element: 'DistributionChannel' },
+  additionalBinding: [{localElement: 'Dstchname', element: 'DistributionChannelName'}]  }]
+  Distchnl;
+  @UI: { lineItem: [{ position: 40, label: 'Division'}],
+  identification: [{ position: 40, label: 'Division' } ] }
+  @Consumption.valueHelpDefinition: [{ entity: { name: 'I_DivisionText',element: 'Division' },
+  additionalBinding: [{localElement: 'Divsname', element: 'DivisionName'}]  }]
+  Division;
+  @UI.hidden: true
+  Usrname;
+  @UI.hidden: true
+  Ccname;
+  @UI.hidden: true
+  Dstchname;
+  @UI.hidden: true
+  Divsname;
+  @UI: { lineItem: [{ position: 50, label: 'Signer Name'}],
+  identification: [{ position: 50, label: 'Signer Name' } ] }
+  Signername;
+  @UI: { identification: [{ position: 60, label: 'Form Template' } ] }
+  Formtmp;
+  @UI: { identification: [{ position: 70, label: 'Form Description' } ] }
+  Formname;
+  @UI: { identification: [{ position: 75, label: 'Print Queue' } ] }
+  Prntque;
+  @UI: { identification: [{ position: 80, label: 'Created By' } ] }
+  Createdby;
+  @UI: { identification: [{ position: 90, label: 'Created Date' } ] }
+  Createdat;
+  @UI: { identification: [{ position: 100, label: 'Lastchanged By' } ] }
+  Lastchangedby;
+  @UI: { identification: [{ position: 110, label: 'Lastchanged Date' } ] }
+  Lastchangedat;
+
+}

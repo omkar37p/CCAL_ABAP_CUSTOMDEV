@@ -1,0 +1,35 @@
+{
+  "formatVersion": "2",
+  "header": {
+    "description": "Inventory Ageing Report",
+    "originalLanguage": "en",
+    "abapLanguageVersion": "cloudDevelopment"
+  },
+  "generalInformation": {
+    "appType": "ui5",
+    "catalogId": "SAP_TC_UI5_REPO_UIAD",
+    "targetMappingTitle": "Inventory Ageing Report"
+  },
+  "ui5AppDetails": {
+    "appId": "zmminventoryreport.zmminventory"
+  },
+  "navigation": {
+    "targetMappingId": "UI5R_275D2F3FA0A6B4D339609FDFEE3BCB08EC7C93C7_TM",
+    "semanticObject": "zmm_inventory",
+    "action": "display",
+    "desktop": true,
+    "tablet": true,
+    "phone": true
+  },
+  "tiles": [
+    {
+      "id": "UI5R_275D2F3FA0A6B4D339609FDFEE3BCB08EC7C93C7_AL",
+      "tileType": "static",
+      "isDefault": true,
+      "standard": {
+        "title": "Inventory Ageing Report",
+        "subtitle": "Inventory Ageing"
+      }
+    }
+  ]
+}

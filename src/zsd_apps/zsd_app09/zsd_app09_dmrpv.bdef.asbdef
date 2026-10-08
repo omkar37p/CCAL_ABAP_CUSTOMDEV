@@ -1,0 +1,17 @@
+projection;
+strict ( 1 );
+
+define behavior for ZSD_APP09_DMRPV //alias <alias_name>
+{
+
+  use action Email;
+  use action esign;
+
+  use association _Item { create; }
+}
+
+define behavior for ZSD_APP09_DMIPV1 //alias <alias_name>
+{
+
+  use association _Header;
+}

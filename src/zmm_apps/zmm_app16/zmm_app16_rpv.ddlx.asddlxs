@@ -1,0 +1,131 @@
+@Metadata.layer: #CUSTOMER
+@UI: { headerInfo: {
+typeName: 'Material Outward - Gate Pass',
+typeNamePlural: 'Material Outward - Gate Passes',
+title: { type: #STANDARD, value: 'Gateno' },
+         description: { type: #STANDARD, value: 'Statustext' }  } }
+
+ 
+annotate entity ZMM_APP16_RPV
+    with 
+{
+    @UI.facet: [ { id:              'Header',
+                          purpose:         #STANDARD,
+                          type:            #IDENTIFICATION_REFERENCE,
+                          label:           'Gate Pass Detials',
+                          position:        10 },
+                           { id:              'Items',
+                      purpose:         #STANDARD,
+                      type:            #LINEITEM_REFERENCE,
+                      label:           'Gate Pass In',
+                      position:        20,
+                      targetElement:   '_item'} ]
+                          
+@UI.hidden: true
+  Uuid;
+  @UI: { lineItem: [{ position: 10, label: 'Plant'},{type: #FOR_ACTION, dataAction: 'Statusc' , label: 'Security Check' , position: 10},{type: #FOR_ACTION, dataAction: 'Gateout' , label: 'Gate Out' , position: 20}],
+      identification: [{ position: 10, label: 'Plant' },{type: #FOR_ACTION, dataAction: 'Statusc' , label: 'Security Check' , position: 10},{type: #FOR_ACTION, dataAction: 'Gateout' , label: 'Gate Out' , position: 20} ] }
+  @Consumption.valueHelpDefinition: [{ entity: { name: 'ZI_PLANT_VH1',
+    element: 'Shpoint' }  , additionalBinding: [{localElement: 'Plantname', element: 'Shpname', usage: #RESULT }]    }]
+  Plant;
+  @UI: { lineItem: [{ position: 20, label: 'Plant Name' }],
+  identification: [{ position: 20, label: 'Plant Name' }]}
+  Plantname;
+  
+//@UI.hidden: true
+  @UI: { lineItem: [{ position: 4, label: 'Document Number' }],
+  identification: [{ position: 4, label: 'Document Number' }]}
+Gpnum;
+@UI: { lineItem: [{ position: 21, label: 'Document Type' }],
+  identification: [{ position: 21, label: 'Document Type' }]}
+  @Consumption.valueHelpDefinition: [{ entity: { name: 'ZI_GPTYPE', element: 'value_low' }, distinctValues: true }]
+Gptype;
+@UI.hidden: true
+Vendnum;
+@UI.hidden: true
+Vendname;
+@UI.hidden: true
+Plnrtndate;
+ @UI: { lineItem: [{ position: 30, label: 'Vehicle No' }],
+  identification: [{ position: 30, label: 'Vehicle No' }]}
+Vehicleno;
+ @UI: { lineItem: [{ position: 40, label: 'Dispatch Through' }],
+  identification: [{ position: 40, label: 'Dispatch Through' }]}
+Dispby;
+@UI.hidden: true
+Issuedate;
+@UI.hidden: true
+Issuedby;
+ @UI: { lineItem: [{ position: 50, label: 'Transporter Name' }],
+  identification: [{ position: 50, label: 'Transporter Name' }]}
+Transporter;
+@UI.hidden: true
+Remarks;
+@UI.hidden: true
+Gpvalue;
+@UI.hidden: true
+Curky;
+@UI.hidden: true
+Rsngp;
+@UI.hidden: true
+Frghtscope;
+@UI.hidden: true
+Pcklist;
+@UI.hidden: true
+Delmark;
+@UI.hidden: true
+Mark;
+ @UI: { lineItem: [{ position: 60, label: 'Created by' }],
+  identification: [{ position: 60, label: 'Created by' }]}
+Createdby;
+ @UI: { lineItem: [{ position: 70, label: 'Create date' }],
+  identification: [{ position: 70, label: 'Create date' }]}
+Createdat;
+ @UI: { lineItem: [{ position: 80, label: 'Lastchanged by' }],
+  identification: [{ position: 80, label: 'Lastchanged by' }]}
+Lastchangedby;
+ @UI: { lineItem: [{ position: 90, label: 'Lastchange date' }],
+  identification: [{ position: 90, label: 'Lastchange date' }]}
+Lastchangedat;
+@UI.hidden: true
+Zattachment;
+@UI.hidden: true
+Minetype;
+@UI.hidden: true
+Filename;
+@UI.hidden: true
+Ebeln;
+@UI.hidden: true
+Insurno;
+@UI.hidden: true
+Ewabillno;
+@UI.hidden: true
+Netwgt;
+@UI.hidden: true
+Grosswgt;
+@UI.hidden: true
+Tarewgt;
+@UI.hidden: true
+Uom;
+@UI.hidden: true
+Gateno;
+@UI: { lineItem: [{ position: 6, label: 'Gate In Date' }],
+  identification: [{ position: 6, label: 'Gate In Date' }]}
+Gitdat;
+@UI: { lineItem: [{ position: 7, label: 'Gate In Time' }],
+  identification: [{ position: 7, label: 'Gate In Time' }]}
+Gittim;
+@UI: { lineItem: [{ position: 8, label: 'Gate Out Date' }],
+  identification: [{ position: 8, label: 'Gate Out Date' }]}
+Gotdat;
+@UI: { lineItem: [{ position: 9, label: 'Gate Out Time' }],
+  identification: [{ position: 9, label: 'Gate Out Time' }]}
+Gottim;
+@UI: { lineItem: [{ position: 100, label: 'Status' }],
+  identification: [{ position: 100, label: 'Status' }]}
+Statustext;
+@UI.hidden: true
+/* Associations */
+_status;
+    
+}

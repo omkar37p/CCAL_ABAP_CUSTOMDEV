@@ -1,0 +1,4 @@
+@EndUserText.label: 'SERVICE DEFINATION'
+define service ZAPI_PRACTICE_SD {
+  expose ZAPI_PROJECTIONVIEW as MAIN;
+}

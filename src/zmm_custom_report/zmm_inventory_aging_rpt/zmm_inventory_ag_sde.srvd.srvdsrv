@@ -1,0 +1,4 @@
+@EndUserText.label: 'MM INVENTORY AGING SERVICE DEFINATION'
+define service ZMM_INVENTORY_AG_SDE {
+  expose ZMM_INVENTORY_AG_PV;
+}

@@ -1,0 +1,6 @@
+@EndUserText.label: 'Service Defination of RGB'
+define service ZMM_APP13_SD {
+  expose ZMM_APP13_PV1   as mainpage;
+  expose ZMM_APP13_IPV1;
+  expose ZMM_APP13_IIPV1;
+}

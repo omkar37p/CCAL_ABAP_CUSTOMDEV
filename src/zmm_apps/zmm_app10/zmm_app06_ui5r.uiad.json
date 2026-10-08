@@ -1,0 +1,34 @@
+{
+  "formatVersion": "2",
+  "header": {
+    "description": "Purchase Gate Entry( NON PO ) Application",
+    "originalLanguage": "en",
+    "abapLanguageVersion": "cloudDevelopment"
+  },
+  "generalInformation": {
+    "appType": "ui5",
+    "catalogId": "SAP_TC_UI5_REPO_UIAD",
+    "targetMappingTitle": "Purchase Gate Entry( NON PO ) Application"
+  },
+  "ui5AppDetails": {
+    "appId": "mmapp06"
+  },
+  "navigation": {
+    "targetMappingId": "UI5R_8B978E92FFDDBC71CEC47BE804426AA67A70AE6F_TM",
+    "semanticObject": "YY1_MM_APP06",
+    "action": "manage",
+    "desktop": true,
+    "tablet": true,
+    "phone": true
+  },
+  "tiles": [
+    {
+      "id": "UI5R_8B978E92FFDDBC71CEC47BE804426AA67A70AE6F_AL",
+      "tileType": "static",
+      "isDefault": true,
+      "standard": {
+        "title": "Purchase Gate Entry( NON PO ) Application"
+      }
+    }
+  ]
+}

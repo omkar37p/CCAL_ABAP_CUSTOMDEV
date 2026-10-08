@@ -1,0 +1,51 @@
+@Metadata.layer: #PARTNER
+annotate entity ZSD_APP08_IPV1 with
+{
+  @UI.facet: [ { id:              'Item',
+                 purpose:         #STANDARD,
+                 type:            #IDENTIFICATION_REFERENCE,
+                 label:           'Item Details',
+                 position:        10 } ]
+  @UI.hidden: true
+  Bukrs;
+  @UI.hidden: true
+  Vbeln;
+  @UI: { lineItem: [{ position: 10, label: 'S.No'}],
+  identification: [{ position: 10, label: 'S.No' } ] }
+  Posnr;
+  @UI.hidden: true
+  Pstyv;
+  @UI: { lineItem: [{ position: 20, label: 'Product'}],
+  identification: [{ position: 20, label: 'Product' } ] }
+  Matnr;
+  @UI.hidden: true
+  Matkl;
+  @UI: { lineItem: [{ position: 30, label: 'Plant'}],
+  identification: [{ position: 30, label: 'Plant' } ] }
+  Werks;
+  @UI: { lineItem: [{ position: 40, label: 'Item Text'}],
+  identification: [{ position: 40, label: 'Item Text' } ] }
+  Arktx;
+  @UI.hidden: true
+  Vrkme;
+  @UI: { lineItem: [{ position: 50, label: 'Quantity'}],
+  identification: [{ position: 50, label: 'Quantity' } ] }
+  Fkimg;
+  @UI.hidden: true
+  Vbelv;
+  @UI.hidden: true
+  Posnv;
+  @UI.hidden: true
+  Vgbel;
+  @UI.hidden: true
+  Vgpos;
+  @UI.hidden: true
+  Aubel;
+  @UI: { lineItem: [{ position: 60, label: 'Payer'}],
+  identification: [{ position: 60, label: 'Payer' } ] }
+  Kunag;
+  /* Associations */
+  @UI.hidden: true
+  _Header;
+
+}

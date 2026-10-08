@@ -1,0 +1,5 @@
+@EndUserText.label: 'Service Defination for secqurity person'
+define service Zmm_app16_sd {
+  expose ZMM_APP16_RPV as Mainpage;
+  expose zmm_app16_V;
+}

@@ -1,0 +1,8 @@
+projection;
+strict ( 2 );
+
+define behavior for ZFI_APP01_PV //alias <alias_name>
+{
+
+  use action submit;
+}

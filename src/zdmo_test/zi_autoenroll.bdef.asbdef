@@ -1,0 +1,31 @@
+unmanaged implementation in class zbp_i_autoenroll unique;
+strict ( 2 ); //Uncomment this line in order to enable strict mode 2. The strict mode has two variants (strict(1), strict(2)) and is prerequisite to be future proof regarding syntax and to be able to release your BO.
+
+define behavior for ZI_AUTOENROLL //alias <alias_name>
+//late numbering
+lock master
+authorization master ( instance )
+//etag master <field_name>
+{
+  create ( authorization : global );
+  update;
+  delete;
+  field ( readonly ) BusinessPartner;
+  association _CA { create; }
+
+  action enroll result [1] $self;
+}
+
+define behavior for ZCV_AUTOENROLL //alias <alias_name>
+//late numbering
+lock dependent by _hdr
+authorization dependent by _hdr
+//etag master <field_name>
+{
+  update;
+  delete;
+  field ( readonly : update ) BusinessPartner;
+  field ( readonly ) ContractAccount;
+  association _hdr;
+
+}

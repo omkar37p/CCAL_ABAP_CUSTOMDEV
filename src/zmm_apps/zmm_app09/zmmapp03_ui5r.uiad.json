@@ -1,0 +1,34 @@
+{
+  "formatVersion": "2",
+  "header": {
+    "description": "Inventory Budget Code Maintenance Application",
+    "originalLanguage": "en",
+    "abapLanguageVersion": "cloudDevelopment"
+  },
+  "generalInformation": {
+    "appType": "ui5",
+    "catalogId": "SAP_TC_UI5_REPO_UIAD",
+    "targetMappingTitle": "Inventory Budget Code Maintenance Application"
+  },
+  "ui5AppDetails": {
+    "appId": "mmapp03"
+  },
+  "navigation": {
+    "targetMappingId": "UI5R_9E77F4787344DA396FDDBBC35667614F7AF9514B_TM",
+    "semanticObject": "YY1_MM_APP03",
+    "action": "manage",
+    "desktop": true,
+    "tablet": true,
+    "phone": true
+  },
+  "tiles": [
+    {
+      "id": "UI5R_9E77F4787344DA396FDDBBC35667614F7AF9514B_AL",
+      "tileType": "static",
+      "isDefault": true,
+      "standard": {
+        "title": "Inventory Budget Code Maintenance Application"
+      }
+    }
+  ]
+}

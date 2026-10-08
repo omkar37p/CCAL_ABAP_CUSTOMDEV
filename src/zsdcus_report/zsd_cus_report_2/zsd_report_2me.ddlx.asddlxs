@@ -1,0 +1,178 @@
+@Metadata.layer: #CUSTOMER
+@UI: {
+  headerInfo: { typeName: 'Sales Report P2',
+                typeNamePlural: 'Sales Report P2',
+                title: { type: #STANDARD, label: 'Sales Report P2', value: 'BillingDocument' } },
+  presentationVariant: [{ sortOrder: [{ by: 'BillingDocument', direction:  #ASC }] }] }
+
+annotate entity ZSD_REPORT_2PV
+    with 
+{
+                    
+  @UI: {  lineItem:       [ { position: 10, label: 'Invoice Number-SD Internal' } ],
+        identification:   [ { position: 10, label: 'Invoice Number-SD Internal' } ],
+        selectionField:   [ { position: 10}  ] }
+    @Consumption.valueHelpDefinition: [{ entity: { name: 'I_BillingDocumentItemStdVH',
+                                                   element: 'BillingDocument' } }]        
+BillingDocument;
+
+  @UI: {  lineItem:       [ { position: 15, label: 'Invoice Date' } ],
+        identification:   [ { position: 15, label: 'Invoice Date' } ],
+        selectionField:   [ { position: 20}  ]}
+    @Consumption.filter:{ selectionType: #INTERVAL,multipleSelections: false }
+    @EndUserText.label: 'Invoice Date'
+CreationDate;
+  @UI: {  lineItem:       [ { position: 16, label: 'Invoice Time' } ],
+        identification:   [ { position: 16, label: 'Invoice Time' } ] }
+        @EndUserText.label: 'Invoice Time'
+InvoiceTime;
+  @UI: {  lineItem:       [ { position: 20, label: 'Delivery Number' } ],
+        identification:   [ { position: 20, label: 'Delivery Number' } ] }
+DeliveryDocument;
+  @UI: {  lineItem:       [ { position: 30, label: 'Invoice Number-ODN' } ],
+        identification:   [ { position: 30, label: 'Invoice Number-ODN' } ] }
+ODNNumber;
+  @UI: {  lineItem:       [ { position: 40, label: 'Quotation Number' } ],
+        identification:   [ { position: 40, label: 'Quotation Number' } ] }
+SalesQuotation;
+  @UI: {  lineItem:       [ { position: 50, label: 'Inquiry Number' } ],
+        identification:   [ { position: 50, label: 'Inquiry Number' } ] }
+SalesInquiry;
+  @UI: {  lineItem:       [ { position: 60, label: 'Contract Number' } ],
+        identification:   [ { position: 60, label: 'Contract Number' } ] }
+SalesContract;
+  @UI: {  lineItem:       [ { position: 70, label: 'Ship To Customer Code' } ],
+        identification:   [ { position: 70, label: 'Ship To Customer Code' } ] }
+shipCustomer;
+  @UI: {  lineItem:       [ { position: 80, label: 'Ship To Party Name1' } ],
+        identification:   [ { position: 80, label: 'Ship To Party Name1' } ] }
+shipPartyName1;
+  @UI: {  lineItem:       [ { position: 90, label: 'Ship To Party Name2' } ],
+        identification:   [ { position: 90, label: 'Ship To Party Name2' } ] }
+shipPartyName2;
+  @UI: {  lineItem:       [ { position: 100, label: 'Ship To Address' } ],
+        identification:   [ { position: 100, label: 'Ship To Address' } ] }
+shipcusStreetName;
+  @UI: {  lineItem:       [ { position: 110, label: 'Ship to City Name' } ],
+        identification:   [ { position: 110, label: 'Ship to City Name' } ] }
+shipcusCityName;
+  @UI: {  lineItem:       [ { position: 120, label: 'Ship to State Name' } ],
+        identification:   [ { position: 120, label: 'Ship to State Name' } ] }
+shiptostate;
+  @UI: {  lineItem:       [ { position: 130, label: 'Token Number(PACKING LIST)' } ],
+        identification:   [ { position: 130, label: 'Token Number(PACKING LIST)' } ] }
+TokenNumber;
+  @UI: {  lineItem:       [ { position: 140, label: 'Mode Of Transport' } ],
+        identification:   [ { position: 140, label: 'Mode Of Transport' } ] }
+ModeofTransporter;
+  @UI: {  lineItem:       [ { position: 150, label: 'Unit Of Measure' } ],
+        identification:   [ { position: 150, label: 'Unit Of Measure' } ] }
+BaseUnit;
+  @UI: {  lineItem:       [ { position: 160, label: 'Order Quantity' } ],
+        identification:   [ { position: 160, label: 'Order Quantity' } ] }
+OrderQuantity;
+  @UI: {  lineItem:       [ { position: 170, label: 'Order Pending Quantity' } ],
+        identification:   [ { position: 170, label: 'Order Pending Quantity' } ] }
+PendingQuantity;
+  @UI: {  lineItem:       [ { position: 180, label: 'Payment Terms' } ],
+        identification:   [ { position: 180, label: 'Payment Terms' } ] }
+CustomerPaymentTerms;
+  @UI: {  lineItem:       [ { position: 190, label: 'LR No' } ],
+        identification:   [ { position: 190, label: 'LR No' } ] }
+LRNo;
+  @UI: {  lineItem:       [ { position: 200, label: 'Driver Details' } ],
+        identification:   [ { position: 200, label: 'Driver Details' } ] }
+DriverDetails;
+  @UI: {  lineItem:       [ { position: 210, label: 'Volume Per Cylinder' } ],
+        identification:   [ { position: 210, label: 'Volume Per Cylinder' } ] }
+VolumePerCylinder;
+  @UI: {  lineItem:       [ { position: 220, label: 'Seal/Cylinder Number' } ],
+        identification:   [ { position: 220, label: 'Seal/Cylinder Number' } ] }
+YY1_CylinderDetailSeal_DLH;
+  @UI: {  lineItem:       [ { position: 230, label: 'Freight Terms' } ],
+        identification:   [ { position: 230, label: 'Freight Terms' } ] }
+FreightTerms;
+  @UI: {  lineItem:       [ { position: 240, label: 'Remarks' } ],
+        identification:   [ { position: 240, label: 'Remarks' } ] }
+Remarks;
+  @UI: {  lineItem:       [ { position: 250, label: 'Incoterms' } ],
+        identification:   [ { position: 250, label: 'Incoterms' } ] }
+Incoterms;
+  @UI: {  lineItem:       [ { position: 260, label: 'Incoterm-Location' } ],
+        identification:   [ { position: 260, label: 'Incoterm-Location' } ] }
+IncLocation;
+  @UI: {  lineItem:       [ { position: 270, label: 'Journal Entry No' } ],
+        identification:   [ { position: 270, label: 'Journal Entry No' } ] }
+JournalEntryNo;
+  @UI: {  lineItem:       [ { position: 280, label: 'Fiscal Year' } ],
+        identification:   [ { position: 280, label: 'Fiscal Year' } ] }
+FiscalYear;
+  @UI: {  lineItem:       [ { position: 290, label: 'Transporter Name' } ],
+        identification:   [ { position: 290, label: 'Transporter Name' } ] }
+TransporterName;
+  @UI: {  lineItem:       [ { position: 300, label: 'Vehicle No' } ],
+        identification:   [ { position: 300, label: 'Vehicle No' } ] }
+Vehiclenumber;
+  @UI: {  lineItem:       [ { position: 310, label: 'Wheeler Type' } ],
+        identification:   [ { position: 310, label: 'Wheeler Type' } ] }
+WheelerType;
+  @UI: {  lineItem:       [ { position: 320, label: 'Gross Wt' } ],
+        identification:   [ { position: 320, label: 'Gross Wt' } ] }
+GrossWt;
+  @UI: {  lineItem:       [ { position: 330, label: 'Net Wt' } ],
+        identification:   [ { position: 330, label: 'Net Wt' } ] }
+NetWt;
+  @UI: {  lineItem:       [ { position: 340, label: 'Tare Wt' } ],
+        identification:   [ { position: 340, label: 'Tare Wt' } ] }
+TareWt;
+  @UI: {  lineItem:       [ { position: 350, label: 'Concentration' } ],
+        identification:   [ { position: 350, label: 'Concentration' } ] }
+Concentration;
+  @UI: {  lineItem:       [ { position: 360, label: 'Char Wt' } ],
+        identification:   [ { position: 360, label: 'Char Wt' } ] }
+Charwt;
+  @UI: {  lineItem:       [ { position: 370, label: 'No of Cylinder' } ],
+        identification:   [ { position: 370, label: 'No of Cylinder' } ] }
+NoOfCylinder;
+  @UI: {  lineItem:       [ { position: 380, label: 'Place (Chunampet/Kanthadu)' } ],
+        identification:   [ { position: 380, label: 'Place (Chunampet/Kanthadu)' } ] }
+Place;
+  @UI: {  lineItem:       [ { position: 390, label: 'Sales Organisation' } ],
+        identification:   [ { position: 390, label: 'Sales Organisation' } ] }
+SalesOrganization;
+  @UI: {  lineItem:       [ { position: 400, label: 'Sales Division' } ],
+        identification:   [ { position: 400, label: 'Sales Division' } ] }
+Division;
+  @UI: {  lineItem:       [ { position: 410, label: 'HSN/SAC' } ],
+        identification:   [ { position: 410, label: 'HSN/SAC' } ] }
+HSN;
+  @UI: {  lineItem:       [ { position: 420, label: 'Customer Sale order Ref' } ],
+        identification:   [ { position: 420, label: 'Customer Sale order Ref' } ] }
+cussoref;
+  @UI: {  lineItem:       [ { position: 430, label: 'Company Code' } ],
+        identification:   [ { position: 430, label: 'Company Code' } ] }
+CompanyCode;    
+  @UI: {  lineItem:       [ { position: 440, label: 'Plant' } ],
+        identification:   [ { position: 440, label: 'Plant' } ],
+        selectionField:   [ { position: 30}  ]}
+    @Consumption.valueHelpDefinition: [{ entity: { name: 'I_PlantStdVH',
+                                                   element: 'Plant' } }]        
+Plant;
+@UI.hidden: true
+BillingDocumentItem;
+@UI.hidden: true
+DeliveryDocumentItem;
+@UI.hidden: true
+SalesOrder;
+@UI.hidden: true
+SalesOrderItem;
+@UI.hidden: true
+ReferenceSDDocument;
+@UI.hidden: true
+ReferenceSDDocumentItem;
+@UI.hidden: true
+CreationTime;
+@UI.hidden: true
+SalesQuotationItem;
+
+}

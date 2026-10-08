@@ -1,0 +1,4 @@
+@EndUserText.label: 'Plan Service Defination'
+define service ZAPP03_PLAN_SD {
+  expose ZAPP03_FI_PLAN_PV;
+}

@@ -1,0 +1,46 @@
+managed implementation in class zbp_sd_app08_rv unique;
+strict ( 1 );
+with draft;
+
+define behavior for ZSD_APP08_RV alias Hdr
+//persistent table zsd_app08_tb1
+with unmanaged save
+draft table zsd_app08_dt1
+lock master
+total etag Vbeln
+authorization master ( instance )
+etag master Vbeln
+{
+  create;
+  update;
+  delete;
+  field ( readonly ) Bukrs, Vbeln;
+  association _Item { create; with draft; }
+
+  draft action Resume;
+  draft action Edit;
+  draft action Activate optimized;
+  draft action Discard;
+  draft determine action Prepare;
+
+  determination GetData1 on modify { update; field Vbeln; }
+
+  mapping for zsd_app08_tb1 corresponding;
+}
+
+define behavior for ZSD_APP08_IV1 alias Line
+//persistent table zsd_app08_tb2
+with unmanaged save
+draft table zsd_app08_dt2
+lock dependent by _Header
+authorization dependent by _Header
+//etag master <field_name>
+{
+  update;
+  delete;
+  field ( readonly ) Bukrs, Vbeln, Posnr;
+  association _Header { with draft; }
+
+  mapping for zsd_app08_tb2 corresponding;
+
+}

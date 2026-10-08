@@ -1,0 +1,43 @@
+@Metadata.layer: #CUSTOMER
+@UI: {
+  headerInfo: { typeName: 'NABL COA Form',
+                typeNamePlural: 'NABL Result',
+                title: { type: #STANDARD, label: 'NABL COA Form', value: 'InspectionLot'
+                         } }
+
+                 }
+annotate entity ZQM_RESULT_VIEW
+    with 
+{
+  @UI.facet: [ { id:              'items',
+                      purpose:         #STANDARD,
+                      type:            #IDENTIFICATION_REFERENCE,
+                      label:           'QM COA Result Details',
+                      position:        10 } ]
+  @UI: {  lineItem:       [ { position: 10, label: 'Inspection' } ],
+          identification:   [ { position: 10, label: 'Inspection' } ] }
+InspectionLot;
+@UI.hidden: true
+InspPlanOperationInternalID;
+  @UI: {  lineItem:       [ { position: 20, label: 'Characteristics' } ],
+          identification:   [ { position: 20, label: 'Characteristics' } ] }
+InspectionCharacteristic;
+  @UI: {  lineItem:       [ { position: 30, label: 'Parameter' } ],
+          identification:   [ { position: 30, label: 'Parameter' } ] }
+InspectionSpecification;
+  @UI: {  lineItem:       [ { position: 40, label: 'Parameter Description' } ],
+          identification:   [ { position: 40, label: 'Parameter Description' } ] }
+InspectionCharacteristicText;
+  @UI: {  lineItem:       [ { position: 50, label: 'Unit' } ],
+          identification:   [ { position: 50, label: 'Unit' } ] }
+UnitOfMeasureTechnicalName;
+  @UI: {  lineItem:       [ { position: 60, label: 'Mean Value' } ],
+          identification:   [ { position: 60, label: 'Mean Value' } ] }
+InspectionResultMeanValue;   
+  @UI: {  lineItem:       [ { position: 70, label: 'Inspection Method' } ],
+          identification:   [ { position: 70, label: 'Inspection Method' } ] }
+InspectionMeth;
+  @UI: {  lineItem:       [ { position: 80, label: 'Insp Specification Name' } ],
+          identification:   [ { position: 80, label: 'Insp Specification Name' } ] }
+InspSpecificationName;
+}

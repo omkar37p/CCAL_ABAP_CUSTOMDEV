@@ -1,0 +1,16 @@
+projection;
+strict ( 2 );
+
+define behavior for ZSD_APP11_HEADER_PV //alias <alias_name>
+{
+
+  use action PDF;
+  use action POPDF;
+  use association _Item { create; }
+}
+
+define behavior for ZSD_APP11_ITEM_PV //alias <alias_name>
+{
+
+  use association _Header;
+}

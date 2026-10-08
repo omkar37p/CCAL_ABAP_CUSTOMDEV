@@ -1,0 +1,52 @@
+managed implementation in class zbp_mm_app15_rv unique;
+strict ( 2 );
+with draft;
+
+define behavior for ZMM_APP15_RV alias GPline
+//persistent table <???>
+with unmanaged save
+draft table zmm_app15_dt2
+lock master
+total etag LastChangedAt
+authorization master ( instance )
+etag master LastChangedAt
+{
+  create;
+  update ( features : instance );
+  delete ( features : instance );
+
+  field ( readonly ) Uuid, Itemno, Createdat, Createdby, Curky, Gpnum, Gptype, Hsncode, Uom, Totvalue,
+  Totrcvqty, Totopnqty, Quantity, Netprice, Matnr, Mark, Maktx, Lastchangedat, Lastchangedby;
+  association _Item { create; with draft; }
+
+  draft action Resume;
+  draft action( features : instance)Edit;
+  draft action Activate optimized;
+  draft action Discard;
+  draft determine action Prepare;
+
+  mapping for zmm_app12_tb2 corresponding;
+}
+
+define behavior for ZMM_APP15_IV1 alias GPLsno
+//persistent table zmm_app15_tb1
+with unmanaged save
+draft table zmm_app15_dt1
+lock dependent by _Header
+authorization dependent by _Header
+//etag master <field_name>
+{
+  update ( features : instance );
+  delete ( features : instance );
+  field ( readonly ) Uuid, Itemno, Sno, Createdat, Createdby, Indt, Intim, Maktx, Matnr, Penqty, Quantity, Uom;
+  field(readonly : update) Recvqty;
+
+  association _Header { with draft; }
+
+  determination CrtItem on save { create; field Recvqty; }
+  determination Upditem on modify{field Recvqty;delete;update;}
+  validation ValiRecqty on save {field Recvqty; create; }
+  side effects { field Recvqty affects field _Header.Totrcvqty , field _Header.Totopnqty ; }
+
+  mapping for zmm_app15_tb1 corresponding;
+}

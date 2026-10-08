@@ -1,0 +1,56 @@
+managed implementation in class zbp_sd_app01_rv unique;
+strict ( 2 );
+with draft;
+
+define behavior for ZSD_APP01_RV alias _DlvHdr
+//persistent table zsd_app01_tb1
+with unmanaged save
+draft table zsd_app01_dt1
+lock master
+total etag LastChangedAt
+authorization master ( instance )
+etag master LastChangedAt
+{
+
+  create;
+  update;
+  delete;
+  field ( readonly, numbering : managed ) Uuid;
+  field ( readonly ) Chbwgt, Delvnum, Gidate, Gitime, Godate, Gotime, Tokennum, Wgtunit,
+  Tarewgt, Netwgt, Grswgt;
+
+  association _Item { internal create; with draft; }
+
+  draft action Resume;
+  draft action Edit;
+  draft action Activate optimized;
+  draft action Discard;
+  draft determine action Prepare;
+
+  determination GetData1 on save { create; field Sonum; }
+  action ( features : instance ) GetTare result [1] $self;
+  action ( features : instance ) GetGross result [1] $self;
+  action ( features : instance ) Pack result [1] $self;
+  action ( features : instance ) PostGI result [1] $self;
+
+  mapping for zsd_app01_tb1 corresponding;
+}
+
+define behavior for ZSD_APP01_IV1 alias _DlvItm
+//persistent table zsd_app01_tb2
+with unmanaged save
+draft table zsd_app01_dt2
+lock dependent by _Header
+authorization dependent by _Header
+//etag master <field_name>
+{
+  update;
+  delete;
+  field ( readonly ) Uuid, Soitem, Material, Division, Matdesc, Ordqty, Ordunt, Plant;
+  association _Header { with draft; }
+
+  determination GetData2 on modify { field Batch; }
+
+  mapping for zsd_app01_tb2 corresponding;
+
+}

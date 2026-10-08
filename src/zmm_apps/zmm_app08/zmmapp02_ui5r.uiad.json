@@ -1,0 +1,34 @@
+{
+  "formatVersion": "2",
+  "header": {
+    "description": "Department Main Budget Allotment App",
+    "originalLanguage": "en",
+    "abapLanguageVersion": "cloudDevelopment"
+  },
+  "generalInformation": {
+    "appType": "ui5",
+    "catalogId": "SAP_TC_UI5_REPO_UIAD",
+    "targetMappingTitle": "Department Main Budget Allotment App"
+  },
+  "ui5AppDetails": {
+    "appId": "mmapp02"
+  },
+  "navigation": {
+    "targetMappingId": "UI5R_8DA1B65CE8813CB399559066DA70661B0619FB00_TM",
+    "semanticObject": "YY1_MM_APP02",
+    "action": "manage",
+    "desktop": true,
+    "tablet": true,
+    "phone": true
+  },
+  "tiles": [
+    {
+      "id": "UI5R_8DA1B65CE8813CB399559066DA70661B0619FB00_AL",
+      "tileType": "static",
+      "isDefault": true,
+      "standard": {
+        "title": "Department Main Budget Allotment App"
+      }
+    }
+  ]
+}

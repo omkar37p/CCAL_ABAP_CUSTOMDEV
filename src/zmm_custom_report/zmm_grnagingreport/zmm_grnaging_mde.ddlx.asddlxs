@@ -1,0 +1,108 @@
+@Metadata.layer: #PARTNER
+@UI.headerInfo: { typeName: 'GRN AGING Report', typeNamePlural:'GRN AGING Report' }
+annotate entity ZMM_GRNAGING_PV with                                                                                         //Metadata of BOQ Sales Report
+{
+ @UI: {  lineItem:       [ { position: 10, label: 'GRNNO' } ],
+        identification:   [ { position: 10, label: 'GRNNO' } ],
+        selectionField:   [ { position: 10}  ]}
+GRNNO;
+  @UI: {  lineItem:       [ { position: 20, label: 'GRNItem' } ],
+        identification:   [ { position: 20, label: 'GRNItem' } ],
+        selectionField:   [ { position: 20}  ]}
+GRNItem;
+ @UI: {  lineItem:       [ { position: 30, label: 'GRN Year' } ],
+        identification:   [ { position: 30, label: 'GRN Year' } ],
+        selectionField:   [ { position: 30}  ]}
+  GRNYear;
+  @UI: {  lineItem:       [ { position: 40, label: 'COMPANY CODE' } ],
+        identification:   [ { position: 40, label: 'COMPANY CODE' } ],
+        selectionField:   [ { position: 40}  ]}
+ COMPANYCODE;
+ @UI: {  lineItem:       [ { position: 50, label: 'PLANT' } ],
+        identification:   [ { position: 50, label: 'PLANT' } ]}
+  PLANT     ;
+    @UI: {  lineItem:       [ { position: 60, label: 'GATE ENTRY NO' } ],
+        identification:   [ { position: 60, label: 'GATE ENTRY NO' } ]} 
+    GATEENTRYNO;
+    @UI: {  lineItem:       [ { position: 60, label: 'GRN Date' } ],
+        identification:   [ { position: 60, label: 'GRN Date' } ],
+        selectionField:   [ { position: 60}  ]}
+    GRNDate;
+    @UI: {  lineItem:       [ { position: 70, label: 'Vendor Code' } ],
+        identification:   [ { position: 70, label: 'Vendor Code' } ]}
+    VendorCode ;
+    @UI: {  lineItem:       [ { position: 80, label: 'Purchase Order' } ],
+        identification:   [ { position: 80, label: 'Purchase Order' } ]}
+    PurchaseOrder;
+    @UI: {  lineItem:       [ { position: 90, label: 'Purchase Item' } ],
+        identification:   [ { position: 90, label: 'Purchase Item' } ]}
+    POItem      ;
+    @UI: {  lineItem:       [ { position: 91, label: 'Remarks' } ],
+        identification:   [ { position: 91, label: 'Remarks' } ]}
+    Remarks;
+    @UI: {  lineItem:       [ { position: 92, label: 'StockType' } ],
+        identification:   [ { position: 92, label: 'StockType' } ]}
+    StockType;
+    @UI: {  lineItem:       [ { position: 93, label: 'DeliveryNote' } ],
+        identification:   [ { position: 93, label: 'DeliveryNote' } ]}
+    DeliveryNote;
+    @UI: {  lineItem:       [ { position: 100, label: 'Supplier Name' } ],
+        identification:   [ { position: 100, label: 'Supplier Name' } ]}
+    SupplierName;
+    @UI: {  lineItem:       [ { position: 110, label: 'Material Code' } ],
+        identification:   [ { position: 110, label: 'Material Code' } ]}
+    MaterialCode;
+    
+    @UI: {  lineItem:       [ { position: 120, label: 'Material Description' } ],
+        identification:   [ { position: 120, label: 'Material Description' } ]}
+        //selectionField:   [ { position: 130}  ]}
+    MaterialDescription ;
+   /* @UI: {  lineItem:       [ { position: 140, label: 'GRNItem' } ],
+        identification:   [ { position: 140, label: 'GRNItem' } ]}
+    PurchaseGroup ;*/
+    @UI: {  lineItem:       [ { position: 130, label: 'DEPARTMENT' } ],
+        identification:   [ { position: 130, label: 'DEPARTMENT' } ]}
+    DEPARTMENT;
+    @UI: {  lineItem:       [ { position: 140, label: 'UOM' } ],
+        identification:   [ { position: 140, label: 'UOM' } ]}
+    UOM        ;
+    @UI: {  lineItem:       [ { position: 150, label: 'Recieved Quantity' } ],
+        identification:   [ { position: 150, label: 'Recieved Quantity' } ]}
+    RecievedQuantity;
+    @UI: {  lineItem:       [ { position: 160, label: 'Movement Type' } ],
+        identification:   [ { position: 160, label: 'Movement Type' } ]}
+    MOVTYPE    ;
+    @UI: {  lineItem:       [ { position: 170, label: 'Currency' } ],
+        identification:   [ { position: 170, label: 'Currency' } ]}
+    Currency;
+    @UI: {  lineItem:       [ { position: 180, label: 'INVOICE AMOUNT' } ],
+        identification:   [ { position: 180, label: 'INVOICE AMOUNT' } ]}
+    INVOICEAMOUNT;
+    @UI: {  lineItem:       [ { position: 190, label: 'AgeingDay' } ],
+        identification:   [ { position: 190, label: 'AgeingDay' } ]}
+    AgeingDays;
+    @UI: {  lineItem:       [ { position: 200, label: '0_30 Days' } ],
+        identification:   [ { position: 200, label: '0_30 Days' } ]}
+    b0_30;
+    @UI: {  lineItem:       [ { position: 210, label: '30_60 Days' } ],
+        identification:   [ { position: 210, label: '30_60 Days' } ]}
+    b30_60;
+    @UI: {  lineItem:       [ { position: 220, label: '60_90 Days' } ],
+        identification:   [ { position: 220, label: '60_90 Days' } ]}
+    b60_90;
+   @UI: {  lineItem:       [ { position: 230, label: '90_120 Days' } ],
+        identification:   [ { position: 230, label: '90_120 Days' } ]}
+    b90_120;
+    @UI: {  lineItem:       [ { position: 240, label: '120_150 Days' } ],
+        identification:   [ { position: 240, label: '120_150 Days' } ]}
+    b120_150;
+    @UI: {  lineItem:       [ { position: 250, label: '150_180 Days' } ],
+        identification:   [ { position: 250, label: '150_180 Days' } ]}
+    b150_180;
+    @UI: {  lineItem:       [ { position: 260, label: 'upto365 Days' } ],
+        identification:   [ { position: 260, label: 'upto365 Days' } ]}
+    upto365;
+    @UI: {  lineItem:       [ { position: 270, label: 'beyond1year' } ],
+        identification:   [ { position: 270, label: 'beyond1year' } ]}
+    beyond1year ;
+}

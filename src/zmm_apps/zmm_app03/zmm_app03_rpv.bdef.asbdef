@@ -1,0 +1,29 @@
+projection;
+strict ( 2 );
+use draft;
+use side effects;
+
+define behavior for ZMM_APP03_RPV //alias <alias_name>
+{
+  use create;
+  use update;
+  use delete;
+
+  use action CrtPO;
+
+  use action Resume;
+  use action Edit;
+  use action Activate;
+  use action Discard;
+  use action Prepare;
+
+  use association _Item { create; with draft; }
+}
+
+define behavior for ZMM_APP03_IPV1 //alias <alias_name>
+{
+  use update;
+  use delete;
+
+  use association _Header { with draft; }
+}

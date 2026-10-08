@@ -1,0 +1,15 @@
+managed implementation in class zbp_fi_app01_rv unique;
+strict ( 2 );
+
+
+define behavior for ZFI_APP01_RV alias _hdr
+with unmanaged save
+lock master
+authorization master ( instance )
+{
+//  create ( authorization : global );
+//  update;
+//  delete;
+  field ( readonly ) CompanyCode, FiscalYear, AccountingDocument;
+  action (features : instance) submit result[1]$self;
+}

@@ -1,0 +1,6 @@
+@EndUserText.label: 'PR Creation(Inventory Budget wise) App'
+define service ZMM_APP07_UI {
+  expose ZMM_APP07_RPV  as MainPage;
+  expose ZMM_APP07_IPV1;
+  expose ZI_BDGCODE_VH1;
+}

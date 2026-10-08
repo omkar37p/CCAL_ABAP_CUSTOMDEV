@@ -1,0 +1,31 @@
+managed implementation in class zbp_sd_app11_header unique;
+strict ( 2 );
+
+define behavior for ZSD_APP11_HEADER alias header
+//persistent table <???>
+with unmanaged save
+lock master
+authorization master ( instance )
+//etag master <field_name>
+{
+//  create ( authorization : global );
+//  update;
+//  delete;
+  field ( readonly ) BillingDocument;
+  association _Item { create; }
+  action ( features : instance ) PDF result [1] $self;
+  action ( features : instance ) POPDF result [1] $self;
+}
+
+define behavior for ZSD_APP11_ITEM //alias <alias_name>
+//persistent table vbrp
+with unmanaged save
+lock dependent by _Header
+authorization dependent by _Header
+//etag master <field_name>
+{
+//  update;
+//  delete;
+  field ( readonly ) BillingDocument, BillingDocumentItem;
+  association _Header;
+}

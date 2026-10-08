@@ -1,0 +1,34 @@
+{
+  "formatVersion": "2",
+  "header": {
+    "description": "Department Users - Maintenance Application",
+    "originalLanguage": "en",
+    "abapLanguageVersion": "cloudDevelopment"
+  },
+  "generalInformation": {
+    "appType": "ui5",
+    "catalogId": "SAP_TC_UI5_REPO_UIAD",
+    "targetMappingTitle": "Department Users - Maintenance Application"
+  },
+  "ui5AppDetails": {
+    "appId": "mmapp01"
+  },
+  "navigation": {
+    "targetMappingId": "UI5R_1AD00FA6B7A89EDBFDA9360A6F30DB6192D2491C_TM",
+    "semanticObject": "YY1_MM_APP01",
+    "action": "manage",
+    "desktop": true,
+    "tablet": true,
+    "phone": true
+  },
+  "tiles": [
+    {
+      "id": "UI5R_1AD00FA6B7A89EDBFDA9360A6F30DB6192D2491C_AL",
+      "tileType": "static",
+      "isDefault": true,
+      "standard": {
+        "title": "Department Users - Maintenance Application"
+      }
+    }
+  ]
+}

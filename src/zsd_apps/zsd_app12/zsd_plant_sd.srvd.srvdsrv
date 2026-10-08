@@ -1,0 +1,4 @@
+@EndUserText.label: 'Plant ServiceDefination'
+define service ZSD_PLANT_SD {
+  expose ZSD_PLANT_PV;
+}

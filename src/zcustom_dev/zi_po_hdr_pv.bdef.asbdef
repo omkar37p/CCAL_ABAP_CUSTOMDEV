@@ -1,0 +1,26 @@
+projection;
+strict ( 2 );
+use draft;
+
+define behavior for ZI_PO_HDR_PV  // alias _HDR
+{
+  use create;
+  use update;
+  use delete;
+  use action Resume;
+  use action Discard;
+  use action Activate;
+  use action Edit;
+  use action Prepare;
+
+  use association _Item { create; with draft; }
+
+}
+
+define behavior for ZI_PO_ITM_PV //alias <alias_name>
+{
+  use update;
+  use delete;
+
+  use association  _Header{ with draft; }
+}

@@ -1,0 +1,5 @@
+@EndUserText.label: 'Invoice Print Service Definition'
+define service ZSD_APP11_PRINT_SD {
+  expose ZSD_APP11_HEAD_CE;
+  expose ZSD_APP11_ITEM_PRINT;
+}

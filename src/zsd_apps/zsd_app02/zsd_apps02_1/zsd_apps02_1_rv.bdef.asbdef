@@ -1,0 +1,27 @@
+managed implementation in class zbp_sd_apps02_1_rv unique;
+strict ( 2 );
+with draft;
+
+define behavior for ZSD_APPS02_1_RV //alias <alias_name>
+persistent table zsd_apps02_1_tb1
+draft table zsd_apps02_1_dt1
+lock master total etag Division
+authorization master ( instance )
+//etag master <field_name>
+{
+  create;
+  update;
+  delete;
+
+  draft action Resume;
+  draft action Edit;
+  draft action Activate optimized;
+  draft action Discard;
+  draft determine action Prepare;
+
+  field ( readonly : update ) Division;
+  field ( mandatory : create ) Division;
+  field ( readonly ) Language;
+
+  mapping for zsd_apps02_1_tb1 corresponding;
+}

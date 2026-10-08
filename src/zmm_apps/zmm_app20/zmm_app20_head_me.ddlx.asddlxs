@@ -1,0 +1,133 @@
+@Metadata.layer: #CUSTOMER
+@UI: { 
+        headerInfo: { typeName: 'Rejection Note',
+                      typeNamePlural: 'Rejection Note Application',
+                      title:{ type: #STANDARD,
+                      label: 'Rejection Note',
+                      value: 'Materialdocument' } }}
+annotate entity ZMM_APP20_HEAD_PV
+    with 
+{
+  @UI.facet: [ { id:              'Header',
+                      purpose:         #STANDARD,
+                      type:            #IDENTIFICATION_REFERENCE,
+                      label:           'Rejection Note',
+                      position:        10 },
+                      { id:              'Items',
+                      purpose:         #STANDARD,
+                      type:            #LINEITEM_REFERENCE,
+                      label:           'Standard Item',
+                      position:        20,
+                      targetElement:   '_Item'}]
+
+                      
+@UI: { lineItem: [{ position: 10, label: 'GRN No' } ],
+        identification: [{ position: 10, label: 'GRN No' },                           
+        { type: #FOR_ACTION, dataAction: 'GetPDF', label: 'Get PDF Output', position: 10 }] }         
+        @UI.selectionField: [{ position: 10 }] 
+@EndUserText.label: 'GRN No'          
+        @Consumption.valueHelpDefinition: [{ entity: { name: 'ZMM_MIGO_VH', element: 'Materialdocument'},
+                additionalBinding: [{ localElement: 'Materialdocumentyear', element: 'Materialdocumentyear', usage: #RESULT },
+                                    { localElement: 'Migodate', element: 'Migodate', usage: #RESULT},
+                                    { localElement: 'Invoiceno', element: 'InvoiceNo', usage: #RESULT },
+                                    { localElement: 'Invoicedate', element: 'Invoicedate', usage: #RESULT },
+                                    { localElement: 'Plant', element: 'Plant', usage: #RESULT } ] }]
+//        @Consumption.valueHelpDefinition: [{ entity:{ name: 'ZMM_MIGO_VH',element: 'Materialdocument' } }]
+      
+Materialdocument;
+@UI: { lineItem: [{ position: 20, label: 'GRN Document Year' }],
+        identification: [{ position: 20, label: 'GRN Document Year' }] }
+@EndUserText.label: 'GRN Document Year'        
+Materialdocumentyear;
+@UI: { lineItem: [{ position: 30, label: 'GRN Date' }],
+        identification: [{ position: 30, label: 'GRN Date' }] }
+@EndUserText.label: 'GRN Date' 
+Migodate;
+@UI: { lineItem: [{ position: 40, label: 'MDN No' }],
+        identification: [{ position: 40, label: 'MDN No' }] }
+@UI.selectionField: [{ position: 20 }]         
+@EndUserText.label: 'MDN No' 
+Mdnno;
+@UI: { lineItem: [{ position: 50, label: 'MDN Date' }],
+        identification: [{ position: 50, label: 'MDN Date' }] }
+@EndUserText.label: 'MDN Date' 
+Mdndate;
+@UI: { lineItem: [{ position: 60, label: 'Invoice No' }],
+        identification: [{ position: 60, label: 'Invoice No' }] }
+@EndUserText.label: 'Invoice No' 
+Invoiceno;
+@UI: { lineItem: [{ position: 70, label: 'Invoice Date' }],
+        identification: [{ position: 70, label: 'Invoice Date' }] }
+@EndUserText.label: 'Invoice Date' 
+Invoicedate;
+@UI: { lineItem: [{ position: 80, label: 'Purchase Order' }],
+        identification: [{ position: 80, label: 'Purchase Order' }] }
+@EndUserText.label: 'Purchase Order' 
+Purchaseorder;
+@UI: { lineItem: [{ position: 90, label: 'Purchase Date' }],
+        identification: [{ position: 90, label: 'Purchase Date' }] }
+@EndUserText.label: 'Purchase Date' 
+Purchaseorderdate;
+@UI: { lineItem: [{ position: 100, label: 'Plant' }],
+        identification: [{ position: 100, label: 'Plant' }] }
+@UI.selectionField: [{ position: 30 }]
+@Consumption.valueHelpDefinition: [{ entity: { name: 'I_Plant', element: 'Plant'} } ]        
+@EndUserText.label: 'Plant' 
+Plant;
+@UI: { identification: [{ position: 110, label: 'Supplier' }] }
+@EndUserText.label: 'Supplier'
+Supplier;
+@UI: { identification: [{ position: 120, label: 'Supplier Name' }] }
+@EndUserText.label: 'Supplier Name'
+Supplierfullname;
+@UI: { identification: [{ position: 130, label: 'Street Add one' }] }
+@EndUserText.label: 'Street Add one'
+Street1;
+@UI: { identification: [{ position: 140, label: 'Street Add two' }] }
+@EndUserText.label: 'Street Add two'
+Street2;
+@UI: { identification: [{ position: 150, label: 'City' }] }
+@EndUserText.label: 'City'
+Cityname;
+@UI: { identification: [{ position: 160, label: 'Postal Code' }] }
+@EndUserText.label: 'Postal Code'
+Postalcode;
+@UI: { identification: [{ position: 170, label: 'PDF Form Output' }] }
+@EndUserText.label: 'PDF Form Output'
+Attachmentsul;
+@UI: { identification: [{ position: 180, label: 'Remarks' }] }
+@UI.multiLineText: true
+@EndUserText.label: 'Remarks'
+Remark;
+@UI: { identification: [{ position: 190, label: 'Creator Name' }] }
+@EndUserText.label: 'Creator Name'
+Createdby;
+@UI.hidden: true
+Mimetypeul;
+@UI.hidden: true
+Filenameul;
+@UI.hidden: true
+Purchaseorderitem;
+@UI.hidden: true
+Companycode;
+@UI.hidden: true
+Goodsmovementtype;
+@UI.hidden: true
+Country;
+@UI.hidden: true
+Region;
+@UI.hidden: true
+Mdn;
+@UI.hidden: true
+Createdat;
+@UI.hidden: true
+Lastchangedby;
+@UI.hidden: true
+Lastchangedat;
+@UI.hidden: true
+Uuid;
+@UI.hidden: true
+/* Associations */
+_Item;
+    
+}

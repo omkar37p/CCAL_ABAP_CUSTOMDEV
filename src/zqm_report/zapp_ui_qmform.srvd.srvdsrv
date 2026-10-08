@@ -1,0 +1,5 @@
+@EndUserText.label: 'QM Custom report form SD'
+define service ZAPP_UI_QMFORM {
+  expose ZAPP_QM_HEADER as QM_Header;
+  expose ZAPP_QM_ITEM   as QM_Item;
+}

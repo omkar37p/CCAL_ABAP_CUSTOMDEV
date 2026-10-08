@@ -1,0 +1,59 @@
+managed implementation in class zbp_mm_app12_rv unique;
+strict ( 1 );
+with draft;
+define behavior for ZMM_APP12_RV alias _HDR
+//persistent table zmm_app12_tb1
+with unmanaged save
+draft table zmm_app12_dt1
+lock master
+total etag Createdat
+authorization master ( instance )
+etag master Createdat
+{
+  create;
+  update ( features : instance );
+  delete ( features : instance );
+
+  field ( readonly, numbering : managed ) Uuid;
+
+  field ( readonly ) Gpnum, Gpvalue, Createdat, Createdby, Curky, Plantname,Gateno,Plant,Dispby,Vehicleno,Transporter,Gptype,Mark2 , Pdfattchement,
+     Cfilename,
+       Cminetype;
+  determination updhdr on save { field Vendnum, Delmark,  Frghtscope,  Gpvalue, Issuedate, Issuedby, Mark, Pcklist, Plant, Rsngp, Remarks, Zattachment,Ewabillno,Insurno,Netwgt,Grosswgt,Ebeln,Tarewgt,Reqdpt; }
+  action(features : instance) issueout result [1] $self ;
+  action(features : instance) checked result[1] $self;
+  action(authorization : instance) printout result[1] $self;
+  association _Item1 { create; with draft; }
+
+  draft action Resume;
+  draft action( features : instance ) Edit;
+  draft action Activate optimized;
+  draft action Discard;
+  draft determine action  Prepare;
+
+  determination GetData1 on save { create; field Gptype; }
+
+  mapping for zmm_app12_tb1 corresponding;
+
+}
+
+define behavior for ZMM_APP12_IV1 alias _ITM1
+//persistent table zmm_app12_tb2
+with unmanaged save
+draft table zmm_app12_dt2
+lock dependent by _Header
+authorization dependent by _Header
+//etag master <field_name>
+{
+  update ( features : instance );
+  delete ( features : instance );
+  field ( readonly ) Uuid, Itemno, Totvalue, Totopnqty, Totrcvqty;
+  association _Header { with draft;}
+
+  determination CrtItem on save { create; field Matnr; }
+  determination upditm on save { field Hsncode, Maktx, Matnr, Netprice, Quantity, Uom, Curky; }
+  validation quant on save { create; update; field Quantity ;}
+
+
+  mapping for zmm_app12_tb2 corresponding;
+}

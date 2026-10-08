@@ -1,0 +1,44 @@
+managed implementation in class zbp_sd_app06_rv unique;
+strict ( 2 );
+
+define behavior for ZSD_APP06_RV alias header //alias <alias_name>
+//persistent table <???>
+with unmanaged save
+lock master
+authorization master ( instance )
+//etag master <field_name>
+{
+  //create;
+ // update;
+ // delete;
+  field ( readonly ) Delvnum;
+  association _delv { create; }
+  association _delv2 { create; }
+  action (features : instance) Getout result[1]$self;
+}
+
+define behavior for ZSD_APP06_RVC1 alias item1//alias <alias_name>
+//persistent table likp
+with unmanaged save
+lock dependent by _header
+authorization dependent by _header
+//etag master <field_name>
+{
+ // update;
+ // delete;
+  field ( readonly ) DeliveryDocument;
+  association _header;
+}
+
+define behavior for ZSD_APP06_RVC2 alias item2//alias <alias_name>
+//persistent table <???>
+with unmanaged save
+lock dependent by _header2
+authorization dependent by _header2
+//etag master <field_name>
+{
+  //update;
+  //delete;
+  field ( readonly ) BillingDocument, BillingDocumentItem, ReferenceSDDocument;
+  association _header2;
+}

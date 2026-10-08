@@ -1,0 +1,5 @@
+@EndUserText.label: 'Delivery - Gate Entry Application'
+define service ZSD_APP01_UI {
+  expose ZSD_APP01_RPV  as MAINPAGE;
+  expose ZSD_APP01_IPV1 as Item;
+}

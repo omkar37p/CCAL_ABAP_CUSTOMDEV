@@ -1,0 +1,5 @@
+@EndUserText.label: 'Autopay Service Definition'
+define service ZUI_AUTOPAY {
+  expose ZRV_BUISNESSPARTNER;
+  expose ZCV_CONTRACTACCOUNTPARTNER;
+}

@@ -1,0 +1,57 @@
+@Metadata.layer: #PARTNER
+annotate entity ZMM_APP01_IPV1 with
+{
+  @UI.facet: [ { id:              'Item',
+                 purpose:         #STANDARD,
+                 type:            #IDENTIFICATION_REFERENCE,
+                 label:           'Budget Item',
+                 position:        10 } ]
+  @UI.hidden: true
+  Plant;
+  @UI.hidden: true
+  Prodgrp;
+  @UI.hidden: true
+  Validon;
+  @UI.hidden: true
+  Validto;
+  @UI: { lineItem: [{ position: 10, label: 'Budget Code' }],
+  identification: [{ position: 10, label: 'Budget Code' }]}
+  Bdgcode;
+  @UI: { lineItem: [{ position: 20, label: 'Department(Ext. Mat. Grp)' }],
+  identification: [{ position: 20, label: 'Department(Ext. Mat. Grp)' }]}
+  @Consumption.valueHelpDefinition: [{ entity: { name: 'I_ExtProdGrp', element: 'ExternalProductGroup' } }]
+
+  Exprdgrp;
+  @UI: { lineItem: [{ position: 40, label: 'Allotted Budget Amount' }],
+  identification: [{ position: 40, label: 'Allotted Budget Amount' }]}
+  Allcibdg;
+  @UI: { lineItem: [{ position: 50, label: 'Utilized Budget Amount' }],
+  identification: [{ position: 50, label: 'Utilized Budget Amount' }]}
+  Utlzibdg;
+  @UI: { lineItem: [{ position: 60, label: 'Balance Budget Amount' }],
+  identification: [{ position: 60, label: 'Balance Budget Amount' }]}
+  Balcibdg;
+  @UI: { lineItem: [{ position: 30, label: 'Budget Code Desc.' }],
+  identification: [{ position: 30, label: 'Budget Code Desc.' }]}
+  Bdgitxt;
+  //  @UI: { lineItem: [{ position: 70, label: 'Split From(Budget code)' }],
+  //  identification: [{ position: 70, label: 'Split From(Budget code)' }]}
+  @UI.hidden: true
+  Frbdgcode;
+  //  @UI: { lineItem: [{ position: 80, label: 'Available Split Amount' }],
+  //  identification: [{ position: 80, label: 'Available Split Amount' }]}
+  @UI.hidden: true
+  Splavlbdg;
+  @UI.hidden: true
+  Curky;
+  @UI: { lineItem: [{ position: 90, label: 'Created On' }],
+  identification: [{ position: 90, label: 'Created On' }]}
+  Lncrtdat;
+  @UI: { lineItem: [{ position: 100, label: 'Created By' }],
+  identification: [{ position: 100, label: 'Created By' }]}
+  Lncrtdby;
+  /* Associations */
+  @UI.hidden: true
+  _bdghdr;
+
+}

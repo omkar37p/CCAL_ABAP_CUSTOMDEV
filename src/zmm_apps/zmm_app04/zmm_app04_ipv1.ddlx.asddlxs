@@ -1,0 +1,57 @@
+@Metadata.layer: #PARTNER
+annotate entity ZMM_APP04_IPV1 with
+{
+  @UI.facet: [ { id:              'Item',
+                 purpose:         #STANDARD,
+                 type:            #IDENTIFICATION_REFERENCE,
+                 label:           'PO Items',
+                 position:        10 } ]
+  @UI.hidden: true
+  Uuid;
+  @UI: { lineItem: [{ position: 10, label: 'PO Item' }],
+  identification: [{ position: 10, label: 'PO Item'  }] }
+  Ebelp;
+  @UI: { lineItem: [{ position: 20, label: 'Material' }   ],
+  identification: [{ position: 20, label: 'Material'  },
+   { type: #FOR_ACTION, dataAction: 'CrtIns', label: 'Create Inspection Lot' },
+   { type: #FOR_ACTION, dataAction: 'InsRst', label: 'Get Result Status' } ] }
+  @Consumption.valueHelpDefinition: [{ entity: { name: 'I_ProductStdVH',
+  element: 'Product' }  }]
+  Matnr;
+  @UI.hidden: true
+  Maktx;
+  @UI: { lineItem: [{ position: 90, label: 'PO Date' }],
+  identification: [{ position: 90, label: 'PO Date'  }] }
+  Bedat;
+  @UI: { lineItem: [{ position: 100, label: 'Vendor' }],
+  identification: [{ position: 100, label: 'Vendor'  }] }
+  Lifnr;
+  @UI.hidden: true
+  Suppname;
+  @UI: { lineItem: [{ position: 30, label: 'PO Qty' }],
+  identification: [{ position: 30, label: 'PO Quantity'  }] }
+  Poqty;
+  @UI: { lineItem: [{ position: 40, label: 'Rcvd Qty' }],
+  identification: [{ position: 40, label: 'Recieved Quantity'  }] }
+  Rcvqty;
+  @UI: { lineItem: [{ position: 50, label: 'Vendor Inv Qty' }],
+  identification: [{ position: 50, label: 'Vendor Invoice Quantity'  }] }
+  Vdinvqty;
+  @UI: { lineItem: [{ position: 60, label: 'Actual Physical Qty' }],
+  identification: [{ position: 60, label: 'Actual Physical Qty'  }] }
+  Actphqty;
+  @UI: { lineItem: [{ position: 70, label: 'Inspection Lot'}],
+  identification: [{ position: 70, label: 'Inspection Lot' } ] }
+  Inspectionlot;
+  @UI: { lineItem: [{ position: 80, label: 'Inspection Result'}],
+  identification: [{ position: 80, label: 'Inspection Result' } ] }
+  Insresult;
+  @UI.hidden: true
+  Inslotsts;
+  //  @UI.hidden: true
+  //  Meins;
+  /* Associations */
+  @UI.hidden: true
+  _Header;
+
+}

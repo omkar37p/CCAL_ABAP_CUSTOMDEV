@@ -1,0 +1,5 @@
+@EndUserText.label: 'Purchase Requisition Application'
+define service ZMM_APP02_UI {
+  expose ZMM_APP02_RPV  as MAINPAGE;
+  expose ZMM_APP02_IPV1 as ITEMS;
+}

@@ -1,0 +1,16 @@
+managed implementation in class zbp_sd_app05_rv unique;
+strict ( 2 );
+
+define behavior for ZSD_APP05_RV alias BillHdr
+with unmanaged save
+//persistent table vbrk
+lock master
+authorization master ( instance )
+//etag master <field_name>
+{
+  //  create;
+  //  update;
+  //  delete;
+  field ( readonly ) BillingDocument, AccountingDocument, BillingDocumentDate, BillingDocumentType, Division, SoldToParty;
+  action ( features : instance ) print result [1] $self;
+}

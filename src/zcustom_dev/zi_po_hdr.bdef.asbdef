@@ -1,0 +1,42 @@
+managed implementation in class zbp_i_po_hdr unique;
+strict ( 2 );
+with draft;
+
+define behavior for ZI_PO_HDR alias _HDR
+//persistent table zpo_hdr_dt
+with unmanaged save
+draft table zpo_hdr_draft
+lock master
+total etag CreatedOn
+authorization master ( instance )
+etag master CreatedOn
+{
+  create( authorization :global ) ;
+  update;
+  delete;
+  draft action Resume;
+  draft action Discard;
+  draft action Activate optimized;
+  draft action Edit;
+  draft determine action Prepare;
+
+  field ( readonly:create,mandatory : update) PoId;
+  field ( readonly ) CreatedBy, CreatedOn;
+  association _Item { create; with draft; }
+
+}
+
+define behavior for ZI_PO_ITM alias _ITM
+persistent table zpo_itm_dt
+//with unmanaged save
+draft table zpo_itm_draft
+lock dependent by _Header
+authorization dependent by _Header
+//etag master <field_name>
+{
+  update;
+  delete;
+  field ( readonly:update ) PoId, PoItem;
+  association _Header { with draft;}
+  mapping for zpo_itm_dt corresponding;
+}

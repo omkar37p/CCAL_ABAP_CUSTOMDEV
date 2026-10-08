@@ -1,0 +1,6 @@
+@EndUserText.label: 'Gate Entry - Non PO Application'
+define service ZMM_APP10_UI {
+  expose ZMM_APP10_RPV  as MAINPAGE;
+  expose ZMM_APP10_IPV1 as ITEMS;
+  expose ZMM_APP10_IPV2 as GOUT;
+}

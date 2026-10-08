@@ -1,0 +1,34 @@
+{
+  "formatVersion": "2",
+  "header": {
+    "description": "An SAP Fiori application.",
+    "originalLanguage": "en",
+    "abapLanguageVersion": "cloudDevelopment"
+  },
+  "generalInformation": {
+    "appType": "ui5",
+    "catalogId": "SAP_TC_UI5_REPO_UIAD",
+    "targetMappingTitle": "zdemo_report"
+  },
+  "ui5AppDetails": {
+    "appId": "zporeportdemo.zporeportdemo"
+  },
+  "navigation": {
+    "targetMappingId": "ZDEMO_BALU_UI5R_TM",
+    "semanticObject": "zpo_report_demo",
+    "action": "display",
+    "desktop": true,
+    "tablet": true,
+    "phone": true
+  },
+  "tiles": [
+    {
+      "id": "ZDEMO_BALU_UI5R_AL",
+      "tileType": "static",
+      "isDefault": true,
+      "standard": {
+        "title": "zdemo_report"
+      }
+    }
+  ]
+}

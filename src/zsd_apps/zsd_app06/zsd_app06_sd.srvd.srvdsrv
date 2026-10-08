@@ -1,0 +1,7 @@
+@EndUserText.label: 'Service Defination of Packing List gate out'
+define service ZSD_APP06_SD {
+  expose ZSD_APP06_RV;
+  expose ZSD_APP06_PV   as HEADER;
+  expose ZSD_APP06_PVC1 as ITEM1;
+  expose ZSD_APP06_PVC2 as ITEM2;
+}

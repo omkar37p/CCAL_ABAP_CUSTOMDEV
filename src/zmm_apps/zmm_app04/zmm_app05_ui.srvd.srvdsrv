@@ -1,0 +1,6 @@
+@EndUserText.label: 'PO Process - GR Vehicle In/Out '
+define service ZMM_APP05_UI {
+  expose ZMM_APP04_RPV  as MAINPAGE;
+  expose ZMM_APP04_IPV1 as Items;
+  expose ZMM_APP04_IPV2 as GateOut;
+}

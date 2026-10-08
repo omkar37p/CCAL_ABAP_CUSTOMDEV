@@ -1,0 +1,79 @@
+managed implementation in class zbp_mm_app14_rv unique;
+strict ( 2 );
+with draft;
+
+define behavior for ZMM_APP14_RV alias _HDR //alias <alias_name>
+with unmanaged save
+//persistent table zmm_app12_tb1
+draft table zmm_app14_hdf1
+lock master
+total etag Lastchangedat
+
+authorization master ( instance )
+etag master Lastchangedat
+{
+  create;
+  update;
+  delete;
+  field ( numbering : managed, readonly ) Uuid;
+  //field(readonly : update) Vendnum,Delmark, Dispby,Frghtscope,Issuedate,Issuedby,Mark,Pcklist,Plant,Rsngp,Remarks,Transporter,Vehicleno;
+  field ( readonly ) Gpnum, Gpvalue, Createdat, Createdby, Curky, Plantname;
+  determination GetData1 on save { create; field Uuid; }
+  determination updhdr on save { field Vendnum, Delmark, Dispby, Frghtscope, Gpvalue, Issuedate, Issuedby, Mark, Pcklist, Plant, Rsngp, Remarks, Transporter, Vehicleno; }
+  association _ITM { create; with draft; }
+  action(features : instance) issueout result [1] $self ;
+  draft action Resume;
+  draft action Edit;
+  draft action Activate optimized;
+  draft action Discard;
+  draft determine action Prepare;
+
+  mapping for zmm_app14_htb1 corresponding;
+}
+
+define behavior for ZMM_APP14_IRV alias _ITEM//alias <alias_name>
+with unmanaged save
+draft table zmm_app14_idf1
+//persistent table zmm_app12_tb2
+lock dependent by _HDR
+authorization dependent by _HDR
+//etag master <field_name>
+{
+  update;
+  delete;
+  field ( readonly ) Uuid, Itemno, Totvalue,Recvqty,Penqty;
+  field ( readonly : update ) Matnr, Hsncode, Netprice, Quantity, Maktx, Uom;
+  association _HDR { with draft; }
+  association _ITMCH { create; with draft; }
+  determination CrtItem on save { create;  field Uuid, Itemno; }
+
+  determination upditm on save { field Hsncode, Maktx, Matnr, Netprice, Quantity, Uom, Curky; }
+  mapping for zmm_app14_itb1 corresponding;
+
+}
+
+define behavior for ZMM_APP14_IIRV alias _CItem//alias <alias_name>
+with unmanaged save
+draft table zmm_app14_df1
+//persistent table zmm_app14_tb1
+lock dependent by _HDR
+authorization dependent by _HDR
+//etag master <field_name>
+{
+
+  update;
+  delete;
+  field ( readonly ) Uuid, Itemno, Penqty, Indt, Itemo, itemn, Intim, Maktx, Matnr, Uom, Quantity, Createdby, Createdat;
+  //field (readonly : update)  Recvqty;
+  validation recvqt on save { field Recvqty; create; update; }
+  determination upcitem on save { field Recvqty, Invoice; }
+  determination crtCitem on save { create; update; field Recvqty, Penqty; }
+
+  determination recpen on modify { update; field Recvqty; }
+  side effects {field Recvqty  affects field _ITME.Penqty ,field _ITME.Recvqty; }
+
+  association _HDR { with draft; }
+  association _ITME { with draft; }
+  mapping for zmm_app14_tb1 corresponding;
+
+}

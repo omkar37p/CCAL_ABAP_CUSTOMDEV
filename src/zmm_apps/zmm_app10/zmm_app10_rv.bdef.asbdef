@@ -1,0 +1,78 @@
+managed implementation in class zbp_mm_app10_rv unique;
+strict ( 2 );
+with draft;
+
+define behavior for ZMM_APP10_RV alias _GIHDR
+//persistent table zmm_app10_tb1
+with unmanaged save
+draft table zmm_app10_dt1
+lock master
+total etag LastChangedAt
+authorization master ( instance )
+etag master LastChangedAt
+{
+  create;
+  update;
+  delete;
+  field ( readonly, numbering : managed ) Uuid;
+  field ( readonly ) Tckdate, Tcktime, Ticketnum, Inetwgt, Itarewgt;
+
+  association _Item { create; with draft; }
+  association _Gout { create; with draft; }
+
+  draft action Resume;
+  draft action Edit;
+  draft action Activate optimized;
+  draft action Discard;
+  draft determine action Prepare;
+
+  determination GetData1 on save { create; field Nonporef; }
+  determination Upddata on save { field Igrswgt; }
+
+  action ( features : instance ) GetGross result [1] $self;
+
+
+  mapping for zmm_app10_tb1 corresponding;
+}
+
+define behavior for ZMM_APP10_IV1 alias _Poitem
+//persistent table zmm_app10_tb2
+with unmanaged save
+draft table zmm_app10_dt2
+lock dependent by _Header
+authorization dependent by _Header
+//etag master <field_name>
+{
+  update;
+  delete;
+  field ( readonly ) Uuid, Ebelp, Matnr;
+  association _Header { with draft; }
+
+  determination UpdItm on save { create; update; field Vdinvqty, Maktx, Rcvunt; }
+  action ( features : instance ) CrtIns result [1] $self;
+  action ( features : instance ) InsRst result [1] $self;
+
+  mapping for zmm_app10_tb2 corresponding;
+}
+
+define behavior for ZMM_APP10_IV2 alias _GOHDR
+//persistent table zmm_app10_tb3
+with unmanaged save
+draft table zmm_app10_dt3
+lock dependent by _Header
+authorization dependent by _Header
+//etag master <field_name>
+{
+  update;
+  delete;
+  field ( readonly ) Uuid, Ticketnum, Godate, Gotime, Wgtunit, Onetwgt, Ogrswgt, Mark;
+  association _Header { with draft; }
+
+  determination GetData2 on save { create; }
+  validation Insprst on save { create; field Oitarewgt; }
+
+  action ( features : instance ) GetTare result [1] $self;
+  action ( features : instance ) PostGR result [1] $self;
+
+  mapping for zmm_app10_tb3 corresponding;
+}

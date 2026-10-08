@@ -1,0 +1,4 @@
+@EndUserText.label: 'SD Custom Report Service Definition'
+define service ZSDCUS_REPORT_SD {
+  expose ZSDCUS_REPORT_PV as Sales_Report_1;
+}

@@ -1,0 +1,11 @@
+CLASS zbp_sales_hdr_i DEFINITION PUBLIC ABSTRACT FINAL FOR BEHAVIOR OF zsales_hdr_i.
+
+    PUBLIC SECTION.
+        CLASS-DATA: gt_header TYPE table of zsales_table.
+
+ENDCLASS.
+
+
+
+CLASS ZBP_SALES_HDR_I IMPLEMENTATION.
+ENDCLASS.

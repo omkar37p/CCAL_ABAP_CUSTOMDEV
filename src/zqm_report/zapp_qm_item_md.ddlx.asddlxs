@@ -1,0 +1,59 @@
+@Metadata.layer: #CUSTOMER
+@UI: { headerInfo: {
+typeName: 'QM Inspection',
+typeNamePlural: 'QM Inspection Report',
+title: { type: #STANDARD, value: 'InspectionCharacteristic' },
+         description: { type: #STANDARD, value: 'InspectionSpecification' }
+         } }
+annotate entity ZAPP_QM_ITEM
+    with 
+{
+  @UI.facet: [ { id:              'Item',
+                 purpose:         #STANDARD,
+                 type:            #IDENTIFICATION_REFERENCE,
+                 label:           'QM Inspection Result',
+                 position:        10 } ]
+  @UI: { lineItem: [{ position: 10, label: 'Inspection Lot'}],
+          identification: [{ position: 10, label: 'Inspection Lot' }] }
+InspectionLot;
+  @UI: { lineItem: [{ position: 20, label: 'Master IC'}],
+         identification: [{ position: 20, label: 'Master IC' }] }
+InspectionSpecification;
+  @UI: { lineItem: [{ position: 30, label: 'Short Text'}],
+         identification: [{ position: 30, label: 'Short Text' }] }
+InspectionCharacteristicText;
+  @UI: { lineItem: [{ position: 40, label: 'Mean Value'}],
+         identification: [{ position: 40, label: 'Mean Value' }] }
+InspectionResultMeanValue;
+  @UI: { lineItem: [{ position: 50, label: 'Code Des'}],
+         identification: [{ position: 50, label: 'Code Des' }] }
+CharacteristicAttributeCode;
+  @UI: { lineItem: [{ position: 60, label: 'Accept/Rejected'}],
+          identification: [{ position: 60, label: 'Accept/Rejected' }] }
+Status;
+  @UI: { lineItem: [{ position: 70, label: 'Inspection Description'}],
+         identification: [{ position: 70, label: 'Inspection Description' }] }
+InspectionDescription;
+  @UI: { lineItem: [{ position: 80, label: 'Result Date'}],
+         identification: [{ position: 80, label: 'Result Date' }] }
+CreationDate;
+  @UI: { lineItem: [{ position: 90, label: 'Result Time'}],
+         identification: [{ position: 90, label: 'Result Time' }] }
+InspectionEndTime;
+  @UI: { lineItem: [{ position: 100, label: 'Result Created By'}],
+         identification: [{ position: 100, label: 'Result Created By' }] }
+PersonFullName;
+@UI.hidden: true
+Inspector;
+@UI.hidden: true
+InspPlanOperationInternalID;
+@UI.hidden: true
+InspectionCharacteristic;
+@UI.hidden: true
+CharacteristicAttributeCatalog;
+@UI.hidden: true
+CharacteristicAttributeCodeGrp;
+@UI.hidden: true
+InspectionCodeText;
+
+}

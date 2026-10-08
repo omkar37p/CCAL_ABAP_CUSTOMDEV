@@ -1,0 +1,31 @@
+managed implementation in class zbp_mm_app18_rv unique;
+strict ( 2 );
+
+define behavior for ZMM_APP18_RV //alias <alias_name>
+//persistent table <???>
+with unmanaged save
+lock master
+authorization master ( instance )
+//etag master <field_name>
+{
+//  create ( authorization : global );
+//  update;
+//  delete;
+  field ( readonly ) PurchaseOrder;
+  association _Item { create; }
+
+  action(features : instance) Document result[1] $self;
+}
+
+define behavior for ZMM_APP18_IV //alias <alias_name>
+//persistent table <???>
+with unmanaged save
+lock dependent by _Header
+authorization dependent by _Header
+//etag master <field_name>
+{
+//  update;
+//  delete;
+  field ( readonly ) PurchaseOrder, PurchaseOrderItem;
+  association _Header;
+}

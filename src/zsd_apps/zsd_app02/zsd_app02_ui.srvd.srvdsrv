@@ -1,0 +1,7 @@
+@EndUserText.label: 'Packing List - Gate Entry Application'
+define service ZSD_APP02_UI {
+  expose ZSD_APP02_RPV as MAINPAGE;
+  expose ZSD_APP02_IPV;
+  expose ZI_DLVFRGTRM;
+  expose ZI_DLVPLACE;
+}

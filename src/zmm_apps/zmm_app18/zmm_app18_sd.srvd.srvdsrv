@@ -1,0 +1,5 @@
+@EndUserText.label: 'SERVICE DEFINITION'
+define service ZMM_APP18_SD {
+  expose ZMM_APP18_RPV as Head;
+  expose ZMM_APP18_IPV as Item;
+}

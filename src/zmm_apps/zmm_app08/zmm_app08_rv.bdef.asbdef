@@ -1,0 +1,61 @@
+managed implementation in class zbp_mm_app08_rv unique;
+strict ( 2 );
+with draft;
+
+define behavior for ZMM_APP08_RV alias BDGCODE
+//persistent table zmm_app08_tb1
+with unmanaged save
+draft table zmm_app08_dt1
+lock master
+total etag Createdat
+authorization master ( instance )
+etag master Createdat
+
+{
+  create;
+  update;
+  delete;
+
+  draft action ( features : instance ) Edit;
+  draft action Activate optimized;
+  draft action Discard;
+  draft action Resume;
+  draft determine action Prepare;
+
+
+  field ( mandatory : create ) Plant, Deptid, Bdgyear;
+  field ( readonly : update ) Plant, Deptid, Bdgyear;
+  field ( readonly ) Createdat, Createdby, Validon, Validto, Deptname, Plntname, Allcbdg, Curky;
+
+  association _Item { create; with draft; }
+
+  determination CrtData on save { create; field Deptid; }
+
+  mapping for zmm_app08_tb1 corresponding;
+
+
+}
+
+define behavior for ZMM_APP08_IV alias BDGITM
+//persistent table zmm_app08_tb2
+with unmanaged save
+draft table zmm_app08_dt2
+lock dependent by _Header
+authorization dependent by _Header
+//etag master <field_name>
+{
+  update;
+  delete;
+  field ( readonly ) Plant, Deptid, Bdgyear, Itemno, Localcreatedat, Localcreatedby, Plntname, Deptname;
+  field ( readonly : update ) Allcbdg, Remarks;
+  association _Header { with draft; }
+
+  determination CrtItem on save { create; field Allcbdg; }
+  side effects
+  { field Allcbdg affects field _Header.Allcbdg; }
+
+  validation bdgval on save { field Allcbdg; create; }
+
+  mapping for zmm_app08_tb2 corresponding;
+
+}

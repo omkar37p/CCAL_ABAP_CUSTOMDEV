@@ -1,0 +1,55 @@
+@Metadata.layer: #CUSTOMER
+annotate entity ZMM_APP06_RPV with
+{
+  @UI.facet: [ { id:              'Header',
+                        purpose:         #STANDARD,
+                        type:            #IDENTIFICATION_REFERENCE,
+                        label:           'Department - Budget',
+                        position:        10 } ]
+  @UI: { lineItem: [{ position: 10, label: 'Plant'}],
+    identification: [{ position: 10, label: 'Plant' } ] }
+  @Consumption.valueHelpDefinition: [{ entity: { name: 'ZI_PLANT_VH1',
+    element: 'Shpoint' }  , additionalBinding: [{localElement: 'Plntname', element: 'Shpname', usage: #RESULT }]    }]
+  Plant;
+  @UI: { lineItem: [{ position: 20, label: 'Department'}],
+    identification: [{ position: 20, label: 'Department' } ] }
+  @Consumption.valueHelpDefinition: [{ entity: { name: 'ZI_DEPARTMENT_VH1', element: 'deptid' },
+     additionalBinding: [  {localElement: 'Deptname', element: 'deptname', usage: #RESULT },
+                           {localElement: 'Plant', element: 'plant',    usage: #FILTER_AND_RESULT } ] } ]
+  Deptid;
+  @UI: { lineItem: [{ position: 30, label: 'Budget Code' }],
+  identification: [{ position: 30, label: 'Budget Code' }]}
+  Bdgcode;
+  @UI.lineItem: [{ position: 50, label: 'Valid From' } ]
+  @UI.identification: [{ position: 50, label: 'Valid From' } ]
+  Validon;
+  @UI.lineItem: [{ position: 60, label: 'Valid To' } ]
+  @UI.identification: [{ position: 60, label: 'Valid To' } ]
+  Validto;
+  @UI.hidden: true
+  Plntname;
+  @UI.hidden: true
+  Deptname;
+  @UI.identification: [{ position: 70, label: 'Department allotted budget' } ]
+  Allcbdg;
+  @UI: { lineItem: [{ position: 35, label: 'Budget Desc' }],
+  identification: [{ position: 35, label: 'Budget Description' }]}
+  Bdghtxt;
+  @UI: { lineItem: [{ position: 40, label: 'Budget Type' }],
+  identification: [{ position: 40, label: 'Budget Type' }]}
+  @Consumption.valueHelpDefinition: [{ entity: { name: 'ZI_BDGTYP', element: 'value_low' }, distinctValues: true }]
+  Bdgtype;
+  @UI.identification: [{ position: 80, label: 'Inventory allottment(WBS Element)' } ]
+  Wbselmt;
+  @UI.identification: [{ position: 90, label: 'Exemption' } ]
+  ExmptMrk;
+  @UI.hidden: true
+  Delemrk;
+  @UI.hidden: true
+  Curky;
+  @UI.hidden: true
+  Createdat;
+  @UI.hidden: true
+  Createdby;
+
+}

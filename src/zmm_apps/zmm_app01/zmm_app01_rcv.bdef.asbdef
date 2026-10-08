@@ -1,0 +1,51 @@
+managed implementation in class zbp_mm_app01_rcv unique;
+strict ( 2 );
+with draft;
+define behavior for ZMM_APP01_RCV alias BDGHDR
+//persistent table zmm_app01_tb1
+with unmanaged save
+draft table zmm_app01_dt1
+lock master total etag Prodgrp
+authorization master ( instance )
+//etag master <field_name>
+{
+  create;
+  update ( features : instance );
+  delete;
+  field ( readonly : update ) Plant, Prodgrp, Allcbdg, Bdghtxt;
+  field ( mandatory : create ) Plant, Prodgrp, Allcbdg;
+  field ( readonly ) Createdat, Createdby, Validon, Validto;
+  association _bdgitm { create; with draft; }
+
+  draft action ( features : instance ) Edit;
+  draft action Activate optimized;
+  draft action Discard;
+  draft action Resume;
+  draft determine action Prepare;
+
+  determination bdgdates on save { create; field Prodgrp; }
+
+  mapping for zmm_app01_tb1 corresponding;
+
+}
+
+define behavior for ZMM_APP01_ICV1 alias BDGITM
+//persistent table zmm_app01_tb2
+with unmanaged save
+draft table zmm_app01_dt2
+lock dependent by _bdghdr
+authorization dependent by _bdghdr
+//etag master <field_name>
+{
+  update;
+  delete;
+  field ( readonly ) Plant, Prodgrp, Validon, Validto, Bdgcode, Balcibdg, Utlzibdg,
+  Curky, Lncrtdat, Lncrtdby, Splavlbdg;
+  field ( readonly : update ) Exprdgrp, Allcibdg, Bdgitxt;
+  association _bdghdr { with draft; }
+
+  determination bdgcode on save { create; field Bdgcode; }
+  //  validation bdgamt on save { create; field Bdgcode; }
+
+  mapping for zmm_app01_tb2 corresponding;
+}

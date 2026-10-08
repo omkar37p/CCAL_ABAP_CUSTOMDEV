@@ -1,0 +1,37 @@
+@Metadata.layer: #CUSTOMER
+@UI: { headerInfo: {
+typeName: 'Billing Document',
+typeNamePlural: 'Billing Documents',
+title: { type: #STANDARD, value: 'BillingDocument' },
+         description: { type: #STANDARD, value: 'BillingDocumentType' }
+         } }
+annotate entity ZSD_APP05_RPV with
+{
+  @UI.facet: [ { id:              'Header',
+                      purpose:         #STANDARD,
+                      type:            #IDENTIFICATION_REFERENCE,
+                      label:           'Billing Detials',
+                      position:        10 }]
+  @UI: { lineItem: [{ position: 10, label: 'Billing Document'}],
+    identification: [{ position: 10, label: 'Billing Document' },
+    { type: #FOR_ACTION, dataAction: 'print', label: 'Print' } ] }
+  @UI.selectionField: [{ position: 10 }]
+
+  BillingDocument;
+  @UI: { lineItem: [{ position: 20, label: 'Document Type'}],
+    identification: [{ position: 20, label: 'Document Type' } ] }
+  BillingDocumentType;
+  @UI: { lineItem: [{ position: 30, label: 'Document Date'}],
+    identification: [{ position: 30, label: 'Document Date' } ] }
+  BillingDocumentDate;
+  @UI: { lineItem: [{ position: 40, label: 'Division'}],
+    identification: [{ position: 40, label: 'Division' } ] }
+  Division;
+  @UI: { lineItem: [{ position: 50, label: 'Customer Number'}],
+    identification: [{ position: 50, label: 'Customer Number' } ] }
+  SoldToParty;
+  @UI: { lineItem: [{ position: 60, label: 'Accounting Document'}],
+    identification: [{ position: 60, label: 'Accounting Document' } ] }
+  AccountingDocument;
+
+}

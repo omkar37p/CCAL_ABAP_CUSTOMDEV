@@ -1,0 +1,34 @@
+managed implementation in class zbp_sd_app09_dmrv unique;
+strict ( 1 );
+
+define behavior for ZSD_APP09_DMRV alias Header
+//persistent table <???>
+with unmanaged save
+lock master
+authorization master ( instance )
+//etag master <field_name>
+{
+  //  create;
+  //  update;
+  //  delete;
+  field ( readonly ) ccode, billdoc;
+  association _Item { create; }
+
+  action ( features : instance ) Email result [1] $self;
+  action ( features : instance ) esign result [1] $self;
+
+
+}
+
+define behavior for ZSD_APP09_DMIV1 alias Line
+//persistent table <???>
+with unmanaged save
+lock dependent by _Header
+authorization dependent by _Header
+//etag master <field_name>
+{
+  //  update;
+  //  delete;
+  field ( readonly ) ccode, billdoc, billitm;
+  association _Header;
+}

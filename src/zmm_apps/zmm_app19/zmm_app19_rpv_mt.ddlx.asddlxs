@@ -1,0 +1,63 @@
+@Metadata.layer: #CUSTOMER
+@UI:{ headerInfo: {
+        typeName: 'PO DSC- Authorized Sign',
+        title: { type: #STANDARD, value: 'Userid' },
+        description: { type: #STANDARD, value: 'Signername' }} }
+annotate entity ZMM_APP19_RPV with
+{
+  @UI.facet: [ { id:              'Header',
+                      purpose:         #STANDARD,
+                      type:            #IDENTIFICATION_REFERENCE,
+                      label:           'Authorised Signer Details',
+                      position:        10 } ]
+  @UI: { lineItem: [{ position: 10, label: 'User ID'}],
+    identification: [{ position: 10, label: 'User ID' } ] }
+  @Consumption.valueHelpDefinition: [{ entity: { name: 'I_BusinessUserVH',element: 'UserID' },
+  additionalBinding: [{localElement: 'Usrname', element: 'PersonFullName'}]  }]
+  @EndUserText.label: 'User ID'
+  Userid;
+  @UI: { lineItem: [{ position: 20, label: 'Company Code'}],
+  identification: [{ position: 20, label: 'Company Code' } ] }
+  @Consumption.valueHelpDefinition: [{ entity: { name: 'I_CompanyCodeVH',element: 'CompanyCode' },
+  additionalBinding: [{localElement: 'Ccname', element: 'CompanyCodeName'}]  }]
+  @EndUserText.label: 'Company Code'
+  Ccode;
+  @UI: { lineItem: [{ position: 30, label: 'Plant'}],
+  identification: [{ position: 30, label: 'Plant' } ] }
+  //I_PlantVH
+  @Consumption.valueHelpDefinition: [{ entity: { name: 'I_PlantStdVH',element: 'Plant' },
+  additionalBinding: [{localElement: 'Plantname', element: 'PlantName'}]  }]
+  @EndUserText.label: 'Plant'
+  Cplant;
+  @UI: { lineItem: [{ position: 40, label: 'Signer Name'}],
+  identification: [{ position: 40, label: 'Signer Name' } ] }
+  @EndUserText.label: 'Signer Name'
+  Signername;
+  @UI: { identification: [{ position: 50, label: 'Print Queue' } ] }
+  @EndUserText.label: 'Print Queue'
+  Prntque;
+  @UI: { identification: [{ position: 60, label: 'Created By' } ] }
+  @EndUserText.label: 'Created By'
+  Createdby;
+  @UI: { identification: [{ position: 70, label: 'Created Date' } ] }
+  @EndUserText.label: 'Created Date'
+  Createdat;
+  @UI: { identification: [{ position: 80, label: 'Lastchanged By' } ] }
+  @EndUserText.label: 'Lastchanged By'
+  Lastchangedby;
+  @UI: { identification: [{ position: 90, label: 'Lastchanged Date' } ] }
+  @EndUserText.label: 'Lastchanged Date'
+  Lastchangedat;
+  @UI.hidden: true
+  Usrname;
+  @UI.hidden: true
+  Ccname;
+  @UI.hidden: true
+  Plantname;
+  @UI.hidden: true
+  Formtmp;
+  @UI.hidden: true
+  Formname;
+
+
+}

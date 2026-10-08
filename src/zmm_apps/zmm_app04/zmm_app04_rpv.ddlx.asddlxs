@@ -1,0 +1,129 @@
+@Metadata.layer: #CUSTOMER
+@UI: { headerInfo: {
+typeName: 'Gate Entry',
+typeNamePlural: 'Gate Entries',
+title: { type: #STANDARD, value: 'Ticketnum' }         } }
+annotate entity ZMM_APP04_RPV with
+{
+  @UI.facet: [ { id:              'Header',
+                      purpose:         #STANDARD,
+                      type:            #IDENTIFICATION_REFERENCE,
+                      label:           'Gate-In Info',
+                      position:        10 } ,
+                    { id:              'Items',
+                      purpose:         #STANDARD,
+                      type:            #LINEITEM_REFERENCE,
+                      label:           'GR PO Items',
+                      position:        20,
+                      targetElement:   '_Item'},
+                    { id:              'Gout',
+                      purpose:         #STANDARD,
+                      type:            #LINEITEM_REFERENCE,
+                      label:           'Gate-Out Info',
+                      position:        30,
+                      targetElement:   '_Gout'}]
+  //    Uuid;
+  @UI: { lineItem: [{ position: 5, label: 'Plant'}],
+  identification: [{ position: 5, label: 'Plant' } ] }
+  @Consumption.valueHelpDefinition: [{ entity: { name: 'ZI_PLANT_VH1',
+  element: 'Shpoint' } }]
+  Plant;
+  @UI: { lineItem: [{ position: 7, label: 'Gate ID'}],
+  identification: [{ position: 7, label: 'Gate ID' } ] }
+  Gateid;
+  @UI: { lineItem: [{ position: 10, label: 'Ticket Number'}],
+  identification: [{ position: 10, label: 'Ticket Number' } ,
+   { type: #FOR_ACTION, dataAction: 'GetGross', label: 'Fetch Gross Weight' },
+   { type: #FOR_ACTION, dataAction: 'PutGross', label: 'Enter Gross Weight' }] }
+  @UI.selectionField: [{ element: 'Ticketnum', position: 10 }]
+  Ticketnum;
+  @UI: { lineItem: [{ position: 20, label: 'Gate-In Date'}],
+  identification: [{ position: 20, label: 'Gate-In Date' } ] }
+  Tckdate;
+//  @UI: { lineItem: [{ position: 30, label: 'Gate-In Time'}],
+//  identification: [{ position: 30, label: 'Gate-In Time' } ] }
+@UI.hidden: true
+  Tcktime;
+  @UI: { lineItem: [{ position: 35, label: 'Gate-In-Time'}],
+  identification: [{ position: 35, label: 'Gate-In-Time' } ] }
+  Tcktim;
+  @UI: { lineItem: [{ position: 40, label: 'Vehicle/ DC/ Reference Number'}],
+  identification: [{ position: 40, label: 'Vehicle/ DC/ Reference Number' } ] }
+  Vehicleno;
+  @UI: { lineItem: [{ position: 50, label: 'DC/ Invoice/ Reference Number'}],
+  identification: [{ position: 50, label: 'DC/ Invoice/ Reference Number' } ] }
+  Veninvno;
+  @UI: { lineItem: [{ position: 60, label: 'Truck Type'}],
+  identification: [{ position: 60, label: 'Truck Type' } ] }
+  Trcuktyp;
+  @UI: { lineItem: [{ position: 70, label: 'Contact Person'}],
+  identification: [{ position: 70, label: 'Contact Person' } ] }
+  Drivername;
+  @UI: { lineItem: [{ position: 80, label: 'LR Number'}],
+  identification: [{ position: 80, label: 'LR Number' } ] }
+  Lrnumber;
+  @UI: { lineItem: [{ position: 90, label: 'Transporter'}],
+  identification: [{ position: 90, label: 'Transporter' } ] }
+  @Consumption.valueHelpDefinition: [{ entity: { name: 'ZI_TRANSPORTER_VH1',
+  element: 'SuppName' }  }]
+  Trspname;
+  //  @UI: { lineItem: [{ position: 100, label: 'NON PO(DC No)'}],
+  //  identification: [{ position: 100, label: 'NON PO(DC No)' } ] }
+  @UI.hidden: true
+  Nonporef;
+  @UI: { lineItem: [{ position: 110, label: 'Purchase Order'}],
+  identification: [{ position: 110, label: 'PO Number' } ] }
+  @Consumption.valueHelpDefinition: [{ entity: { name: 'ZI_PurchaseOrderAPI_VH1',
+  element: 'PurchaseOrder' }  }]
+  @UI.selectionField: [{ element: 'Ticketnum', position: 20 }]
+  Ebeln;
+  @UI: { lineItem: [{ position: 120, label: 'Transport Mode'}],
+  identification: [{ position: 120, label: 'Transport Mode' } ] }
+  Trspmode;
+  @UI: { lineItem: [{ position: 130, label: 'Remarks'}],
+  identification: [{ position: 130, label: 'Remarks' } ] }
+  Remarks;
+  @UI: { lineItem: [{ position: 140, label: 'Load Status'}],
+  identification: [{ position: 140, label: 'Load Status' } ] }
+  Loadsts;
+  @UI: { lineItem: [{ position: 150, label: 'Gross Weight'}],
+  identification: [{ position: 150, label: 'Gross Weight' } ] }
+  Igrswgt;
+  @UI: { lineItem: [{ position: 151, label: 'Gross Weighed On'}],
+  identification: [{ position: 151, label: 'Gross Weighed On' } ] }
+  Grsdate;
+//  @UI: { lineItem: [{ position: 152, label: 'Gross Weighed At'}],
+//  identification: [{ position: 152, label: 'Gross Weighed At' } ] }
+@UI.hidden: true
+  Grstime;
+   @UI: { lineItem: [{ position: 155, label: 'Gross Weighed At'}],
+  identification: [{ position: 155, label: 'Gross Weighed At' } ] }
+  Grstim;
+  @UI: { lineItem: [{ position: 160, label: 'Net Weight'}],
+  identification: [{ position: 160, label: 'Net Weight' } ] }
+  Inetwgt;
+  @UI: { lineItem: [{ position: 170, label: 'Tare Weight'}],
+  identification: [{ position: 170, label: 'Tare Weight' } ] }
+  Itarewgt;
+
+  //  @UI: { lineItem: [{ position: 145, label: 'Weight Unit'}],
+  //  identification: [{ position: 145, label: 'Weight Unit' } ] }
+  @UI.hidden: true
+  Wgtunit;
+  @UI.hidden: true
+  Mark;
+  @UI.hidden: true
+  Createdby;
+  @UI.hidden: true
+  Createdat;
+  @UI.hidden: true
+  Lastchangedby;
+  @UI.hidden: true
+  Lastchangedat;
+  /* Associations */
+  @UI.hidden: true
+  _Gout;
+  @UI.hidden: true
+  _Item;
+
+}

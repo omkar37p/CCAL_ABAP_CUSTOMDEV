@@ -1,0 +1,98 @@
+@Metadata.layer: #CUSTOMER
+annotate entity ZSD_APP01_RPV with
+{
+  @UI.facet: [ { id:              'Header',
+                      purpose:         #STANDARD,
+                      type:            #IDENTIFICATION_REFERENCE,
+                      label:           'Gate-In Info',
+                      position:        10 } ,
+                    { id:              'Items',
+                      purpose:         #STANDARD,
+                      type:            #LINEITEM_REFERENCE,
+                      label:           'GR PO Items',
+                      position:        20,
+                      targetElement:   '_Item'}]
+  //  Uuid;
+  @UI: { lineItem: [{ position: 10, label: 'Token Number'}],
+    identification: [{ position: 10, label: 'Token Number' } ,
+     { type: #FOR_ACTION, dataAction: 'GetTare', label: 'Fetch Tare Weight', position: 10 },
+     { type: #FOR_ACTION, dataAction: 'GetGross', label: 'Fetch Gross Weight', position: 20 },
+     { type: #FOR_ACTION, dataAction: 'Pack', label: 'Create Delivery',position: 30 },
+     { type: #FOR_ACTION, dataAction: 'PostGI', label: 'Pack',position: 40 } ] }
+  Tokennum;
+  @UI: { lineItem: [{ position: 20, label: 'GateIn Date'}],
+  identification: [{ position: 20, label: 'GateIn Date' } ] }
+  Gidate;
+  @UI: { lineItem: [{ position: 30, label: 'GateIn Time'}],
+  identification: [{ position: 30, label: 'GateIn Time' } ] }
+  Gitime;
+  @UI: { lineItem: [{ position: 20, label: 'GateOut Date'}],
+  identification: [{ position: 20, label: 'GateOut Date' } ] }
+  Godate;
+  @UI: { lineItem: [{ position: 30, label: 'GateOut Time'}],
+  identification: [{ position: 30, label: 'GateOut Time' } ] }
+  Gotime;
+  @UI: { lineItem: [{ position: 40, label: 'Vehicle Number'}],
+  identification: [{ position: 40, label: 'Vehicle Number' } ] }
+  Vehicleno;
+  @UI: { lineItem: [{ position: 60, label: 'Truck Type'}],
+  identification: [{ position: 60, label: 'Truck Type' } ] }
+  Trucktyp;
+  @UI: { lineItem: [{ position: 90, label: 'Transporter'}],
+  identification: [{ position: 90, label: 'Transporter' } ] }
+  Trspname;
+  @UI: { lineItem: [{ position: 120, label: 'Mode of Transport'}],
+  identification: [{ position: 120, label: 'Mode of Transport' } ] }
+  Trspmode;
+  @UI: { lineItem: [{ position: 70, label: 'Driver Name'}],
+  identification: [{ position: 70, label: 'Driver Name' } ] }
+  Drivername;
+  @UI: { lineItem: [{ position: 80, label: 'LR Number'}],
+  identification: [{ position: 80, label: 'LR Number' } ] }
+  Lrnumber;
+  @UI: { lineItem: [{ position: 110, label: 'Sales Order'}],
+  identification: [{ position: 110, label: 'SO Number' } ] }
+  @Consumption.valueHelpDefinition: [{ entity: { name: 'I_SalesOrderItemStdVH',
+  element: 'SalesOrder' }  }]
+  Sonum;
+  @UI: { lineItem: [{ position: 15, label: 'Packing Slip'}],
+  identification: [{ position: 15, label: 'Packing Slip' } ] }
+  Delvnum;
+  @UI: { lineItem: [{ position: 150, label: 'Gross Weight'}],
+  identification: [{ position: 150, label: 'Gross Weight' } ] }
+  Grswgt;
+  @UI: { lineItem: [{ position: 160, label: 'Net Weight'}],
+  identification: [{ position: 160, label: 'Net Weight' } ] }
+  Netwgt;
+  @UI: { lineItem: [{ position: 145, label: 'Tare Weight'}],
+  identification: [{ position: 145, label: 'Tare Weight' } ] }
+  Tarewgt;
+  @UI: { lineItem: [{ position: 170, label: 'Chargable Weight'}],
+  identification: [{ position: 170, label: 'Chargable Weight' } ] }
+  Chbwgt;
+  @UI: { lineItem: [{ position: 180, label: 'Concentration Rate'}],
+  identification: [{ position: 180, label: 'Concentration Rate' } ] }
+  Concrate;
+  @UI: { lineItem: [{ position: 190, label: 'Cylinder'}],
+  identification: [{ position: 190, label: 'Cylinder' } ] }
+  Cylinder;
+  @UI: { lineItem: [{ position: 200, label: 'Total Cylinders'}],
+  identification: [{ position: 200, label: 'Total Cylinders' } ] }
+  Totcyln;
+  @UI.hidden: true
+  Wgtunit;
+  @UI.hidden: true
+  Mark;
+  @UI.hidden: true
+  Createdby;
+  @UI.hidden: true
+  Createdat;
+  @UI.hidden: true
+  Lastchangedby;
+  @UI.hidden: true
+  Lastchangedat;
+  /* Associations */
+  @UI.hidden: true
+  _Item;
+
+}

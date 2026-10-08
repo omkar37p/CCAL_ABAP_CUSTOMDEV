@@ -1,0 +1,36 @@
+managed implementation in class zbp_sd_app04_rv unique;
+strict ( 2 );
+with draft;
+
+define behavior for ZSD_APP04_RV alias pcklst
+//persistent table <???>
+with unmanaged save
+draft table zsd_app04_dt1
+lock master
+total etag Uuid
+authorization master ( instance )
+etag master Uuid
+{
+  create;
+  update ( features : instance );
+  delete ( features : instance );
+
+  field ( readonly ) Uuid, Tarewgt, Drivername, Gidate, Gitime, Lrnumber, Mark, Plant, Plantname, Status, concnrate, batch, custref,
+  Tokennum, Trspmode, Trspname, Vehicleno, soitem, Contnum, Contitem, sloc, netwgt, material, matdesc, grswgt, delvnum, chbwgt,
+  Cylnvol, Totcyln, Dlvplace, Frgtrms, Remarks, Sealnum;
+
+  draft action Resume;
+  draft action Edit;
+  draft action Activate optimized;
+  draft action Discard;
+  draft determine action Prepare;
+
+  determination Updata on modify { update; field Sonum; }
+
+  action ( features : instance ) CrtSo result [1] $self;
+  action ( features : instance ) CrtDlv result [1] $self;
+  action ( features : instance ) PckDlv result [1] $self;
+  action ( features : instance ) PostGI result [1] $self;
+
+
+}

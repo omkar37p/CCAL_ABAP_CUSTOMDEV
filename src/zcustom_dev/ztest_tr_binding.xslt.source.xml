@@ -1,0 +1,15 @@
+<?sap.transform simple?>
+<tt:transform xmlns:tt="http://www.sap.com/transformation-templates" xmlns:ddic="http://www.sap.com/abapxml/types/dictionary" xmlns:def="http://www.sap.com/abapxml/types/defined">
+
+  <tt:root name="ROOT"/>
+  <tt:root name="Form"/>
+  <tt:template>
+    <form1>
+      <DateField1 tt:value-ref=" .Form.DateField1"/>
+      <DecimalField1 tt:value-ref=".Form.DecimalField1"/>
+      <TextField1 tt:value-ref=".Form.TextField1"/>
+
+    </form1>
+  </tt:template>
+
+</tt:transform>

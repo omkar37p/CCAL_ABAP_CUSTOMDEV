@@ -1,0 +1,35 @@
+{
+  "formatVersion": "2",
+  "header": {
+    "description": "GSTR3B",
+    "originalLanguage": "en",
+    "abapLanguageVersion": "cloudDevelopment"
+  },
+  "generalInformation": {
+    "appType": "ui5",
+    "catalogId": "SAP_TC_UI5_REPO_UIAD",
+    "targetMappingTitle": "GSTR3B"
+  },
+  "ui5AppDetails": {
+    "appId": "gstr3b.figstr3b"
+  },
+  "navigation": {
+    "targetMappingId": "UI5R_02BEBF6E5CB4D30CE4A6E79C2B2B3180D70E359E_TM",
+    "semanticObject": "fi_gstr3b",
+    "action": "Display",
+    "desktop": true,
+    "tablet": true,
+    "phone": true
+  },
+  "tiles": [
+    {
+      "id": "UI5R_02BEBF6E5CB4D30CE4A6E79C2B2B3180D70E359E_AL",
+      "tileType": "static",
+      "isDefault": true,
+      "standard": {
+        "title": "GSTR3B",
+        "subtitle": "GSTR3B"
+      }
+    }
+  ]
+}

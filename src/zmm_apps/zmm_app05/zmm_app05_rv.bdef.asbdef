@@ -1,0 +1,27 @@
+managed implementation in class zbp_mm_app05_rv unique;
+strict ( 2 );
+with draft;
+
+define behavior for ZMM_APP05_RV //alias <alias_name>
+persistent table zmm_app05_tb1
+//with unmanaged save
+draft table zmm_app05_dt1
+lock master
+total etag LastChangedAt
+authorization master ( instance )
+etag master LastChangedAt
+{
+  create;
+  update;
+  delete;
+
+  field ( readonly : update ) Plant, Userid, Deptid, Username, Deptname;
+
+  draft action Resume;
+  draft action Edit;
+  draft action Activate optimized;
+  draft action Discard;
+  draft determine action Prepare;
+
+  mapping for zmm_app05_tb1 corresponding;
+}

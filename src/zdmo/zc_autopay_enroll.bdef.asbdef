@@ -1,0 +1,12 @@
+projection;
+strict ( 2 );
+
+define behavior for ZC_AUTOPAY_ENROLL //alias <alias_name>
+{
+  use create;
+  use update;
+  use delete;
+
+  use action enroll;
+  use action unenroll;
+}

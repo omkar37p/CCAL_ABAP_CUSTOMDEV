@@ -1,0 +1,67 @@
+managed implementation in class zbp_mm_app07_rv unique;
+strict ( 2 );
+with draft;
+
+define behavior for ZMM_APP07_RV alias PRHDR
+//persistent table zmm_app07_tb1
+with unmanaged save
+draft table zmm_app07_dt1
+lock master
+total etag LastChangedAt
+authorization master ( instance )
+etag master LocalLastChangedAt
+{
+  create ( features : global );
+  update ( features : global );
+  delete ( features : global );
+
+  draft action Resume;
+  draft action Edit;
+  draft action Activate optimized;
+  draft action Discard;
+  draft determine action Prepare { determination ( always ) updatePR; }
+
+  field ( readonly, numbering : managed ) Uuid;
+  field ( readonly ) Purreqnum, Currency, Prtypdesc, Totnet, Totitms, Status, Purreqdesc, userid,Delmark;
+  field ( mandatory ) Purreqtyp;
+
+  determination GetData1 on save { create; field Purreqtyp; }
+  action ( features : instance ) CrtPr result [1] $self;
+
+  determination updatePR on save { field Purreqnum; }
+
+  mapping for zmm_app07_tb1 corresponding;
+
+  association _Item { create ( features : instance ); with draft; }
+}
+
+define behavior for ZMM_APP07_IV1 alias PRITEM
+//persistent table zmm_app07_tb2
+with unmanaged save
+draft table zmm_app07_dt2
+lock dependent by _Header
+authorization dependent by _Header
+etag master ItemLastChangedAt
+{
+  update ( features : instance );
+  delete ( features : instance );
+  field ( readonly ) Uuid, Plantdesc, Alltbdgamt, Avlbdgamt, Currency, Valprice, Uom,
+  Purorg, Purgrpdesc, Matgrp, Totvalue, Purreqitm, Wbselmt,Delmark;
+  field ( mandatory : create, readonly : update ) Plant, Material;
+  //  field ( readonly : update ) Reqqty, Bdgcode;
+
+  association _Header { with draft; }
+
+  determination GetData2 on save { field Material, Reqqty, Bdgcode, Alltbdgamt, Purgrp,Delvdate;  create; update;}
+//  determination updateitem on save { create; update; }
+
+  determination CalculateTotalPrice on modify { field Reqqty, Bdgcode; }
+  side effects
+  { field Reqqty affects field Totvalue;
+    field Bdgcode affects field ( Avlbdgamt, Alltbdgamt, Wbselmt ); }
+
+  validation Totval on save { field Reqqty,Delvdate; }
+
+  mapping for zmm_app07_tb2 corresponding;
+
+}

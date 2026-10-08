@@ -1,0 +1,21 @@
+CLASS zqm_report_api DEFINITION
+  PUBLIC
+  FINAL
+  CREATE PUBLIC .
+
+  PUBLIC SECTION.
+  INTERFACES if_rap_query_provider.
+  PROTECTED SECTION.
+  PRIVATE SECTION.
+ENDCLASS.
+
+
+
+CLASS ZQM_REPORT_API IMPLEMENTATION.
+
+
+  METHOD if_rap_query_provider~select.
+
+
+  ENDMETHOD.
+ENDCLASS.

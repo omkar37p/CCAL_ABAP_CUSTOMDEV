@@ -1,0 +1,55 @@
+managed implementation in class zbp_pp_qm_coa01_rv unique;
+strict ( 2 );
+with draft;
+
+define behavior for ZPP_QM_COA01_RV alias _Head
+//persistent table zpp_qm_coa_tb1
+with unmanaged save
+draft table ZPP_QM_COA_DB1
+lock master total etag Lastchangedat
+authorization master ( instance )
+etag master Lastchangedat
+{
+  create;
+  update;
+  delete ( features : instance );
+  field ( readonly, numbering : managed ) Uuid;
+  field ( readonly :update ) Product, Nablformat, Plant;
+  field ( readonly ) Createdby, Createdat, Lastchangedat, Lastchangedby, docno, reportissueon, Ulrnum;
+  field ( readonly ) Discipline, Partyaddress,Inspection;
+  field ( mandatory) Customer, Termscond ;
+  action (features : instance) Print_View result[1]$self;
+  association _Item { create; with draft;}
+
+  draft action Resume;
+  draft action Edit;
+  draft action Activate optimized;
+  draft action Discard;
+  draft determine action Prepare;
+
+  determination GetData_Header on save { create; update; field Product; }
+  determination update_Head on modify { field Batch,Dateofanalyis, Truckno, Reference,Samplereceipt, Description; }
+  mapping for zpp_qm_coa_tb1 corresponding;
+}
+
+define behavior for ZPP_QM_COA01_IV alias _Item
+//persistent table zpp_qm_coa_tb2
+with unmanaged save
+draft table ZPP_QM_COA_DB2
+lock dependent by _Header
+authorization dependent by _Header
+//etag master <field_name>
+{
+  update ;
+  delete ( features : instance );
+  field ( readonly ) Uuid, Inspectionitem, Inspection;
+//  field ( readonly ) Mastericdes;
+  field ( mandatory) Masteric, Valueunit;
+  association _Header { with draft;}
+
+  determination GetData_Item on save { create; update; field masteric; }
+  determination update_Item on modify { field Method,Value,Valueunit; }
+  mapping for zpp_qm_coa_tb2 corresponding;
+
+
+}

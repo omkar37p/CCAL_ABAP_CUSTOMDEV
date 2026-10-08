@@ -1,0 +1,4 @@
+@EndUserText.label: 'Packing List - Delivery Creation'
+define service ZSD_APP03_UI {
+  expose ZSD_APP03_RPV as MAINPAGE;
+}

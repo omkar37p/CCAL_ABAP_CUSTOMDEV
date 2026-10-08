@@ -1,0 +1,5 @@
+@EndUserText.label: 'QM COA Form Application'
+define service ZQM_HEAD_UI {
+  expose ZQM_HEAD_PV     as Header;
+  expose ZQM_RESULT_VIEW as Item;
+}

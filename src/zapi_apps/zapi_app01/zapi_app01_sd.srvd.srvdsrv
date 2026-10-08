@@ -1,0 +1,4 @@
+@EndUserText.label: 'Invoice APIs Service Defination'
+define service ZAPI_APP01_SD {
+  expose ZAPI_APP01_PV as Mainpage;
+}

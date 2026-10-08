@@ -1,0 +1,39 @@
+@Metadata.layer: #CUSTOMER
+annotate entity ZSD_APP11_ITEM_PV
+    with 
+{
+  @UI.facet: [ { id:              'Item',
+                   purpose:         #STANDARD,
+                   type:            #IDENTIFICATION_REFERENCE,
+                   label:           'Item Details',
+                   position:        10 } ]
+  @UI: { lineItem: [{ position: 10, label: 'BillingDocument'}],
+  identification: [{ position: 10, label: 'BillingDocument' } ] }                   
+BillingDocument;
+  @UI: { lineItem: [{ position: 20, label: 'BillingDocumentItem'}],
+  identification: [{ position: 20, label: 'BillingDocumentItem' } ] }
+BillingDocumentItem;
+  @UI: { lineItem: [{ position: 30, label: 'Product'}],
+  identification: [{ position: 30, label: 'Product' } ] }
+Product;
+  @UI: { lineItem: [{ position: 40, label: 'ItemText'}],
+  identification: [{ position: 40, label: 'ItemText' } ] }
+BillingDocumentItemText;
+  @UI: { lineItem: [{ position: 50, label: 'Plant'}],
+  identification: [{ position: 50, label: 'Plant' } ] }
+Plant;
+@UI.hidden: true
+BaseUnit;
+  @UI: { lineItem: [{ position: 60, label: 'BillingQuantity'}],
+  identification: [{ position: 60, label: 'BillingQuantity' } ] }
+BillingQuantity;
+@UI.hidden: true
+TransactionCurrency;
+  @UI: { lineItem: [{ position: 70, label: 'NetAmount'}],
+  identification: [{ position: 70, label: 'NetAmount' } ] }
+NetAmount;
+@UI.hidden: true
+/* Associations */
+_Header;
+    
+}

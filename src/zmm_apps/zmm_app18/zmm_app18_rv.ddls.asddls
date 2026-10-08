@@ -1,0 +1,67 @@
+@AccessControl.authorizationCheck: #NOT_REQUIRED
+@EndUserText.label: 'Root View'
+@Metadata.ignorePropagatedAnnotations: true
+@ObjectModel.usageType:{
+    serviceQuality: #X,
+    sizeCategory: #S,
+    dataClass: #MIXED
+}
+define root view entity ZMM_APP18_RV
+  as select from ZMM_APP08_HEADER
+  composition [0..*] of ZMM_APP18_IV as _Item
+{
+  key PurchaseOrder,
+      PurchaseOrderItem,
+      PurgDocPriceDate,
+      PurchaseOrderType,
+      PurchaseOrderDate,
+      CreatedByUser,
+      CreationDate,
+      CompanyCode,
+      DocumentCurrency,
+      Customer,
+      ExchangeRate,
+      PersonFullName,
+      CusDeliveryDate,
+      POApprovedBy,
+      DestinationPlace,
+      StanDeliveryDate,
+      Vendorcode,
+      Plant,
+      FreightTerms,
+      PaymentTermsCode,
+      PaymentTermsDescription,
+      PriceBasic,
+      IncotermsClassification,
+      BPSupplierFullName,
+      StreetName,
+      StreetPrefixName1,
+      StreetPrefixName2,
+      PostalCode,
+      CityName,
+      GSTN,
+      Region,
+      VenCountryName,
+      BillcomName,
+      Billadd1,
+      Billstreet1,
+      Billstreet2,
+      Billcity,
+      Billpostal,
+      BillGSTN,
+      BillRegion,
+      ShipcomName,
+      Shipadd1,
+      Shipstreet1,
+      Shipstreet2,
+      Shipcity,
+      Shippostal,
+      ShipGSTN,
+      ShipRegion,
+      CCname,
+      PlantName,
+      PurchaseOrderCategory,
+      Purchasestatus,
+      Purchasekey,
+      _Item
+}

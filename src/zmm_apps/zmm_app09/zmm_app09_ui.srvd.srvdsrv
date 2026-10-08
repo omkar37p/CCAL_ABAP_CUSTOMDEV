@@ -1,0 +1,6 @@
+@EndUserText.label: 'Inventory Purchase - Budget Maintenance '
+define service ZMM_APP09_UI {
+  expose ZMM_APP09_RPV  as MAINPAGE;
+  expose ZMM_APP09_IPV1;
+  expose ZI_BDGTYP;
+}

@@ -1,0 +1,38 @@
+@Metadata.layer: #PARTNER
+annotate entity ZSD_APP06_PVC2
+    with 
+{
+     @UI.facet: [ { id:              'Item2',
+                 purpose:         #STANDARD,
+                 type:            #IDENTIFICATION_REFERENCE,
+                 label:           'Billing Details',
+                 position:        20 } ]
+                             
+     @UI: { lineItem: [{ position: 10, label: 'BillingDocument'}],
+    identification: [{ position: 10, label: 'BillingDocument' }  ]} 
+                 BillingDocument;     
+    @UI: { lineItem: [{ position: 20, label: 'Status'}],
+    identification: [{ position: 20, label: 'Status' }  ]} 
+    stastr;       
+@UI.hidden: true
+                 
+                 BillingDocumentItem;
+                             
+     @UI.hidden: true
+                 ReferenceSDDocument;
+                             
+     @UI.hidden: true
+                 ReferenceSDDocumentItem;
+                             
+     @UI.hidden: true 
+                 YY1_CHARWT_BDH;
+                             
+      @UI.hidden: true
+                 YY1_CHARWT_BDHU;
+                 /* Associations */
+                 @UI.hidden: true
+                 _BDH;
+                  @UI.hidden: true
+                 _header2;
+    
+}

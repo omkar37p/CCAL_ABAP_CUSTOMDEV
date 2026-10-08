@@ -1,0 +1,5 @@
+@EndUserText.label: 'Purchase Budget Maintenance Application'
+define service ZMM_APP06_UI {
+  expose ZMM_APP06_RPV as MAINPAGE;
+  expose ZI_BDGTYP;
+}

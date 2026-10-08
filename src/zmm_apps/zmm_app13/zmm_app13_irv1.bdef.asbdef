@@ -1,0 +1,27 @@
+managed implementation in class zbp_mm_app13_irv1 unique;
+strict ( 2 );
+
+define behavior for ZMM_APP13_IRV1 //alias <alias_name>
+persistent table zmm_app12_tb2
+lock master
+authorization master ( instance )
+//etag master <field_name>
+{
+  create;
+  update;
+  delete;
+  field ( readonly ) Uuid, Itemno;
+  association _ItemChild { create; }
+}
+
+define behavior for ZMM_APP13_IIRV1 //alias <alias_name>
+persistent table zmm_app13_tb1
+lock dependent by _item2
+authorization dependent by _item2
+//etag master <field_name>
+{
+  update;
+  delete;
+  field ( readonly ) Uuid, Itemno, Itemo;
+  association _item2;
+}

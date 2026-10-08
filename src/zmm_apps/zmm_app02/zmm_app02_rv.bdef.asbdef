@@ -1,0 +1,64 @@
+managed //with additional save
+implementation in class zbp_mm_app02_rv unique;
+strict ( 2 );
+with draft;
+
+define behavior for ZMM_APP02_RV //alias <alias_name>
+//persistent table zmm_app02_tb1
+with unmanaged save
+draft table zmm_app02_dt1
+lock master
+total etag LastChangedAt
+authorization master ( instance )
+etag master LocalLastChangedAt
+{
+  create;
+  update;
+  delete;
+
+  association _Item { create; with draft; }
+
+  draft action Resume;
+  draft action Edit;
+  draft action Activate optimized;
+  draft action Discard;
+  draft determine action Prepare;
+
+  field ( readonly, numbering : managed ) Uuid;
+  field ( readonly ) Purreqnum, Currency, Prtypdesc, Totnet, Totitms, Status, Purreqdesc;
+  //  field ( readonly : update ) Purreqtyp;
+  field ( mandatory ) Purreqtyp;
+
+  determination GetData1 on save { create; field Purreqtyp; }
+  action ( features : instance ) CrtPr result [1] $self;
+
+  mapping for zmm_app02_tb1 corresponding;
+}
+
+define behavior for ZMM_APP02_IV1 //alias <alias_name>
+//persistent table zmm_app02_tb2
+with unmanaged save
+draft table zmm_app02_dt2
+lock dependent by _Header
+authorization dependent by _Header
+etag master ItemLastChangedAt
+{
+  update;
+  delete;
+  field ( readonly ) Uuid, Plantdesc, Alltbdgamt, Avlbdgamt, Currency, Delvdate, Valprice, Uom,
+  Purorg, Purgrpdesc, Purgrp, Matgrp, Totvalue, Purreqitm;
+  field ( mandatory : create, readonly : update ) Plant, Material;
+  field ( mandatory ) Extmatgrp;
+  //  field ( mandatory ) Plant, Material, Reqqty;
+  association _Header { with draft; }
+
+  determination GetData2 on modify { field Material; create; update; }
+  validation Totval on save { field Reqqty; create; update; }
+  determination CalculateTotalPrice on modify { field Reqqty, Extmatgrp; create; update; delete; }
+  side effects
+  { field Reqqty affects field Totvalue;
+    field Extmatgrp affects field Avlbdgamt; }
+
+
+  mapping for zmm_app02_tb2 corresponding;
+}

@@ -1,0 +1,35 @@
+{
+  "formatVersion": "2",
+  "header": {
+    "description": "Sales Register Two",
+    "originalLanguage": "en",
+    "abapLanguageVersion": "cloudDevelopment"
+  },
+  "generalInformation": {
+    "appType": "ui5",
+    "catalogId": "SAP_TC_UI5_REPO_UIAD",
+    "targetMappingTitle": "Sales Register Two"
+  },
+  "ui5AppDetails": {
+    "appId": "salesregistertwo.zsdreport2"
+  },
+  "navigation": {
+    "targetMappingId": "UI5R_DDDE0B1A1048CD52B8C9E9908075D23BE03ED462_TM",
+    "semanticObject": "zsdreport_2",
+    "action": "display",
+    "desktop": true,
+    "tablet": true,
+    "phone": true
+  },
+  "tiles": [
+    {
+      "id": "UI5R_DDDE0B1A1048CD52B8C9E9908075D23BE03ED462_AL",
+      "tileType": "static",
+      "isDefault": true,
+      "standard": {
+        "title": "Sales Register Two",
+        "subtitle": "Sales Register Report Two"
+      }
+    }
+  ]
+}

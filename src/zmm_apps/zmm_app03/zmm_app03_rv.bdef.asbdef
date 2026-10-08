@@ -1,0 +1,60 @@
+managed implementation in class zbp_mm_app03_rv unique;
+strict ( 2 );
+with draft;
+
+define behavior for ZMM_APP03_RV //alias <alias_name>
+//persistent table zmm_app03_tb1
+with unmanaged save
+draft table zmm_app03_dt1
+lock master
+total etag LastChangedAt
+authorization master ( instance )
+etag master LastChangedAt
+{
+  create;
+  update;
+  delete;
+
+  field ( readonly, numbering : managed ) Uuid;
+  field ( readonly ) Ebeln, Bedat, Bukrs, Ekorg, Waers, Mark;
+  association _Item { create; with draft; }
+
+  draft action Resume;
+  draft action Edit;
+  draft action Activate optimized;
+  draft action Discard;
+  draft determine action Prepare;
+
+  determination GetData1 on save { create; field Bsart; }
+  action ( features : instance ) CrtPO result [1] $self;
+
+  mapping for zmm_app03_tb1 corresponding;
+
+
+}
+
+define behavior for ZMM_APP03_IV1 //alias <alias_name>
+//persistent table zmm_app03_tb2
+with unmanaged save
+draft table zmm_app03_dt2
+lock dependent by _Header
+authorization dependent by _Header
+etag master ItemLastChangedAt
+{
+  update;
+  delete;
+  field ( readonly ) Uuid, Ebeln, Ebelp, Banfn, Bnfpo, Bprme, Alltbdgamt, Avlbdgamt, Netvalue,
+  Meins, Matkl, Ktmng, Werks, Matnr;
+
+  association _Header { with draft; }
+
+  determination GetData2 on modify { field Matnr; create; update; }
+  validation Totval on save { field Netvalue; create; update; }
+  determination CalculateTotalPrice on modify { field Menge, Netprice, Extmatgrp; create; update; delete; }
+  side effects
+  { field Menge affects field Netvalue;
+    field Netprice affects field Netvalue;
+    field Extmatgrp affects field Avlbdgamt; }
+
+  mapping for zmm_app03_tb2 corresponding;
+}
